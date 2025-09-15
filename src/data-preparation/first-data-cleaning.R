@@ -4,23 +4,12 @@ library(readr)
 library(dplyr)
 library(tidyverse)
 library(stringr)
-library(googledrive)
-
-############################
-#PIPELINE STEP: LOADING DATA
-############################
-
-#Import the IMDb 'basics' file
-file_id <- "1jDPyh6ikp85OIUf6LwSVB693aqK1TTU_"
-drive_download(as_id(file_id), path = "raw_basics.csv", overwrite = TRUE)
-raw_basics <- read.csv("raw_basics.csv")
-
-#Import the IMDb 'ratings' file
-raw_ratings <- read.csv("https://drive.google.com/uc?export=download&id=1tvvAQKNL6OTTiHc9xwzxkydWupzKMXJs")
 
 ###################################################
 #PIPELINE STEP: FROM RAW TO DEFINITIVE DATASET DATA
 ###################################################
+
+#Import script is in a different file!
 
 #Combine the two datasets into one
 raw_combined <- merge(raw_basics, raw_ratings, by = "tconst", all.x = TRUE)
