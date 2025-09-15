@@ -1,5 +1,4 @@
-# Impact of Computer-Generated Animation on IMDb Ratings Over Time
-*Describe the purpose of this project* 
+# About time: Predicting Movie Ratings using Release Year and the effect of Animation* 
 
 ## Research Question
 
