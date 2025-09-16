@@ -34,7 +34,7 @@ max(raw_combined$startYear, na.rm = TRUE)
 #whereby 2024 is set as the other end for the filter
 
 #Applying the eligibility conditions in a filter to the raw dataset
-eligible_data <- filter(raw_combined, startYear >= 1995, startYear < 2025)
+eligible_data <- filter(raw_combined, startYear >= 1995, startYear < 2026)
 
 #Selecting the variables relevant to analysis to keep an overview
 #Note: Variables removed are; "titleType", "originalTitle", "isAdult", "endYear"
