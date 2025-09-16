@@ -31,10 +31,10 @@ max(raw_combined$startYear, na.rm = TRUE)
 #The study is interested from the period since the first computer animation 
 #released. Therefore, 1995 is taken as the starting point given the release of
 #Toy Story. Movies should have been released to ensure consistency across data,
-#whereby 2024 is set as the other end for the filter
+#whereby 2025 is set as the other end for the filter
 
 #Applying the eligibility conditions in a filter to the raw dataset
-eligible_data <- filter(raw_combined, startYear >= 1995, startYear < 2026)
+eligible_data <- filter(raw_combined, startYear >= 1995, startYear <= 2025)
 
 #Selecting the variables relevant to analysis to keep an overview
 #Note: Variables removed are; "titleType", "originalTitle", "isAdult", "endYear"
@@ -87,6 +87,7 @@ movies <- filter(eligible_data,
 #Feature engineering
 #Lastly, create dummy for animation since that is the focus of the research
 movies$animation_dummy <- ifelse(grepl("Animation", movies$genres), 1, 0)
+movies$animation_dummy <- factor(movies$animation_dummy, levels = c(0, 1),)
 table(movies$animation_dummy)
 
 #Save the definitive dataset as a file????????
