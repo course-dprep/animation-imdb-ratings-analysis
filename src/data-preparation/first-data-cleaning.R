@@ -1,30 +1,29 @@
 
+#Import script is in a different file!
+
+###################################################
+#PIPELINE STEP: FROM RAW TO DEFINITIVE DATASET DATA
+###################################################
+
 #Load the packages
 library(readr) 
 library(dplyr)
 library(tidyverse)
 library(stringr)
 
-###################################################
-#PIPELINE STEP: FROM RAW TO DEFINITIVE DATASET DATA
-###################################################
-
-#Import script is in a different file!
-
 #Combine the two datasets into one
 raw_combined <- merge(raw_basics, raw_ratings, by = "tconst", all.x = TRUE)
+
+#Save the raw_combined file
+#write.csv(raw_combined, file = "raw_combined.csv", row.names = FALSE)
 
 #Set variables right; convert character variable to numeric
 raw_combined$startYear <- as.numeric(raw_combined$startYear)
 raw_combined$runtimeMinutes <- as.numeric(raw_combined$runtimeMinutes)
 
-#Save the raw_combined file
-write.csv(raw_combined, file = "raw_combined.csv", row.names = FALSE)
-
 #Checking the different types of content
 sort(table(raw_combined$titleType), decreasing = TRUE)
-#The study is interested in movies released in cinema, so filter titleType to 
-#"movie". Note: "tvMovie" is thus NOT included
+#Only movies are in the dataset, which aligns with the focus of the study
 
 #Checking the years there is data of
 min(raw_combined$startYear, na.rm = TRUE)
@@ -35,13 +34,11 @@ max(raw_combined$startYear, na.rm = TRUE)
 #whereby 2024 is set as the other end for the filter
 
 #Applying the eligibility conditions in a filter to the raw dataset
-eligible_data <- filter(raw_combined, 
-                        titleType == "movie",
-                        startYear >= 1995, startYear < 2025)
+eligible_data <- filter(raw_combined, startYear >= 1995, startYear < 2026)
 
 #Selecting the variables relevant to analysis to keep an overview
-#Note: Variables removed are; "tconst", "originalTitle", "isAdult", "endYear"
-eligible_data <- eligible_data %>% select(titleType, 
+#Note: Variables removed are; "titleType", "originalTitle", "isAdult", "endYear"
+eligible_data <- eligible_data %>% select(tconst,
                                           primaryTitle,
                                           startYear, 
                                           runtimeMinutes, 
@@ -52,19 +49,27 @@ eligible_data <- eligible_data %>% select(titleType,
 #Check whether there are missing values in the dataset
 colSums(is.na(eligible_data))
 
-#There are, so remove movies that have missing values in (one of the) variables
+#There are with a few variables. Since this dataset does not contain information
+#over time, replacing na's through carrying forward or linear interpolation is
+#risky and introduces bias. Therefore, removing the movies with missing values
+#is the most suitable option
 eligible_data <- eligible_data %>%
   filter(!is.na(averageRating),
          !is.na(numVotes),
          !is.na(runtimeMinutes))
 
+colSums(is.na(eligible_data))
 #Now the eligible dataset is with complete values, inspection can take place
 
 #Check the variable runtimeMinutes
 summary(eligible_data$runtimeMinutes)
+
 #Oscars define a feature film has a length that exceeds 40. Additionally, 
 #there are some extremely long 'movies' in the dataset that are presumably not
-#movies but series compilation. This has to be filtered.
+#movies but series compilation. This has to be filtered. IMDb communicated the
+#longest movie has a duration of 280 minutes, which is the cutoff point.
+
+max(eligible_data$runtimeMinutes)
 
 eligible_data <- filter(eligible_data,
                  runtimeMinutes >= 40, runtimeMinutes <= 280)
@@ -78,8 +83,11 @@ summary(eligible_data$numVotes)
 movies <- filter(eligible_data,
                  numVotes >= 1000)
 
+
+#Feature engineering
 #Lastly, create dummy for animation since that is the focus of the research
 movies$animation_dummy <- ifelse(grepl("Animation", movies$genres), 1, 0)
+table(movies$animation_dummy)
 
-#Save the definitive dataset as a file
-write.csv(movies, file = "movies.csv", row.names = FALSE)
+#Save the definitive dataset as a file????????
+#write.csv(movies, file = "movies.csv", row.names = FALSE)
