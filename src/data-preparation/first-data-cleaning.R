@@ -66,7 +66,7 @@ summary(eligible_data$runtimeMinutes)
 
 #Oscars define a feature film has a length that exceeds 40. Additionally, 
 #there are some extremely long 'movies' in the dataset that are presumably not
-#movies but series compilation. This has to be filtered.IMDb communicated the
+#movies but series compilation. This has to be filtered. IMDb communicated the
 #longest movie has a duration of 280 minutes, which is the cutoff point.
 
 max(eligible_data$runtimeMinutes)
@@ -82,7 +82,6 @@ summary(eligible_data$numVotes)
 #Creating the FINAL dataset named "movies" for further analysis
 movies <- filter(eligible_data,
                  numVotes >= 1000)
-
 
 
 #Feature engineering
