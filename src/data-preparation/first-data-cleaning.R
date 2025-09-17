@@ -88,15 +88,16 @@ movies <- filter(eligible_data,
                  numVotes >= 1000)
 
 #Feature engineering
-#Lastly, create dummy for animation since that is the focus of the research
+#Dummy for release year 2010 since that is part of the focus of the research
+movies$before_2010_dummy <- ifelse(movies$startYear <= 2010, 1, 0)
+movies$before_2010_dummy <- factor(movies$before_2010_dummy, levels = c(0, 1),)
+table(movies$before_2010_dummy)
+
+#Dummy for animation since that is part of the focus of the research
 movies$animation_dummy <- ifelse(grepl("Animation", movies$genres), 1, 0)
 movies$animation_dummy <- factor(movies$animation_dummy, levels = c(0, 1),)
 table(movies$animation_dummy)
 
-movies$before_2010_dummy <- ifelse(movies$startYear <= 2010, 1, 0)
-movies$before_2010_dummy <- factor(movies$before_2010_dummy, levels = c(0, 1),)
-table(movies$before_2010_dummy)
-  
 #Save the definitive dataset as a file
 write.csv(
   raw_combined,
