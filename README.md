@@ -1,11 +1,14 @@
-# About time: Predicting Movie Ratings using Release Year and the effect of Animation
+# About Time: Predicting IMDb Movie Ratings using Release Year and the effect of Animation
+
+## Introduction
+
+
 
 ## Research Question
 
--   To what extent does a movie’s release year influence the average
-    user rating?
--   Does this relationship differ between animated and non-animated
-    films?
+To what extent does the release year of a movie influence its average IMDb rating,
+and does this relationship differ between animated and non-animated films?
+
 
 ## Hypothesis
 
@@ -43,7 +46,7 @@ films compared to non-animated films.
 
 Since 2010, the film industry has been shaken on its foundations due to
 the increasing popularity of streaming platforms (Hennig-Thurau et al.,
-2021). This year, Netflix expanded their streaming service
+2021). That year, Netflix expanded their streaming service
 internationally, marking a key point in the growth of on-demand content
 (Oberoi, 2024). Distribution patterns changed, and consumer perceptions
 of movies have shifted (Kumar, 2023). Most notably, the saturation and
@@ -137,34 +140,28 @@ install.packages("utils")
 
 This project is set up as part of the Master's course [Data Preparation
 & Workflow Management](https://dprep.hannesdatta.com/) at the
-[Department of
-Marketing](https://www.tilburguniversity.edu/about/schools/economics-and-management/organization/departments/marketing),
+[Department of Marketing](https://www.tilburguniversity.edu/about/schools/economics-and-management/organization/departments/marketing),
 [Tilburg University](https://www.tilburguniversity.edu/), the
-Netherlands. For the team project, we will apply what we have learned in
-this course, for example: - Set up a reproducible workflow - Apply the
-complete Git workflow - Build and automate a full data preparation and
-analysis pipeline from scratch For the assignment, we can choose one of
-two datasets as the foundation of our work.
-
-The project is implemented by team 2: - Britt van Haaster - Isah
-Huijbregts - Lars van der Kroft - Amanda van Lankveld - Amy Quist -
-Stefan Valentijn
+Netherlands. The project is implemented by team 2: 
+- Britt van Haaster 
+- Isah Huijbregts 
+- Lars van der Kroft 
+- Amanda van Lankveld 
+- Amy Quist
+- Stefan Valentijn
 
 ## Sources
 
 Billy Thompson. (2024, May 25). The Rise and Fall of Streaming TV? –
-Michigan Journal of Economics. Michigan Journal of Economics.
-<https://sites.lsa.umich.edu/mje/2024/05/25/the-rise-and-fall-of-streaming-tv/>
+Michigan Journal of Economics. Michigan Journal of Economics. <https://sites.lsa.umich.edu/mje/2024/05/25/the-rise-and-fall-of-streaming-tv/>
 
 Bollen, D., Graus, M. P., & Willemsen, M. C. (2012). Remembering the
 stars?: effect of time on preference retrieval from memory. Proceedings
-of the sixth ACM conference on Recommender systems.
-<https://doi.org/10.1145/2365952.2365998>
+of the sixth ACM conference on Recommender systems.<https://doi.org/10.1145/2365952.2365998>
 
 Hadida, A. L., Lampel, J., Walls, W. D., & Joshi, A. (2020). Hollywood
 Studio Filmmaking in the Age of Netflix: a Tale of Two Institutional
-Logics. Journal of Cultural Economics, 45(2), 213–238.
-<https://doi.org/10.1007/s10824-020-09379-z>
+Logics. Journal of Cultural Economics, 45(2), 213–238. <https://doi.org/10.1007/s10824-020-09379-z>
 
 Hennig-Thurau, T., Ravid, S. A., & Sorenson, O. (2021). The Economics of
 Filmed Entertainment in the Digital Era. Journal of Cultural Economics,
@@ -172,16 +169,14 @@ Filmed Entertainment in the Digital Era. Journal of Cultural Economics,
 
 Kumar, L. (2023, April). A Study On The Impact Of The OTT Platform On
 The Cinema With The Special Reference On The Cinema Audience.
-ResearchGate; unknown.
-<https://www.researchgate.net/publication/376650380_A_Study_On_The_Impact_Of_The_OTT_Platform_On_The_Cinema_With_The_Special_Reference_On_The_Cinema_Audience>
+ResearchGate; unknown. <https://www.researchgate.net/publication/376650380_A_Study_On_The_Impact_Of_The_OTT_Platform_On_The_Cinema_With_The_Special_Reference_On_The_Cinema_Audience>
 
 Moon, S., Bergey, P. K., & Iacobucci, D. (2009). Dynamic Effects among
 Movie Ratings, Movie Revenues, and Viewer Satisfaction. Journal Of
 Marketing, 74(1), 108–121. <https://doi.org/10.1509/jmkg.74.1.108>
 
 Oberoi, S. (2024, December 3). The Evolution of Netflix: from DVD
-Rentals to Global Streaming Leader. Seat11a.com.
-<https://seat11a.com/blog-the-evolution-of-netflix-from-dvd-rentals-to-global-streaming-leader/>
+Rentals to Global Streaming Leader. Seat11a.com. <https://seat11a.com/blog-the-evolution-of-netflix-from-dvd-rentals-to-global-streaming-leader/>
 
 Sun, Z. (2023). What does cgi digital technology bring to the
 sustainable development of animated films?. Sustainability, 15(14),
