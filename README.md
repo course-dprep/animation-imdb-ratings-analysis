@@ -107,7 +107,7 @@ project-naam/
 ├─ makefile
 └─ team-project-team2.Rproj
 
-
+```
 ## Dependencies 
 
 ratings tconst (string): alphanumeric unique identifier of the title
