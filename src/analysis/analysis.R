@@ -2,7 +2,8 @@
 #PIPELINE STEP: DATA EXPLORATION
 ################################
 
-#Note, loading the datasets should be put here, how?
+#Read in the definitive dataset
+movies <- read_csv("data/movies.csv")
 
 #Overview of definitive dataset
 summary(movies)

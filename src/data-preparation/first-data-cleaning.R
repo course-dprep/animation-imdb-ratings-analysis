@@ -100,7 +100,7 @@ table(movies$animation_dummy)
 
 #Save the definitive dataset as a file
 write.csv(
-  raw_combined,
+  movies,
   file = "data/movies.csv",   #relative path into the data folder
   row.names = FALSE
 )
