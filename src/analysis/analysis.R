@@ -13,35 +13,40 @@ ggplot(movies, aes(x=averageRating)) + geom_histogram()
 
 #Frequencies: histogram of number of movies per year
 ggplot(movies, aes(x=startYear)) + geom_histogram()
+#COMMENT; WHY IS THERE SUCH A DROP AFTER THE FIRST YEAR?
 
 #Frequencies: histogram of animation vs non-animation
 ggplot(movies, aes(x=animation_dummy)) + geom_bar()
+#COMMENT; IS THIS GRAPH REALLY TELLING SOMETHING VALUABLE? 
+#WHAT ABOUT A RATIO INSTEAD?
+movies %>% 
+  summarise(
+    ratio = sum(animation_dummy == "Non-Animation") / sum(animation_dummy == "Animation")
+  )
 
 #Frequencies: average rating per year
-graph <- movies %>% 
+graph_allmovies <- movies %>% 
   group_by(startYear) %>% 
-  summarize(meanRating = mean(averageRating, na.rm = TRUE))
-ggplot(graph, aes(x=startYear, y=meanRating)) + geom_line()
+  summarise(meanRating = mean(averageRating, na.rm = TRUE))
+
+ggplot(graph_allmovies, aes(x=startYear, y=meanRating)) + geom_line()
+
+#Frequencies: average rating per year per type of movie (animation or not)
+graph_splitmovies <- movies %>% 
+  group_by(startYear, animation_dummy) %>% 
+  summarise(meanRating = mean(averageRating, na.rm = TRUE), .groups = "drop")
+
+ggplot(graph_splitmovies, aes(x=startYear, y=meanRating, 
+                              color = animation_dummy)) + 
+                              geom_line() + 
+                              labs(x = "Release Year", y = "Average IMDb Rating", colour = "Type of Movie") + 
+                              theme_minimal()
 
 #Frequencies: boxplot of runtime in minutes
 ggplot(movies, aes(y = runtimeMinutes)) + geom_boxplot()
 
 
-graph <- movies %>% 
-  group_by(startYear, animation_dummy) %>% 
-  summarize(meanRating = mean(averageRating, na.rm = TRUE), .groups = 'drop')
 
-ggplot(graph, aes(x = startYear, y = meanRating, color = as.factor(animation_dummy))) +
-  geom_line() +
-  labs(
-    title = "Average Rating by Year: Animation vs. Non-Animation",
-    x = "Release Year",
-    y = "Average Rating",
-    color = "Is Animation"
-  ) +
-  scale_color_manual(values = c("0" = "blue", "1" = "orange"),
-                     labels = c("0" = "Non-Animation", "1" = "Animation")) +
-  theme_minimal()
 
 
 #A PRELIMINARY and NON-DEFINITIVE but EXPLORATORY analysis
@@ -49,6 +54,8 @@ ggplot(graph, aes(x = startYear, y = meanRating, color = as.factor(animation_dum
 
 #T-test
 t.test(averageRating ~ animation_dummy, data = movies)
+#There is a significant different, which aligns with the higher rating found
+#in the previous graph
 
 #General regression 
 Regression <- lm(averageRating ~ startYear*animation_dummy, data = movies)
