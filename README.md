@@ -143,6 +143,7 @@ install.packages("utils")
 
 Load IMDb files with read_tsv()
 
+
 library(readr) library(dplyr)
 
 setwd('/Users/brittvanhaaster/Documents/R studio/project_week2') \#
@@ -162,6 +163,8 @@ combined_data$startYear <- as.numeric(combined_data$startYear)
 
 movies_since2010 \<- filter( combined_data, startYear \>= 2010,
 titleType == "movie", !is.na(averageRating), numVotes \>= 1000 ) \`\`\`
+
+
 
 ## About
 
