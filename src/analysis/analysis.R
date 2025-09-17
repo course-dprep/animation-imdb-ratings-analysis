@@ -10,8 +10,11 @@ summary(movies)
 #Frequencies: histogram of ratings
 ggplot(movies, aes(x=averageRating)) + geom_histogram()
 
+#Frequencies: histogram of number of movies per year
+ggplot(movies, aes(x=startYear)) + geom_histogram()
 
-
+#Frequencies: histogram of animation vs non-animation
+ggplot(movies, aes(x=animation_dummy)) + geom_bar()
 
 #Frequencies: average rating per year
 graph <- movies %>% 
@@ -46,9 +49,13 @@ ggplot(graph, aes(x = startYear, y = meanRating, color = as.factor(animation_dum
 #T-test
 t.test(averageRating ~ animation_dummy, data = movies)
 
-#Regression
-regression <- lm(averageRating ~ startYear*animation_dummy + runtimeMinutes + numVotes, data = movies)
-summary(regression)
+#General regression 
+Regression <- lm(averageRating ~ startYear*animation_dummy, data = movies)
+summary(Regression)
+
+#Regression including control variables
+CV_regression <- lm(averageRating ~ startYear*animation_dummy + runtimeMinutes + numVotes, data = movies)
+summary(CV_regression)
 
 #Next sections to be worked out are related to the ASSUMPTIONS
 #That is for later

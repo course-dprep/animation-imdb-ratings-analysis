@@ -6,7 +6,6 @@
     user rating? 
 -   Does this relationship differ between animated and non-animated films?
 
-This is a test
 
 ## Hypothesis
 
@@ -85,10 +84,30 @@ the present (2025), as selected from the following datasets.
 - How are the findings/end product of the project deployed?
 - Explain the relevance of these findings/product. 
 
-## Repository Overview 
+## Repository Overview
 
-**Include a tree diagram that illustrates the repository structure*
+The structure of our repository is as follows:
 
+```text
+project-naam/
+├─ data/
+│  └─ download-data.R
+├─ reporting/
+│  ├─ report.Rmd
+│  └─ start_app.R
+├─ src/
+│  ├─ analysis/
+│  │  └─ analysis.R
+│  └─ data-preparation/
+│     ├─ 1. Importing Data.R
+│     ├─ DataPreperation.Rmd
+│     └─ first-data-cleaning.R
+├─ .gitignore
+├─ README.md
+├─ makefile
+└─ team-project-team2.Rproj
+
+```
 ## Dependencies 
 
 ratings tconst (string): alphanumeric unique identifier of the title
@@ -99,33 +118,6 @@ basics tconst (string): alphanumeric unique identifier of the title
 (both datasets) startYear (YYYY) – represents the release year of a
 title genres - includes the genre of the movie and if it is animated or 
 not
-
-
-## Running Instructions 
-
-    # Load IMDb files with read_tsv()
-    library(readr)
-    library(dplyr)
-
-    setwd('/Users/brittvanhaaster/Documents/R studio/project_week2')
-    # Basics and rating files
-    raw_basics <- read_tsv("title.basics.tsv")
-    raw_ratings <- read_tsv("title.ratings.tsv")
-
-    # Combine the two datasets into one
-    combined_data <- merge(raw_basics, raw_ratings, by = "tconst", all.x = TRUE)
-
-    # Convert character variable to numeric
-    combined_data$startYear <- as.numeric(combined_data$startYear)
-
-    # Apply filters to get a more robust and reliable analysis result
-    movies_since2010 <- filter(
-      combined_data,
-      startYear >= 2010,
-      titleType == "movie",
-      !is.na(averageRating),
-      numVotes >= 1000
-    )
 
 ## About 
 
