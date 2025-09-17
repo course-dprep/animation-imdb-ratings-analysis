@@ -32,36 +32,28 @@ and does this relationship differ between animated and non-animated films?*
 
 ## Hypotheses
 
-Since 2010, the film industry has been shaken on its foundations due to
-the increasing popularity of streaming platforms (Hennig-Thurau et al.,
-2021). At that time, Netflix expanded their streaming service
-internationally, marking a key point in the growth of on-demand content
-(Oberoi, 2024). Distribution patterns changed, and consumer perceptions
-of movies have shifted (Kumar, 2023). Most notably, the saturation and
-availability of the entertainment market have resulted in more critical
-consumers (Hadida et al., 2020). Additionally, there has been an increasingly 
-more vocal group that criticises the franchise and sequel-based strategy that 
-movie corporations have integrated. As more streaming services entered the market, 
-the competitiveness in this market rose, which led to a bigger variety in TV 
-shows and movies offered (Thompson, 2024). This is also shown in the rising number of
-movies, series and other content per year in the IMDb dataset. The more
-experienced a viewer is in watching movies, the more critical they
-become (Moon et al., 2009). Furthermore, it could be reasoned that movie
-consumers grew up with evoke a sense of nostalgia, leading to higher
-ratings of older films. Authors such as Bollen et al. (2012) refer to
-this as a form of “positivity effect”. Additionally, with the rise of
-digital platforms and social media, review-bombing has been an
-omnipresent effect with the release of new movies. All in all, these
-findings suggest that newer films are rated worse than older films,
-which the present study tests with the hypothesis:
+Ever since the introduction of Netflix, more streaming serves have entered the 
+market with players such as Disney+, Amazon Prime Video and HBO Max. Competitiveness 
+rose, resulting to a greater variety of TV shows and movies offered (Thompson, 2024). 
+Simultanously, the more experienced a viewer is in watching movies, the more critical
+hey tend to become (Moon et al., 2009). As such, it could be expected that newer 
+movies are rated worse than older movies because the frame of reference has increased. 
+Additionally, with the rise of digital platforms and social media, review-bombing
+as become an omnipresent phenomenon upon the release of new films. Moreover, there 
+has been an increasingly vocal group that criticizes the franchise- and sequel-based 
+strategies that movie corporations have adopted. Furthermore, it could be argued that 
+movie consumers often experience nostalgia for films watched in their childhood, 
+resulting in higher ratings for older movies. Authors such as Bollen et al. (2012) 
+refer to this as a form of “positivity effect.” Overall, these findings underscore 
+the expectation that newer films tend to be rated lower than older films, which 
+will be tested with:
 
-H1: There is a negative relationship between release year and rating.
+***H1:*** _There is a negative relationship between release year and rating._
 
+The previously mentioned nostalgia factor is especially applicable for animated films, since 
+TO BE WORKED OUT
 
-Therefore, this allows to expect:
-
-H2: The negative effect of release year on rating is weaker for animated
-films compared to non-animated films.
+***H2:*** _The negative effect of release year on rating is weaker for animated films compared to non-animated films._
 
 ## Data
 
