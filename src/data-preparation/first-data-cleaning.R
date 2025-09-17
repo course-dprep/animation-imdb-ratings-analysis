@@ -49,10 +49,13 @@ eligible_data <- eligible_data %>% select(tconst,
 #Check whether there are missing values in the dataset
 colSums(is.na(eligible_data))
 
-#There are with a few variables. Since this dataset does not contain information
-#over time, replacing na's through carrying forward or linear interpolation is
-#risky and introduces bias. Therefore, removing the movies with missing values
-#is the most suitable option
+#There are, so remove movies that have missing values in (one of the) variables
+#The observations with missing values in averageRating, numVotes, and runtimeMinutes 
+were removed rather than imputed. Imputing these variables would introduce artificial 
+and potentially misleading values, as they represent crucial outcomes and key variables: 
+ratings, votes, runtime. Given the large size of the IMDb dataset, excluding these 
+incomplete films does not pose a problem and still leaves a sufficiently representative sample.
+
 eligible_data <- eligible_data %>%
   filter(!is.na(averageRating),
          !is.na(numVotes),
