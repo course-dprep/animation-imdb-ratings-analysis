@@ -64,6 +64,7 @@ eligible_data <- eligible_data %>% select(titleType,
 colSums(is.na(eligible_data))
 
 #There are, so remove movies that have missing values in (one of the) variables
+#The observations with missing values in averageRating, numVotes, and runtimeMinutes were removed rather than imputed. Imputing these variables would introduce artificial and potentially misleading values, as they represent crucial outcomes and key variables: ratings, votes, runtime. Given the large size of the IMDb dataset, excluding these incomplete films does not pose a problem and still leaves a sufficiently representative sample.
 eligible_data <- eligible_data %>%
   filter(!is.na(averageRating),
          !is.na(numVotes),
