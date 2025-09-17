@@ -181,6 +181,10 @@ Kumar, L. (2023, April). A Study On The Impact Of The OTT Platform On
 The Cinema With The Special Reference On The Cinema Audience.
 ResearchGate; unknown. <https://www.researchgate.net/publication/376650380_A_Study_On_The_Impact_Of_The_OTT_Platform_On_The_Cinema_With_The_Special_Reference_On_The_Cinema_Audience>
 
+Larson, V. J. (2025). Philosophy in filmmaking: Animation vs. live action (Honors Program Theses No. 976) [Undergraduate thesis, University of Northern Iowa]. University of Northern Iowa Repository. https://scholarworks.uni.edu/cgi/viewcontent.cgi?article=2004&context=hpt>
+
+Lizardi, R. (2020). The future of nostalgia is inevitable: Reflections on mediated nostalgia. In M. H. Jacobsen (Ed.), Nostalgia Now: Cross-disciplinary perspectives on the past in the present (1st ed., pp. 147-161). Routledge. https://doi.org/10.4324/9780429287602-8>
+
 Moon, S., Bergey, P. K., & Iacobucci, D. (2009). Dynamic Effects among
 Movie Ratings, Movie Revenues, and Viewer Satisfaction. Journal Of
 Marketing, 74(1), 108–121. <https://doi.org/10.1509/jmkg.74.1.108>
@@ -188,19 +192,11 @@ Marketing, 74(1), 108–121. <https://doi.org/10.1509/jmkg.74.1.108>
 Oberoi, S. (2024, December 3). The Evolution of Netflix: from DVD
 Rentals to Global Streaming Leader. Seat11a.com. <https://seat11a.com/blog-the-evolution-of-netflix-from-dvd-rentals-to-global-streaming-leader/>
 
+Ramos, M., Calvão, A. M., & Anteneodo, C. (2015). Statistical patterns in movie rating behavior. PLOS ONE, 10(8), e0136083. https://doi.org/10.1371/journal.pone.0136083>
+
 Sun, Z. (2023). What does cgi digital technology bring to the
 sustainable development of animated films?. Sustainability, 15(14),
 10895.<https://doi.org/10.3390/su151410895>
-
-
-Convert to apa;
-https://scholarworks.uni.edu/cgi/viewcontent.cgi?article=2004&context=hpt
-
-https://journals.sagepub.com/doi/full/10.1509/jmkg.74.1.108?casa_token=NFjGx4PWpvQAAAAA%3AHL83UE3eMfc63jJxCrv84r-SHNm9OFH2Y2phVTouapNapOdM5gK0T0y2t61X1QRcV0hLAiD_o9JE
-
-https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0136083
-
-https://www.taylorfrancis.com/chapters/edit/10.4324/9780429287602-8/future-nostalgia-inevitable-ryan-lizardi
 
 
 
