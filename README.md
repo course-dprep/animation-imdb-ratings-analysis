@@ -1,4 +1,4 @@
-# About time: Predicting Movie Ratings using Release Year and the effect of Animation* 
+# About time: Predicting Movie Ratings using Release Year and the effect of Animation 
 
 ## Research Question
 
