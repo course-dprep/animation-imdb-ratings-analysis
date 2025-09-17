@@ -84,9 +84,29 @@ the present (2025), as selected from the following datasets.
 - How are the findings/end product of the project deployed?
 - Explain the relevance of these findings/product. 
 
-## Repository Overview 
+## Repository Overview
 
-**Include a tree diagram that illustrates the repository structure*
+The structure of our repository is as follows:
+
+```text
+project-naam/
+├─ data/
+│  └─ download-data.R
+├─ reporting/
+│  ├─ report.Rmd
+│  └─ start_app.R
+├─ src/
+│  ├─ analysis/
+│  │  └─ analysis.R
+│  └─ data-preparation/
+│     ├─ 1. Importing Data.R
+│     ├─ DataPreperation.Rmd
+│     └─ first-data-cleaning.R
+├─ .gitignore
+├─ README.md
+├─ makefile
+└─ team-project-team2.Rproj
+
 
 ## Dependencies 
 
