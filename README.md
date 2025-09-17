@@ -30,12 +30,12 @@ research can be encapsulated with the following research question:
 *To what extent does the release year of a movie influence its average IMDb rating,
 and does this relationship differ between animated and non-animated films?*
 
-## Hypotheses
+### Hypotheses
 
 Ever since the introduction of Netflix, more streaming serves have entered the 
 market with players such as Disney+, Amazon Prime Video and HBO Max. Competitiveness 
 rose, resulting to a greater variety of TV shows and movies offered (Thompson, 2024). 
-Simultanously, the more experienced a viewer is in watching movies, the more critical
+Simultaneously, the more experienced a viewer is in watching movies, the more critical
 hey tend to become (Moon et al., 2009). As such, it could be expected that newer 
 movies are rated worse than older movies because the frame of reference has increased. 
 Additionally, with the rise of digital platforms and social media, review-bombing
@@ -50,14 +50,22 @@ will be tested with:
 
 ***H1:*** _There is a negative relationship between release year and rating._
 
-The previously mentioned nostalgia factor is especially applicable for animated films, since 
-TO BE WORKED OUT
+Animated films are more easily regarded as timeless, whereby the effect of H1 
+might differ between the two categories. As such, animation remain memorable 
+due to the distinct visual identity that is rooted in a fantasised setting. 
+In addition, live-action characters visible age or become outdated due to changes 
+in fashion, technology or cultural norms, while animated characters remain fairly 
+consistent over time (Larson, 2025). For example, Woody from Toy Story still looks the same in 
+sequels decades after his debut in 1995. On another note, animated films are often
+targeted at children and families, which strengthens the sense of nostalgia through 
+intergenerational re-watches (Lizardi, 2020). The present study will test this with:
 
 ***H2:*** _The negative effect of release year on rating is weaker for animated films compared to non-animated films._
 
 ## Data
 
-Secondary data is consulted from [IMDb.com](https://developer.imdb.com/non-commercial-datasets/).
+In order to test H1 and H2 and therefore answer the main research question,
+secondary data is consulted from [IMDb.com](https://developer.imdb.com/non-commercial-datasets/).
 The database holds several datasets, of which two provide relevance in the context
 of the present study:
 
@@ -71,18 +79,19 @@ IMDb users and can comprise or movie consumers or professionals.
 
 ## Method
 
-To test the hypothesis, a linear regression was conducted. Release year
+To test the hypothesis, a linear regression was conducted in R Studio. Release year
 was treated as the independent variable, and average IMDb user rating as the
 dependent variable. 
 
 Whether a movie was an animation was dummy coded (0 = non-animated, 1 = animated) 
 and included as a moderator to test whether it has a significant effect on the 
-relationship from release year to the average rating.
+relationship from release year to the average rating. 
 
 Other potential factors that were not specifically hypothesised but could 
-influence ratings were included as control variables. This concerned runtime,
-and number of votes. 
-
+influence ratings were added as control variables in the regression. This included runtime,
+and number of votes. Furthermore, a dummy was created for whether a movie was 
+released before 2010 or after, in order to test the effect of the rise in streaming
+services since the international introduction of Netflix.
 
 ## Preview of Findings
 
@@ -182,3 +191,15 @@ Rentals to Global Streaming Leader. Seat11a.com. <https://seat11a.com/blog-the-e
 Sun, Z. (2023). What does cgi digital technology bring to the
 sustainable development of animated films?. Sustainability, 15(14),
 10895.<https://doi.org/10.3390/su151410895>
+
+
+Convert to apa;
+https://scholarworks.uni.edu/cgi/viewcontent.cgi?article=2004&context=hpt
+
+https://journals.sagepub.com/doi/full/10.1509/jmkg.74.1.108?casa_token=NFjGx4PWpvQAAAAA%3AHL83UE3eMfc63jJxCrv84r-SHNm9OFH2Y2phVTouapNapOdM5gK0T0y2t61X1QRcV0hLAiD_o9JE
+
+https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0136083
+
+https://www.taylorfrancis.com/chapters/edit/10.4324/9780429287602-8/future-nostalgia-inevitable-ryan-lizardi
+
+
