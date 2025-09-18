@@ -77,6 +77,19 @@ pictures.
 provides data on ratings from all titles. These IMDb ratings are derived from 
 IMDb users and can comprise or movie consumers or professionals.
 
+The dataset merged from the secondary data contains the following variables:
+
+| Variable       | Type      | Definition                                                             |
+|----------------|-----------|-------------------------------------------------------------------------|
+| tconst         | character | Unique IMDb identifier for each title                                   |
+| primaryTitle   | character | The title most commonly used by the general public                      |
+| startYear      | integer   | Year the title was released                                             |
+| runtimeMinutes | integer   | Runtime expressed in minutes                                            |
+| genres         | character | Genres separated by commas                                              |
+| averageRating  | numeric   | Weighted average IMDb user rating (0.0–10.0)                            |
+| numVotes       | integer   | Number of votes received by the title                                   |
+
+
 ## Method
 
 To test the hypothesis, a linear regression was conducted in R Studio. Release year
