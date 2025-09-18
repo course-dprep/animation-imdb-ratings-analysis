@@ -102,6 +102,10 @@ _TO BE DONE_
 -   How are the findings/end product of the project deployed?
 -   Explain the relevance of these findings/product.
 
+Test graph
+[![average_rating_per_year_per_type_of_movie](https://github.com/user-attachments/assets/29f28280-542c-4b42-96ad-c46111412915)](https://github.com/user-attachments/assets/29f28280-542c-4b42-96ad-c46111412915)
+
+
 ## Repository Overview
 
 The structure of our repository is as follows:
