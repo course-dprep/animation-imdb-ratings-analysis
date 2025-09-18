@@ -139,30 +139,6 @@ install.packages("stats")
 install.packages("utils")
 ```
 
-# Running Instructions
-
-Load IMDb files with read_tsv()
-
-library(readr) library(dplyr)
-
-setwd('/Users/brittvanhaaster/Documents/R studio/project_week2') \#
-Basics and rating files raw_basics \<- read_tsv("title.basics.tsv")
-raw_ratings \<- read_tsv("title.ratings.tsv")
-
-# Combine the two datasets into one
-
-combined_data \<- merge(raw_basics, raw_ratings, by = "tconst", all.x =
-TRUE)
-
-# Convert character variable to numeric
-
-combined_data$startYear <- as.numeric(combined_data$startYear)
-
-# Apply filters to get a more robust and reliable analysis result
-
-movies_since2010 \<- filter( combined_data, startYear \>= 2010,
-titleType == "movie", !is.na(averageRating), numVotes \>= 1000 ) \`\`\`
-
 ## About
 
 This project is set up as part of the Master's course [Data Preparation
