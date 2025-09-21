@@ -1,9 +1,3 @@
----
-editor_options: 
-  markdown: 
-    wrap: 72
----
-
 # About time: Predicting Movie Ratings using Release Year and the effect of Animation
 
 ## Research Question
