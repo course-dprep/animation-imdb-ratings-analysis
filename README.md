@@ -69,13 +69,13 @@ secondary data is consulted from [IMDb.com](https://developer.imdb.com/non-comme
 The database holds several datasets, of which two provide relevance in the context
 of the present study:
 
-1. [title.basics.tsv.gz](https://datasets.imdbws.com/title.basics.tsv.gz), which
-contain information about the title, runtime, genre and release year of motion 
-pictures.
+>[title.basics.tsv.gz](https://datasets.imdbws.com/title.basics.tsv.gz), which
+>contain information about the title, runtime, genre and release year of motion 
+>pictures.
 
-2. [title.rating.tsv.gz](https://datasets.imdbws.com/title.ratings.tsv.gz), which 
-provides data on ratings from all titles. These IMDb ratings are derived from 
-IMDb users and can comprise or movie consumers or professionals.
+>2. [title.rating.tsv.gz](https://datasets.imdbws.com/title.ratings.tsv.gz), which 
+>provides data on ratings from all titles. These IMDb ratings are derived from 
+>IMDb users and can comprise or movie consumers or professionals.
 
 The dataset merged from the secondary data contains the following variables:
 
