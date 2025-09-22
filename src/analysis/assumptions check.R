@@ -1,11 +1,12 @@
 ################################
 # ASSUMPTIONS CHECKS 
 ################################
+
 # Packages for diagnostics
 # install.packages(c("car", "lmtest", "broom"))
 
 library(car)        # VIF, Durbin–Watson
-library(lmtest)     # Breusch–Pagan test
+library(lmtest)     # Breusch–Pagan
 library(broom)      # augment() for residual data frame
 
 # install.packages(c("car","lmtest","broom","nortest"))  # if needed
