@@ -1,92 +1,123 @@
-# About time: Predicting Movie Ratings using Release Year and the effect of Animation
-
-## Research Question
-
--   To what extent does a movie’s release year influence the average
-    user rating?
--   Does this relationship differ between animated and non-animated
-    films?
-
-## Hypothesis
-
-There has been an increasingly critical attitude towards the franchise
-and sequel-based strategy that movie corporations have integrated. As
-more streaming services entered the market, the competitiveness in this
-market rose, which led to a bigger variety in TV shows and movies
-offered (Thompson, 2024). This is also shown in the rising number of
-movies, series and other content per year in the IMDb dataset. The more
-experienced a viewer is in watching movies, the more critical they
-become (Moon et al., 2009). Furthermore, it could be reasoned that movie
-consumers grew up with evoke a sense of nostalgia, leading to higher
-ratings of older films. Authors such as Bollen et al. (2012) refer to
-this as a form of “positivity effect”. Additionally, with the rise of
-digital platforms and social media, review-bombing has been an
-omnipresent effect with the release of new movies. All in all, these
-findings suggest that newer films are rated worse than older films,
-which the present study tests with the hypothesis:
-
-H1: There is a negative relationship between release year and rating.
-
-Technological progress in filmmaking has been especially evident in
-animation, where advances in CGI and production techniques have greatly
-enhanced visual quality (Sun, 2023). Consequently, audience evaluations
-of animated films may differ from live-action films, where newer
-releases do not benefit from the same perceptual improvements.
-Therefore, the animation status is included, animated vs. non-animated,
-as a moderator to test whether the relationship between release year and
-user ratings depends on a movie’s animation type.
-
-H2: The negative effect of release year on rating is weaker for animated
-films compared to non-animated films.
+# About Time: Predicting IMDb Movie Ratings with Release Year and the effect of Animation
 
 ## Motivation
+Movies -a form of entertainment that has been around for centuries. Yet, the 
+distribution and consumer perceptions of movies have shifted since the introduction 
+of streaming services (Hennig-Hurau et al., 2021; Kumar, 2023). In 2010, the 
+international expansion of Netflix across the globe marked a key point in the 
+growth of on-demand content (Oberoj, 2024). The saturation and availability of 
+the entertainment market have resulted in more critical consumers, which seemingly 
+affects how audiences evaluate films (Hadida et al., 2020). Although research 
+has been performed on movie ratings over time (e.g. Moon et al., 2010, Ramos et 
+al., 2015), the effect of streaming remains rather unexplored.
 
-Since 2010, the film industry has been shaken on its foundations due to
-the increasing popularity of streaming platforms (Hennig-Thurau et al.,
-2021). This year, Netflix expanded their streaming service
-internationally, marking a key point in the growth of on-demand content
-(Oberoi, 2024). Distribution patterns changed, and consumer perceptions
-of movies have shifted (Kumar, 2023). Most notably, the saturation and
-availability of the entertainment market have resulted in more critical
-consumers, which seemingly affects how audiences evaluate films (Hadida
-et al., 2020). The present study aims to shed light on the temporal
-dynamics within the quality perception of movies by answering the
-following research question. By analyzing whether a movie’s release year
-influences its average user rating, we can better understand trends in
-audience perception during the past decade and a half. The insights
-generated from this study may be relevant for filmmakers, distributors,
-and researchers interested in how modern industry changes affect
-audience evaluation.
+Over the years, black-and-white deaf movies have advanced to colourful and 
+effects-heavy motion pictures due to technological developments. This is 
+especially prominent in animation, where disruptions in Computer Generated 
+Images (CGI) and production techniques have significantly enhanced visual 
+quality and storytelling opportunities (Sun, 2023). Consequently, audience 
+evaluations of animated films could differ from live-action films.  Yet, 
+current research has not addressed this focus on animation.
+
+All-in all, the present study provides academic relevance by investigating the 
+temporal dynamics on  the quality perception of movies, while also accounting 
+for the effect of animation. These insights are also socially relevant for 
+filmmakers and distributors to better understand audiences. The focus of the 
+research can be encapsulated with the following research question:
+
+### Research Question
+
+*To what extent does the release year of a movie influence its average IMDb rating,
+and does this relationship differ between animated and non-animated films?*
+
+### Hypotheses
+
+Ever since the introduction of Netflix, more streaming serves have entered the 
+market with players such as Disney+, Amazon Prime Video and HBO Max. Competitiveness 
+rose, resulting to a greater variety of TV shows and movies offered (Thompson, 2024). 
+Simultaneously, the more experienced a viewer is in watching movies, the more critical
+hey tend to become (Moon et al., 2009). As such, it could be expected that newer 
+movies are rated worse than older movies because the frame of reference has increased. 
+Additionally, with the rise of digital platforms and social media, review-bombing
+as become an omnipresent phenomenon upon the release of new films. Moreover, there 
+has been an increasingly vocal group that criticizes the franchise- and sequel-based 
+strategies that movie corporations have adopted. Furthermore, it could be argued that 
+movie consumers often experience nostalgia for films watched in their childhood, 
+resulting in higher ratings for older movies. Authors such as Bollen et al. (2012) 
+refer to this as a form of “positivity effect.” Overall, these findings underscore 
+the expectation that newer films tend to be rated lower than older films, which 
+will be tested with:
+
+***H1:*** _There is a negative relationship between release year and rating._
+
+Animated films are more easily regarded as timeless, whereby the effect of H1 
+might differ between the two categories. As such, animation remain memorable 
+due to the distinct visual identity that is rooted in a fantasised setting. 
+In addition, live-action characters visible age or become outdated due to changes 
+in fashion, technology or cultural norms, while animated characters remain fairly 
+consistent over time (Larson, 2025). For example, Woody from Toy Story still looks the same in 
+sequels decades after his debut in 1995. On another note, animated films are often
+targeted at children and families, which strengthens the sense of nostalgia through 
+intergenerational re-watches (Lizardi, 2020). The present study will test this with:
+
+***H2:*** _The negative effect of release year on rating is weaker for animated films compared to non-animated films._
 
 ## Data
 
-This dataset is constructed using secondary data from IMDb.com. A
-dataset is created with all IMDB movies from 2010 until present. The
-main objectives derived from this dataset are specifically
-title.basics.tsv.gz and title.ratings.tsv.gz. These datasets contain
-information about titles (e.g. release year, run time, and genre
-including if the movie is anitmation or not) and ratings from all titles
-(e.g. average rate and number of votes). The IMDb ratings come from IMDb
-users and can be professionals or consumers.
+In order to test H1 and H2 and therefore answer the main research question,
+secondary data is consulted from [IMDb.com](https://developer.imdb.com/non-commercial-datasets/).
+The database holds several datasets, of which two provide relevance in the context
+of the present study:
+
+1. [title.basics.tsv.gz](https://datasets.imdbws.com/title.basics.tsv.gz), which
+contain information about the title, runtime, genre and release year of motion 
+pictures.
+
+2. [title.rating.tsv.gz](https://datasets.imdbws.com/title.ratings.tsv.gz), which 
+provides data on ratings from all titles. These IMDb ratings are derived from 
+IMDb users and can comprise or movie consumers or professionals.
+
+The dataset merged from the secondary data contains the following variables:
+
+| Variable       | Type      | Definition                                                             |
+|----------------|-----------|-------------------------------------------------------------------------|
+| tconst         | character | Unique IMDb identifier for each title                                   |
+| primaryTitle   | character | The title most commonly used by the general public                      |
+| startYear      | integer   | Year the title was released                                             |
+| runtimeMinutes | integer   | Runtime expressed in minutes                                            |
+| genres         | character | Genres separated by commas                                              |
+| averageRating  | numeric   | Weighted average IMDb user rating (0.0–10.0)                            |
+| numVotes       | integer   | Number of votes received by the title                                   |
+
 
 ## Method
 
-To test the hypothesis, a linear regression was conducted. Release year
-was treated as the independent variable, and average user rating as the
-dependent variable. Animation status (0 = non-animated, 1 = animated)
-was included as a moderator, and moderation was examined via the
-interaction term between release year and animation status. Other
-potential factors that could influence ratings, such as runtime and
-number of votes, were included as control variables. This study focuses
-on films released between 2010 and the present (2025), as selected from
-the following datasets.
+To test the hypothesis, a linear regression was conducted in R Studio. Release year
+was treated as the independent variable, and average IMDb user rating as the
+dependent variable. 
+
+Whether a movie was an animation was dummy coded (0 = non-animated, 1 = animated) 
+and included as a moderator to test whether it has a significant effect on the 
+relationship from release year to the average rating. 
+
+Other potential factors that were not specifically hypothesised but could 
+influence ratings were added as control variables in the regression. This included runtime,
+and number of votes. Furthermore, a dummy was created for whether a movie was 
+released before 2010 or after, in order to test the effect of the rise in streaming
+services since the international introduction of Netflix.
 
 ## Preview of Findings
+
+_TO BE DONE_
 
 -   Describe the gist of your findings (save the details for the final
     paper!)
 -   How are the findings/end product of the project deployed?
 -   Explain the relevance of these findings/product.
+
+Test graph
+[![average_rating_per_year_per_type_of_movie](https://github.com/user-attachments/assets/29f28280-542c-4b42-96ad-c46111412915)](https://github.com/user-attachments/assets/29f28280-542c-4b42-96ad-c46111412915)
+
 
 ## Repository Overview
 
@@ -135,36 +166,29 @@ install.packages("utils")
 
 ## About
 
-This project is set up as part of the Master's course [Data Preparation
-& Workflow Management](https://dprep.hannesdatta.com/) at the
-[Department of
-Marketing](https://www.tilburguniversity.edu/about/schools/economics-and-management/organization/departments/marketing),
-[Tilburg University](https://www.tilburguniversity.edu/), the
-Netherlands. For the team project, we will apply what we have learned in
-this course, for example: - Set up a reproducible workflow - Apply the
-complete Git workflow - Build and automate a full data preparation and
-analysis pipeline from scratch For the assignment, we can choose one of
-two datasets as the foundation of our work.
-
-The project is implemented by team 2: - Britt van Haaster - Isah
-Huijbregts - Lars van der Kroft - Amanda van Lankveld - Amy Quist -
-Stefan Valentijn
+This project is set up as part of the Master's course [Data Preparation & Workflow Management](https://dprep.hannesdatta.com/) at the
+[Department of Marketing](https://www.tilburguniversity.edu/about/schools/economics-and-management/organization/departments/marketing),
+[Tilburg University](https://www.tilburguniversity.edu/), The
+Netherlands. The project is implemented by team 2: 
+- Britt van Haaster 
+- Isah Huijbregts 
+- Lars van der Kroft 
+- Amanda van Lankveld 
+- Amy Quist
+- Stefan Valentijn
 
 ## Sources
 
 Billy Thompson. (2024, May 25). The Rise and Fall of Streaming TV? –
-Michigan Journal of Economics. Michigan Journal of Economics.
-<https://sites.lsa.umich.edu/mje/2024/05/25/the-rise-and-fall-of-streaming-tv/>
+Michigan Journal of Economics. Michigan Journal of Economics. <https://sites.lsa.umich.edu/mje/2024/05/25/the-rise-and-fall-of-streaming-tv/>
 
 Bollen, D., Graus, M. P., & Willemsen, M. C. (2012). Remembering the
 stars?: effect of time on preference retrieval from memory. Proceedings
-of the sixth ACM conference on Recommender systems.
-<https://doi.org/10.1145/2365952.2365998>
+of the sixth ACM conference on Recommender systems.<https://doi.org/10.1145/2365952.2365998>
 
 Hadida, A. L., Lampel, J., Walls, W. D., & Joshi, A. (2020). Hollywood
 Studio Filmmaking in the Age of Netflix: a Tale of Two Institutional
-Logics. Journal of Cultural Economics, 45(2), 213–238.
-<https://doi.org/10.1007/s10824-020-09379-z>
+Logics. Journal of Cultural Economics, 45(2), 213–238. <https://doi.org/10.1007/s10824-020-09379-z>
 
 Hennig-Thurau, T., Ravid, S. A., & Sorenson, O. (2021). The Economics of
 Filmed Entertainment in the Digital Era. Journal of Cultural Economics,
@@ -172,17 +196,24 @@ Filmed Entertainment in the Digital Era. Journal of Cultural Economics,
 
 Kumar, L. (2023, April). A Study On The Impact Of The OTT Platform On
 The Cinema With The Special Reference On The Cinema Audience.
-ResearchGate; unknown.
-<https://www.researchgate.net/publication/376650380_A_Study_On_The_Impact_Of_The_OTT_Platform_On_The_Cinema_With_The_Special_Reference_On_The_Cinema_Audience>
+ResearchGate; unknown. <https://www.researchgate.net/publication/376650380_A_Study_On_The_Impact_Of_The_OTT_Platform_On_The_Cinema_With_The_Special_Reference_On_The_Cinema_Audience>
+
+Larson, V. J. (2025). Philosophy in filmmaking: Animation vs. live action (Honors Program Theses No. 976) [Undergraduate thesis, University of Northern Iowa]. University of Northern Iowa Repository. https://scholarworks.uni.edu/cgi/viewcontent.cgi?article=2004&context=hpt>
+
+Lizardi, R. (2020). The future of nostalgia is inevitable: Reflections on mediated nostalgia. In M. H. Jacobsen (Ed.), Nostalgia Now: Cross-disciplinary perspectives on the past in the present (1st ed., pp. 147-161). Routledge. https://doi.org/10.4324/9780429287602-8>
 
 Moon, S., Bergey, P. K., & Iacobucci, D. (2009). Dynamic Effects among
 Movie Ratings, Movie Revenues, and Viewer Satisfaction. Journal Of
 Marketing, 74(1), 108–121. <https://doi.org/10.1509/jmkg.74.1.108>
 
 Oberoi, S. (2024, December 3). The Evolution of Netflix: from DVD
-Rentals to Global Streaming Leader. Seat11a.com.
-<https://seat11a.com/blog-the-evolution-of-netflix-from-dvd-rentals-to-global-streaming-leader/>
+Rentals to Global Streaming Leader. Seat11a.com. <https://seat11a.com/blog-the-evolution-of-netflix-from-dvd-rentals-to-global-streaming-leader/>
+
+Ramos, M., Calvão, A. M., & Anteneodo, C. (2015). Statistical patterns in movie rating behavior. PLOS ONE, 10(8), e0136083. https://doi.org/10.1371/journal.pone.0136083>
 
 Sun, Z. (2023). What does cgi digital technology bring to the
 sustainable development of animated films?. Sustainability, 15(14),
 10895.<https://doi.org/10.3390/su151410895>
+
+
+
