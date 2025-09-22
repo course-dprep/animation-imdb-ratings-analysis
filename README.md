@@ -73,7 +73,7 @@ of the present study:
 >contain information about the title, runtime, genre and release year of motion 
 >pictures.
 
->2. [title.rating.tsv.gz](https://datasets.imdbws.com/title.ratings.tsv.gz), which 
+>[title.rating.tsv.gz](https://datasets.imdbws.com/title.ratings.tsv.gz), which 
 >provides data on ratings from all titles. These IMDb ratings are derived from 
 >IMDb users and can comprise or movie consumers or professionals.
 
