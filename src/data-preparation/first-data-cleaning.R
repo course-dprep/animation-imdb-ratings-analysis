@@ -15,14 +15,18 @@ library(stringr)
 raw_combined <- merge(raw_basics, raw_ratings, by = "tconst", all.x = TRUE)
 
 #Save the raw_combined file
-#write.csv(raw_combined, file = "raw_combined.csv", row.names = FALSE)
+write.csv(
+  raw_combined,
+  file = "data/raw_combined.csv",   #relative path into the data folder
+  row.names = FALSE
+)
 
 #Set variables right; convert character variable to numeric
 raw_combined$startYear <- as.numeric(raw_combined$startYear)
 raw_combined$runtimeMinutes <- as.numeric(raw_combined$runtimeMinutes)
 
 #Checking the different types of content
-sort(table(raw_combined$titleType), decreasing = TRUE)
+table(raw_combined$titleType)
 #Only movies are in the dataset, which aligns with the focus of the study
 
 #Checking the years there is data of
@@ -49,10 +53,12 @@ eligible_data <- eligible_data %>% select(tconst,
 #Check whether there are missing values in the dataset
 colSums(is.na(eligible_data))
 
-#There are with a few variables. Since this dataset does not contain information
-#over time, replacing na's through carrying forward or linear interpolation is
-#risky and introduces bias. Therefore, removing the movies with missing values
-#is the most suitable option
+#There are, so remove movies that have missing values in (one of the) variables
+#The observations with missing values in averageRating, numVotes, and runtimeMinutes 
+#were removed rather than imputed. Imputing these variables would introduce artificial 
+#and potentially misleading values, as they represent crucial outcomes and key variables: 
+#ratings, votes, runtime. Given the large size of the IMDb dataset, excluding these 
+#incomplete films does not pose a problem and still leaves a sufficiently representative sample.
 eligible_data <- eligible_data %>%
   filter(!is.na(averageRating),
          !is.na(numVotes),
@@ -69,8 +75,6 @@ summary(eligible_data$runtimeMinutes)
 #movies but series compilation. This has to be filtered. IMDb communicated the
 #longest movie has a duration of 280 minutes, which is the cutoff point.
 
-max(eligible_data$runtimeMinutes)
-
 eligible_data <- filter(eligible_data,
                  runtimeMinutes >= 40, runtimeMinutes <= 280)
 
@@ -83,12 +87,20 @@ summary(eligible_data$numVotes)
 movies <- filter(eligible_data,
                  numVotes >= 1000)
 
-
 #Feature engineering
-#Lastly, create dummy for animation since that is the focus of the research
+#Dummy for release year 2010 since that is part of the focus of the research
+movies$before_2010_dummy <- ifelse(movies$startYear <= 2010, 1, 0)
+movies$before_2010_dummy <- factor(movies$before_2010_dummy, levels = c(0, 1), labels = c("Release before 2010", "Release after 2010"))
+table(movies$before_2010_dummy)
+
+#Dummy for animation since that is part of the focus of the research
 movies$animation_dummy <- ifelse(grepl("Animation", movies$genres), 1, 0)
-movies$animation_dummy <- factor(movies$animation_dummy, levels = c(0, 1),)
+movies$animation_dummy <- factor(movies$animation_dummy, levels = c(0, 1), labels = c("Non-Animation", "Animation"))
 table(movies$animation_dummy)
 
-#Save the definitive dataset as a file????????
-#write.csv(movies, file = "movies.csv", row.names = FALSE)
+#Save the definitive dataset as a file
+write.csv(
+  movies,
+  file = "data/movies.csv",   #relative path into the data folder
+  row.names = FALSE
+)
