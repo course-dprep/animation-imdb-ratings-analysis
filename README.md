@@ -1,4 +1,4 @@
-# About Time: Predicting IMDb Movie Ratings with Release Year and the effect of Animation
+# About Time: Predicting IMDb Movie Ratings with Release Year and the Effect of Animation
 
 ## Motivation
 Movies -a form of entertainment that has been around for centuries. Yet, the 
@@ -8,7 +8,7 @@ international expansion of Netflix across the globe marked a key point in the
 growth of on-demand content (Oberoj, 2024). The saturation and availability of 
 the entertainment market have resulted in more critical consumers, which seemingly 
 affects how audiences evaluate films (Hadida et al., 2020). Although research 
-has been performed on movie ratings over time (e.g. Moon et al., 2010, Ramos et 
+has been performed on movie ratings over time (e.g. Moon et al., 2010; Ramos et 
 al., 2015), the effect of streaming remains rather unexplored.
 
 Over the years, black-and-white deaf movies have advanced to colourful and 
@@ -19,7 +19,7 @@ quality and storytelling opportunities (Sun, 2023). Consequently, audience
 evaluations of animated films could differ from live-action films.  Yet, 
 current research has not addressed this focus on animation.
 
-All-in all, the present study provides academic relevance by investigating the 
+All in all, the present study provides academic relevance by investigating the 
 temporal dynamics on  the quality perception of movies, while also accounting 
 for the effect of animation. These insights are also socially relevant for 
 filmmakers and distributors to better understand audiences. The focus of the 
@@ -32,14 +32,14 @@ and does this relationship differ between animated and non-animated films?*
 
 ### Hypotheses
 
-Ever since the introduction of Netflix, more streaming serves have entered the 
+Ever since the introduction of Netflix, more streaming services have entered the 
 market with players such as Disney+, Amazon Prime Video and HBO Max. Competitiveness 
-rose, resulting to a greater variety of TV shows and movies offered (Thompson, 2024). 
+rose, resulting in a greater variety of TV shows and movies offered (Thompson, 2024). 
 Simultaneously, the more experienced a viewer is in watching movies, the more critical
-hey tend to become (Moon et al., 2009). As such, it could be expected that newer 
+they tend to become (Moon et al., 2009). As such, it could be expected that newer 
 movies are rated worse than older movies because the frame of reference has increased. 
 Additionally, with the rise of digital platforms and social media, review-bombing
-as become an omnipresent phenomenon upon the release of new films. Moreover, there 
+has become an omnipresent phenomenon upon the release of new films. Moreover, there 
 has been an increasingly vocal group that criticizes the franchise- and sequel-based 
 strategies that movie corporations have adopted. Furthermore, it could be argued that 
 movie consumers often experience nostalgia for films watched in their childhood, 
@@ -50,12 +50,12 @@ will be tested with:
 
 ***H1:*** _There is a negative relationship between release year and rating._
 
-Animated films are more easily regarded as timeless, whereby the effect of H1 
-might differ between the two categories. As such, animation remain memorable 
+Animated films are more easily regarded as timeless, whereas the effect of H1 
+might differ between the two categories. As such, animation remains memorable 
 due to the distinct visual identity that is rooted in a fantasised setting. 
-In addition, live-action characters visible age or become outdated due to changes 
+In addition, live-action characters' visible age or become outdated due to changes 
 in fashion, technology or cultural norms, while animated characters remain fairly 
-consistent over time (Larson, 2025). For example, Woody from Toy Story still looks the same in 
+consistent over time (Larson, 2025). For example, Woody from Toy Story remains unchanged in 
 sequels decades after his debut in 1995. On another note, animated films are often
 targeted at children and families, which strengthens the sense of nostalgia through 
 intergenerational re-watches (Lizardi, 2020). The present study will test this with:
@@ -70,12 +70,12 @@ The database holds several datasets, of which two provide relevance in the conte
 of the present study:
 
 >[title.basics.tsv.gz](https://datasets.imdbws.com/title.basics.tsv.gz), which
->contain information about the title, runtime, genre and release year of motion 
+>contains information about the title, runtime, genre and release year of motion 
 >pictures.
 
 >[title.rating.tsv.gz](https://datasets.imdbws.com/title.ratings.tsv.gz), which 
 >provides data on ratings from all titles. These IMDb ratings are derived from 
->IMDb users and can comprise or movie consumers or professionals.
+>IMDb users and can comprise of movie consumers or professionals.
 
 The dataset merged from the secondary data contains the following variables:
 
