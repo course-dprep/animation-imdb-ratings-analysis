@@ -1,6 +1,6 @@
 #Script to download the raw data files from IMDb
 
-#Load packages
+#Load the package
 library(googledrive)
 #Note, message in console might ask for verification first before you are able to
 #load-in the datasets via Google Drive. Prevent this with
