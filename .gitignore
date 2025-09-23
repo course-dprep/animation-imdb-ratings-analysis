@@ -2,7 +2,7 @@
 
 .DS_Store
 .Rproj.user
+.Rproj
 .Rhistory
-.Rproj.user/
 .RData
-
+**/temp/
