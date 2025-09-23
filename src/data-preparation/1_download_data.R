@@ -2,11 +2,9 @@
 
 #Load packages
 library(googledrive)
-#Note, message in console asks for verification first before you are able to
+#Note, message in console might ask for verification first before you are able to
 #load-in the datasets via Google Drive. Prevent this with
 drive_deauth()
-
-dir.create('data2')
 
 #Import the IMDb 'basics' file
 raw_basics <- read.csv("https://drive.google.com/uc?export=download&id=1kibqUiY63nTgU40dYh3WYGYMnU3HpGpv")
