@@ -1,6 +1,6 @@
-#Script to download the raw data files from IMDb
+#Script to download the raw data files of IMDb
 
-#Load packages
+#Load the package
 library(googledrive)
 #Note, message in console might ask for verification first before you are able to
 #load-in the datasets via Google Drive. Prevent this with
@@ -16,6 +16,5 @@ raw_ratings <- read.csv("https://drive.google.com/uc?export=download&id=1tvvAQKN
 dir.create("temp/data", recursive = TRUE)
 
 #Save the raw datasets locally
-write.csv(raw_basics, file = "temp/data/raw_basics.csv")
-write.csv(raw_ratings, file = "temp/data/raw_ratings.csv")
-
+write.csv(raw_basics, file = "temp/data/raw_basics.csv", row.names = FALSE)
+write.csv(raw_ratings, file = "temp/data/raw_ratings.csv", row.names = FALSE)
