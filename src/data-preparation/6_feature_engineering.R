@@ -10,7 +10,7 @@ movies <- movies_filtered
 
 #Dummy for release year 2010 since that is part of the focus of the research
 movies$before_2010_dummy <- ifelse(movies$startYear <= 2010, 1, 0)
-movies$before_2010_dummy <- factor(movies$before_2010_dummy, levels = c(0, 1), labels = c("Release before 2010", "Release after 2010"))
+movies$before_2010_dummy <- factor(movies$before_2010_dummy, levels = c(0, 1), labels = c("Release since 2010", "Release before 2010"))
 table(movies$before_2010_dummy)
 
 #Dummy for animation since that is part of the focus of the research

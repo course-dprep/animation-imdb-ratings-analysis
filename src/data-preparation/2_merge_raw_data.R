@@ -1,4 +1,4 @@
-#Script to merge the raw data files
+#Script to merge the raw data files of IMDb
 
 #Load the package
 library(tidyverse)

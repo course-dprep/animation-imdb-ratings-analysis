@@ -1,4 +1,4 @@
-#Script to download the raw data files from IMDb
+#Script to download the raw data files of IMDb
 
 #Load the package
 library(googledrive)

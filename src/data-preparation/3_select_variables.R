@@ -1,4 +1,4 @@
-#Script to clean the raw data files
+#Script to select variables from the raw data file relevant to analysis
 
 #Load the package
 library(tidyverse)
