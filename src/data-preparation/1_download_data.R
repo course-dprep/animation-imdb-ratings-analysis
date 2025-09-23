@@ -11,3 +11,11 @@ raw_basics <- read.csv("https://drive.google.com/uc?export=download&id=1kibqUiY6
 
 #Import the IMDb 'ratings' file
 raw_ratings <- read.csv("https://drive.google.com/uc?export=download&id=1tvvAQKNL6OTTiHc9xwzxkydWupzKMXJs")
+
+#Create folder where the documents will be stored locally
+dir.create("temp/data", recursive = TRUE)
+
+#Save the raw datasets locally
+write.csv(raw_basics, file = "temp/data/raw_basics.csv")
+write.csv(raw_ratings, file = "temp/data/raw_ratings.csv")
+
