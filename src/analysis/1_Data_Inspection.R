@@ -11,3 +11,4 @@ dir.create("temp/output", recursive = TRUE, showWarnings = FALSE)
 #Inspecting definitive dataset
 summary(movies)
 table(movies$animation_dummy)
+
