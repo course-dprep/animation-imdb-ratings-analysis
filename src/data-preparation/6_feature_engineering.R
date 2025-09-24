@@ -4,7 +4,7 @@
 library(tidyverse)
 
 #Read in data
-movies_filtered <- read_csv("gen/temp/movies_filtered.csv")
+movies_filtered <- read_csv("../../gen/temp/movies_filtered.csv")
 
 movies <- movies_filtered
 
@@ -19,7 +19,7 @@ movies$animation_dummy <- factor(movies$animation_dummy, levels = c(0, 1), label
 table(movies$animation_dummy)
 
 #Create folder where the documents will be stored locally
-dir.create("gen/output", recursive = TRUE)
+dir.create("../../gen/output", recursive = TRUE)
 
 #Save the definitive dataset as a file
-write.csv(movies, file = "gen/output/movies.csv")
+write.csv(movies, file = "../../gen/output/movies.csv")

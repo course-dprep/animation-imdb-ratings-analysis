@@ -13,8 +13,8 @@ raw_basics <- read.csv("https://drive.google.com/uc?export=download&id=1kibqUiY6
 raw_ratings <- read.csv("https://drive.google.com/uc?export=download&id=1tvvAQKNL6OTTiHc9xwzxkydWupzKMXJs")
 
 #Create folder where the documents will be stored locally
-dir.create("data", recursive = TRUE)
+dir.create("../../data", recursive = TRUE)
 
 #Save the raw datasets locally
-write.csv(raw_basics, file = "data/raw_basics.csv", row.names = FALSE)
-write.csv(raw_ratings, file = "data/raw_ratings.csv", row.names = FALSE)
+write.csv(raw_basics, file = "../../data/raw_basics.csv", row.names = FALSE)
+write.csv(raw_ratings, file = "../../data/raw_ratings.csv", row.names = FALSE)

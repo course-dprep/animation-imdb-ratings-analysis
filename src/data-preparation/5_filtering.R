@@ -4,7 +4,7 @@
 library(tidyverse)
 
 #Read in data
-movies_imputed <- read_csv("gen/temp/movies_imputed.csv")
+movies_imputed <- read_csv("../../gen/temp/movies_imputed.csv")
 
 #Now the imputed dataset is there, a selection can be made from the consideration
 #of the focus of the study
@@ -37,4 +37,4 @@ movies_filtered <- filter(movies_filtered, runtimeMinutes >= 40,
 movies_filtered <- filter(movies_filtered, numVotes >= 1000)
 
 #Save the dataset locally
-write.csv(movies_filtered, file = "gen/temp/movies_filtered.csv", row.names = FALSE)
+write.csv(movies_filtered, file = "../../gen/temp/movies_filtered.csv", row.names = FALSE)
