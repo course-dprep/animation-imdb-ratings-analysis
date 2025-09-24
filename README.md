@@ -149,19 +149,13 @@ For data downloading, cleaning and analysing R and R studio were used.
 
 ``` r
 # Install the following packages
-install.packages("readr")
-install.packages("dplyr")
-install.packages("ggplot2")
-install.packages("rmarkdown")
-install.packages("tidyverse")
-install.packages("base")
-install.packages("datasets")
 install.packages("googledrive")
-install.packages("graphics")
-install.packages("grDevices")
-install.packages("methods")
-install.packages("stats")
-install.packages("utils")
+install.packages("tidyverse")
+install.packages("mice")
+install.packages("car")
+install.packages("lmtest")
+install.packages("broom")
+install.packages("nortest")
 ```
 
 ## About
