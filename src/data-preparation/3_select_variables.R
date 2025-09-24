@@ -4,7 +4,7 @@
 library(tidyverse)
 
 #Load the raw_combined data
-raw_combined <- read_csv("temp/data/raw_combined.csv")
+raw_combined <- read_csv("../../gen/temp/raw_combined.csv")
 
 #Verifying whether the only featured type of content are 'movies'
 table(raw_combined$titleType)
@@ -25,10 +25,4 @@ movies_selected$startYear <- as.numeric(raw_combined$startYear)
 movies_selected$runtimeMinutes <- as.numeric(raw_combined$runtimeMinutes)
 
 #Save the dataset locally
-write.csv(movies_selected, file = "temp/data/movies_selected.csv", row.names = FALSE)
-
-
-
-
-
-
+write.csv(movies_selected, file = "../../gen/temp/movies_selected.csv", row.names = FALSE)

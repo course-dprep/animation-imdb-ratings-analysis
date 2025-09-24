@@ -6,7 +6,7 @@ library(dplyr)
 library(mice)
 
 #Read in data
-movies_selected <- read_csv("temp/data/movies_selected.csv")
+movies_selected <- read_csv("../../gen/temp/movies_selected.csv")
 
 #Check whether there are missing values in the dataset
 colSums(is.na(movies_selected))
@@ -40,4 +40,4 @@ movies_imputed <- complete(imputed_data)
 colSums(is.na(movies_imputed))
 
 #Save the file locally
-write.csv(movies_imputed, file = "temp/data/movies_imputed.csv", row.names = FALSE)
+write.csv(movies_imputed, file = "../../gen/temp/movies_imputed.csv", row.names = FALSE)
