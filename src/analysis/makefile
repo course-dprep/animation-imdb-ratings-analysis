@@ -15,6 +15,6 @@ plots: $(OUTPUT)/movies.csv
 
 # Step 3: Regression analysis (meerdere CSV’s)
 regressions: $(OUTPUT)/movies.csv
-	Rscript --vanilla 9_Regression_Analysis.R
+	Rscript --vanilla 3_Regression_Analysis.R
 	
 # Step 4: Checking model assumptions

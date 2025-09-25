@@ -43,14 +43,18 @@ graph_splitmovies <- movies %>%
   group_by(startYear, animation_dummy) %>% 
   summarise(meanRating = mean(averageRating, na.rm = TRUE), .groups = "drop")
 
-p4 <- ggplot(graph_splitmovies, aes(x=startYear, y=meanRating, 
-                              color = animation_dummy)) + 
-  geom_line() + 
-  labs(x = "Release Year", 
-       y = "Average IMDb Rating", 
-       colour = "Type of Movie") + 
+p4 <- ggplot(graph_splitmovies, aes(x = startYear,
+                                    y = meanRating,
+                                    color = animation_dummy)) +
+  geom_line() +
+  scale_y_continuous(limits = c(0, 10)) +     # <<< sets y-axis from 0 to 10
+  labs(x = "Release Year",
+       y = "Average IMDb Rating",
+       colour = "Type of Movie") +
   theme_minimal()
-ggsave("../../gen/output/line_avg_rating_by_type.png", p4, width = 7, height = 5)
+
+ggsave("../../gen/output/line_avg_rating_by_type.png",
+       p4, width = 7, height = 5)
 
 #Frequency: alternative graph for rating over time for both categories
 p5 <- ggplot(movies, aes(x = startYear, y = averageRating, colour = animation_dummy)) +
