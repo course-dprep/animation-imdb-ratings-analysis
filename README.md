@@ -79,15 +79,17 @@ of the present study:
 
 The dataset merged from the secondary data contains the following variables:
 
-| Variable       | Type      | Definition                                                             |
-|----------------|-----------|-------------------------------------------------------------------------|
-| tconst         | character | Unique IMDb identifier for each title                                   |
-| primaryTitle   | character | The title most commonly used by the general public                      |
-| startYear      | integer   | Year the title was released                                             |
-| runtimeMinutes | integer   | Runtime expressed in minutes                                            |
-| genres         | character | Genres separated by commas                                              |
-| averageRating  | numeric   | Weighted average IMDb user rating (0.0–10.0)                            |
-| numVotes       | integer   | Number of votes received by the title                                   |
+| Variable          | Type      | Definition                                                             |
+|-------------------|-----------|-------------------------------------------------------------------------|
+| tconst            | character | Unique IMDb identifier for each title                                   |
+| primaryTitle      | character | The title most commonly used by the general public                      |
+| startYear         | integer   | Year the title was released                                             |
+| runtimeMinutes    | integer   | Runtime expressed in minutes                                            |
+| genres            | character | Genres separated by commas                                              |
+| averageRating     | numeric   | Weighted average IMDb user rating (0.0–10.0)                            |
+| numVotes          | integer   | Number of votes received by the title                                   |
+| before_2010_dummy | dummy     | Whether a movie is released before or after 2010                        |
+| animation_dummy   | dummy     | Whether a movie is animated or not                                      |
 
 
 ## Method
