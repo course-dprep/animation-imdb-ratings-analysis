@@ -6,7 +6,7 @@ library(tidyverse)
 library(ggplot2)
 
 #Loading definite dataset
-movies <- read_csv("temp/data/movies.csv")
+movies <- read_csv("../../gen/output/movies.csv")
 
 #Inspecting definitive dataset
 summary(movies)
@@ -80,11 +80,9 @@ for (nm in names(subsets)) {
   inspect_data(subsets[[nm]])
 }
 
-dir.create("temp/output", recursive = TRUE)
-
 #Saving subsets in output folder
-readr::write_csv(animation_subset,"temp/output/animation_subset.csv")
-readr::write_csv(non_animation_subset,"temp/output/non_animation_subset.csv")
-readr::write_csv(before_2010_subset,"temp/output/before_2010_subset.csv")
-readr::write_csv(since_2010_subset, "temp/output/since_2010_subset.csv")
+write_csv(animation_subset,   "../../gen/output/animation_subset.csv")
+write_csv(non_animation_subset,"../../gen/output/non_animation_subset.csv")
+write_csv(before_2010_subset, "../../gen/output/before_2010_subset.csv")
+write_csv(since_2010_subset,  "../../gen/output/since_2010_subset.csv")
 
