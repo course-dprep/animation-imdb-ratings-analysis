@@ -14,7 +14,7 @@ First, it is verified if the dataset contains only movies, which is consistent w
 
 **4_missing_values.R**
 
-The inspection of the dataset revealed missing values in startYear, runtimeMinutes, averageRating and numVotes. These missing values can be imputed through an accurate predictive imputation method.This is done to maintain data quality and avoid bias in the subsequent analysis. In contrast, the genre variable, also contains missing data, but since this is a dummy variable which is not used in the analysis, this is left as it is.
+The inspection of the dataset revealed missing values in startYear, runtimeMinutes, averageRating and numVotes. These missing values can be imputed through an accurate predictive imputation method.This is done to maintain data quality and avoid bias in the subsequent analysis. The genre variable also contains missing data, but this variable is categorical rather than numeric, it contains text labels, genres. This makes it too complex to accurately predict and impute missing values. Therefore, instead of imputing, the missing values in this variable are removed.  
 
 **5_filtering.R**
 
