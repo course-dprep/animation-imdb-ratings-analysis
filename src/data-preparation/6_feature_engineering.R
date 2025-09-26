@@ -22,4 +22,4 @@ table(movies$animation_dummy)
 dir.create("../../gen/output", recursive = TRUE)
 
 #Save the definitive dataset as a file
-write.csv(movies, file = "../../gen/output/movies.csv")
+write.csv(movies, file = "../../gen/output/movies.csv", row.names = FALSE)
