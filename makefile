@@ -1,2 +1,11 @@
-# This makefile will be used to automate the
-# different steps in your project.
+
+all: data-preparation analysis
+
+
+data-preparation:
+	make -C src/data-preparation
+
+analysis: data-preparation
+	make -C src/analysis
+
+
