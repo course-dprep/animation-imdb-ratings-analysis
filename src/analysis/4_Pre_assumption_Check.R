@@ -7,80 +7,38 @@ library(tidyverse)
 library(patchwork)   # for combining plots
 
 # Load data
-movies <- read_csv("gen/output/movies.csv")
+movies <- read_csv("../../gen/output/movies.csv")
 
-###########################################
-# 1. LINEARITY CHECK (raw variables)
-###########################################
+# 1. Check DV for Normality
+p_numVotes_raw1 <- movies %>% 
+  ggplot(aes(x = averageRating)) +
+  geom_histogram(binwidth = 0.1, fill = "purple", color = "white") +
+  xlim(0, 10)
+p_numVotes_raw1
 
-p_numVotes_raw <- ggplot(movies, aes(numVotes, averageRating)) +
-  geom_point(alpha = 0.2) +
-  geom_smooth(method = "loess", se = FALSE, color = "red") +
-  labs(title = "Linearity check: numVotes (raw)")
+# 2. LINEARITY CHECK
+# Functie voor linearity-check
+linearity_check <- function(data, predictor, outcome = "averageRating") {
+  ggplot(data, aes(x = .data[[predictor]], y = .data[[outcome]])) +
+    geom_point(alpha = 0.2) +
+    geom_smooth(method = "loess", se = FALSE, color = "red") +
+    labs(
+      title = paste("Linearity check:", predictor, "vs", outcome),
+      x = predictor,
+      y = outcome
+    ) +
+    theme_minimal()
+}
 
-p_runtime_raw <- ggplot(movies, aes(runtimeMinutes, averageRating)) +
-  geom_point(alpha = 0.2) +
-  geom_smooth(method = "loess", se = FALSE, color = "red") +
-  labs(title = "Linearity check: runtimeMinutes (raw)")
+# Example: run per predictor
+linearity_check(movies, "numVotes")
+linearity_check(movies, "runtimeMinutes")
+linearity_check(movies, "startYear")
 
-p_startYear_raw <- ggplot(movies, aes(startYear, averageRating)) +
-  geom_point(alpha = 0.2) +
-  geom_smooth(method = "loess", se = FALSE, color = "red") +
-  labs(title = "Linearity check: startYear (raw)")
-
-(p_numVotes_raw | p_runtime_raw | p_startYear_raw)
-
-norm
-
-
-
-###########################################
-# 2. TRANSFORMATIONS
-###########################################
-
+#NumVotes violates Linearity, executing log transformation
 movies <- movies %>%
-  mutate(
-    logVotes   = log1p(numVotes),         # log(1+x)
-    logRuntime = log1p(runtimeMinutes)    # log(1+x)
-  )
+  mutate(log_numVotes = log(numVotes))
 
-###########################################
-# 3. LINEARITY CHECK (transformed variables)
-###########################################
-
-p_numVotes_log <- ggplot(movies, aes(logVotes, averageRating)) +
-  geom_point(alpha = 0.2) +
-  geom_smooth(method = "loess", se = FALSE, color = "red") +
-  labs(title = "Linearity check: log(numVotes)")
-
-p_runtime_log <- ggplot(movies, aes(logRuntime, averageRating)) +
-  geom_point(alpha = 0.2) +
-  geom_smooth(method = "loess", se = FALSE, color = "red") +
-  labs(title = "Linearity check: log(runtimeMinutes)")
-
-p_startYear <- ggplot(movies, aes(startYear, averageRating)) +
-  geom_point(alpha = 0.2) +
-  geom_smooth(method = "loess", se = FALSE, color = "red") +
-  labs(title = "Linearity check: startYear")
-
-(p_numVotes_raw | p_numVotes_log) /
-  (p_runtime_raw | p_runtime_log) /
-  p_startYear
-
-###########################################
-# 4. NORMALITY OF RESIDUALS
-###########################################
-
-hist(movies$numVotes, breaks = 50, main = "Histogram numVotes")
-hist(movies$runtimeMinutes, breaks = 50, main = "Histogram runtimeMinutes")
-hist(movies$averageRating, breaks = 50, main = "Histogram averageRating")
-
-qqnorm(movies$numVotes); qqline(movies$numVotes, col = "red")
-qqnorm(movies$runtimeMinutes); qqline(movies$runtimeMinutes, col = "red")
-qqnorm(movies$averageRating); qqline(movies$averageRating, col = "red")
-
-install.packages("moments")
-library(moments)
-skewness(movies$numVotes)
-kurtosis(movies$numVotes)
+#now we create our final movies file to start our regression
+write.csv(movies, file = "../../gen/output/movies_transformed.csv", row.names = FALSE)
 
