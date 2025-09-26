@@ -4,7 +4,7 @@ TEMP = ../../gen/temp
 OUTPUT = ../../gen/output
 
 # Main target: final dataset
-all: $(OUTPUT)/movies.csv
+all: $(OUTPUT)/movies_prepped.csv
 
 # Step 1: Download raw data
 $(DATA)/raw_basics.csv $(DATA)/raw_ratings.csv: 1_download_raw_data.R
@@ -27,5 +27,5 @@ $(TEMP)/movies_filtered.csv: 5_filtering.R $(TEMP)/movies_imputed.csv
 	Rscript --vanilla $<
 
 # Step 6: Feature engineering
-$(OUTPUT)/movies.csv: 6_feature_engineering.R $(TEMP)/movies_filtered.csv
+$(OUTPUT)/movies_prepped.csv: 6_feature_engineering.R $(TEMP)/movies_filtered.csv
 	Rscript --vanilla $<
