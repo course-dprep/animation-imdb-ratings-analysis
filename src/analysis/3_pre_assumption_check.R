@@ -41,5 +41,5 @@ movies <- movies %>%
   mutate(log_numVotes = log(numVotes))
 
 #Save file locally that will be used in the regression
-write.csv(movies, file = "../../gen/output/movies_transformed.csv", row.names = FALSE)
+write.csv(movies, file = "../../gen/output/movies.csv", row.names = FALSE)
 

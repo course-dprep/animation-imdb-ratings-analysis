@@ -5,7 +5,7 @@ library(tidyverse)
 library(broom)
 
 #Load definitive dataset
-movies <- read_csv("../../gen/output/movies_prepped.csv")
+movies <- read_csv("../../gen/output/movies.csv")
 
 #T-test
 ttest <- t.test(averageRating ~ animation_dummy, data = movies)
