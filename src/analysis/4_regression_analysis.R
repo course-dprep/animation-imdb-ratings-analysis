@@ -1,10 +1,11 @@
+#Script to run the linear regression model
 
-#A PRELIMINARY and NON-DEFINITIVE but EXPLORATORY analysis
-
+#Load packages
 library(tidyverse)
 library(broom)
-#load definitive dataset
-movies <- read_csv("../../gen/output/movies.csv")
+
+#Load definitive dataset
+movies <- read_csv("../../gen/output/movies_prepped.csv")
 
 #T-test
 ttest <- t.test(averageRating ~ animation_dummy, data = movies)

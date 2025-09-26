@@ -1,23 +1,24 @@
-# Assumptions check pre regression model
-# Check these assumptions before starting the regression:
-# 1. Linearity
-# 2. Normality of residuals
+#Script to check the assumptions of variables to determine the regression model
 
+#Load packages
 library(tidyverse)
 library(patchwork)   # for combining plots
 
-# Load data
-movies <- read_csv("../../gen/output/movies.csv")
+#Load data
+movies <- read_csv("../../gen/output/movies_prepped.csv")
 
-# 1. Check DV for Normality
+
+#1. NORMALITY
+#Check DV for Normality
 p_numVotes_raw1 <- movies %>% 
   ggplot(aes(x = averageRating)) +
   geom_histogram(binwidth = 0.1, fill = "purple", color = "white") +
   xlim(0, 10)
 p_numVotes_raw1
 
-# 2. LINEARITY CHECK
-# Functie voor linearity-check
+
+#2. LINEARITY
+#Create function to check assumption of linearity
 linearity_check <- function(data, predictor, outcome = "averageRating") {
   ggplot(data, aes(x = .data[[predictor]], y = .data[[outcome]])) +
     geom_point(alpha = 0.2) +
@@ -30,7 +31,7 @@ linearity_check <- function(data, predictor, outcome = "averageRating") {
     theme_minimal()
 }
 
-# Example: run per predictor
+#Run function per predictor
 linearity_check(movies, "numVotes")
 linearity_check(movies, "runtimeMinutes")
 linearity_check(movies, "startYear")
@@ -39,6 +40,6 @@ linearity_check(movies, "startYear")
 movies <- movies %>%
   mutate(log_numVotes = log(numVotes))
 
-#now we create our final movies file to start our regression
+#Save file locally that will be used in the regression
 write.csv(movies, file = "../../gen/output/movies_transformed.csv", row.names = FALSE)
 

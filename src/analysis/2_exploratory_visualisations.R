@@ -1,10 +1,13 @@
+#Script to produce exploratory visualisations
 
-
-#The plots and figures are next.
+#Load the package
 library(tidyverse)
 
 #Loading definite dataset
-movies <- read_csv("../../gen/output/movies.csv")
+movies <- read_csv("../../gen/output/movies_prepped.csv")
+
+#Simplify the name to allow for more readable code
+movies <- movies_prepped
 
 #Frequencies: histogram of average rating together
 p1 <- ggplot(movies, aes(x=averageRating, fill = animation_dummy)) + 

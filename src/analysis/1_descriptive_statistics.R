@@ -1,12 +1,10 @@
-################################
-#PIPELINE STEP: DATA EXPLORATION
-################################
+#Script to produce first descriptive statistics of the data
 
+#Load the package
 library(tidyverse)
-library(ggplot2)
 
 #Loading definite dataset
-movies <- read_csv("../../gen/output/movies.csv")
+movies <- read_csv("../../gen/output/movies_prepped.csv")
 
 #Inspecting definitive dataset
 summary(movies)
