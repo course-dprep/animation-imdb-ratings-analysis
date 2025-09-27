@@ -1,8 +1,9 @@
-# Use this file to keep certain files from being versioned (covered in the GitHub part of the course).
+#This file is used to keep certain files from being versioned in GitHub
+animation-imdb-ratings-analysis.Rproj
+README.html
 .DS_Store
 .Rproj.user
 .Rproj
-animation-imdb-ratings-analysis.Rproj
 .Rhistory
 .RData
 **/temp/
