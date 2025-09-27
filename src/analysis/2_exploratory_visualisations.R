@@ -4,10 +4,7 @@
 library(tidyverse)
 
 #Loading definite dataset
-movies <- read_csv("../../gen/output/movies_prepped.csv")
-
-#Simplify the name to allow for more readable code
-movies <- movies_prepped
+movies <- read_csv("../../gen/temp/movies_prepped.csv")
 
 #Frequencies: histogram of average rating together
 p1 <- ggplot(movies, aes(x=averageRating, fill = animation_dummy)) + 
@@ -74,8 +71,3 @@ p6 <- ggplot(movies, aes(y = runtimeMinutes, fill = animation_dummy)) +
   labs(y = "Runtime (minutes)", fill = "Type of Movie",
        title = "Distribution of Runtime by Movie Type")
 ggsave("../../gen/output/boxplot_runtime.png", p6, width = 7, height = 5)
-
-
-
-
-

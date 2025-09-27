@@ -4,7 +4,7 @@
 library(tidyverse)
 
 #Loading definite dataset
-movies <- read_csv("../../gen/output/movies_prepped.csv")
+movies <- read_csv("../../gen/temp/movies_prepped.csv")
 
 #Inspecting definitive dataset
 summary(movies)
