@@ -126,19 +126,31 @@ Test graph
 The structure of our repository is as follows:
 
 ``` text
-project-naam/
-├─ data/
-│  └─ download-data.R
+project-name/
 ├─ reporting/
 │  ├─ report.Rmd
 │  └─ start_app.R
 ├─ src/
 │  ├─ analysis/
-│  │  └─ analysis.R
+│  │  ├─ 1_descriptive_statistics.R
+│  │  ├─ 2_exploratory_visualisations.R
+│  │  ├─ 3_pre_assumption_check.R
+│  │  ├─ 4_regression_analysis.R
+│  │  ├─ 5_post_assumption_check.R
+│  │  ├─ analysis_raw.R
+│  │  ├─ assumption check_raw.R
+│  │  ├─ makefile
+│  │  └─ README.md
 │  └─ data-preparation/
-│     ├─ 1. Importing Data.R
-│     ├─ DataPreperation.Rmd
-│     └─ first-data-cleaning.R
+│     ├─ 1_download_raw_data.R
+│     ├─ 2_merge_raw_data.R
+│     ├─ 3_select_variables.R
+│     ├─ 4_handling_missing_values.R
+│     ├─ 5_filtering.R
+│     ├─ 6_feature_engineering.R
+│     ├─ makefile
+│     └─ README.md
+├─ .RDataTmp
 ├─ .gitignore
 ├─ README.md
 ├─ makefile
