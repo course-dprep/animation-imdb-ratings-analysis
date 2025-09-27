@@ -5,8 +5,7 @@ library(tidyverse)
 library(patchwork)   # for combining plots
 
 #Load data
-movies <- read_csv("../../gen/output/movies_prepped.csv")
-
+movies <- read_csv("../../gen/temp/movies_prepped.csv")
 
 #1. NORMALITY
 #Check DV for Normality
