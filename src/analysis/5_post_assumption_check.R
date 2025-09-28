@@ -4,9 +4,11 @@
 library(tidyverse)
 library(car)
 library(broom)
+library(lmtest)
 
 #NOTE TO FELLOW TEAMMATES; YOU HAVE TO HAVE READ IN THE DATA FIRST YOURSELF IN SCRIPT 4!
-
+#for purpuse of makefile, Version 2 is used
+regression_model <- readRDS("../../gen/output/version2.rds")
 #Checking post-assumptions of a linear regression model is specificied to its residuals,
 #and includes; normality, linearity, homoscedasticity and independence of errors
 
@@ -40,7 +42,7 @@ check_assumptions <- function(REGRESSION_VERSION) {
   cat("\n=======================================================================================\n")
   
   cat("\n1.3) Histogram\n\n")
-  model_residuals <- data.frame(.resid = residuals(version2))
+  model_residuals <- data.frame(.resid = residuals(REGRESSION_VERSION))
   create_histogram <- ggplot(model_residuals, aes(.resid)) +
     geom_histogram(aes(y = after_stat(density)),
                    bins = 40,
@@ -59,7 +61,7 @@ check_assumptions <- function(REGRESSION_VERSION) {
   
   cat("\n2) Linearity and Homoscedasticity: ZPRED vs ZRESID plot\n\n")
   png("../../gen/output/assumptions_ZPRED_vs_ZRESID_plot.png")
-  plot(version2, which=1)
+  plot(REGRESSION_VERSION, which=1)
   dev.off()
   print("Output requires visual inspection to assess if assumption is violated")
   print("Please consult 'assumptions_ZPRED_vs_ZRESID_plot.png' in the gen/output folder")
@@ -90,4 +92,4 @@ check_assumptions <- function(REGRESSION_VERSION) {
 }
 
 #The function has been created, and applied to the linear regression versions
-check_assumptions(version2)
+check_assumptions(regression_model)
