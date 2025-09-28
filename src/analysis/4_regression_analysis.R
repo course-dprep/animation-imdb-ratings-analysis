@@ -2,27 +2,28 @@
 
 #Load packages
 library(tidyverse)
-library(broom)
 
 #Load definitive dataset
 movies <- read_csv("../../gen/output/movies.csv")
 
-#T-test
-ttest <- t.test(averageRating ~ animation_dummy, data = movies)
-tidy(ttest) %>% write_csv("../../gen/output/ttest_animation.csv")
-#There is a significant different, which aligns with the higher rating found
-#in the previous graph
+#Model including basic variables
+version1 <- lm(averageRating ~ startYear*animation_dummy, data = movies); summary(version1)
+capture.output(summary(version1), file = "../../gen/output/lr_model_basic.txt")
+save(version1, file = "../../gen/temp/version1.RData")
 
-#General regression 
-Regression <- lm(averageRating ~ startYear*animation_dummy, data = movies)
-summary(Regression)
 
-#Regression including control variables
-CV_regression <- lm(averageRating ~ startYear*animation_dummy + runtimeMinutes + numVotes, data = movies)
-summary(CV_regression)
+#Model including basic + control variables
+version2 <- lm(averageRating ~ startYear*animation_dummy + log_runtimeMinutes + log_numVotes, data = movies); summary(version2)
+capture.output(summary(version2), file = "../../gen/output/lr_model_with_control_variables.txt")
+save(version2, file = "../../gen/output/version1.RData")
 
-tidy(Regression) %>% write_csv("../../gen/output/regression_baseline.csv")
-tidy(CV_regression) %>% write_csv("../../gen/output/regression_with_controls_variables.csv")
+#Both F-statistic and adjusted R2 is higher for version2, so this is a better model.
+
+#Model including basic + control + extra dummy release year
+version3 <- lm(averageRating ~ startYear*animation_dummy*before_2010_dummy + log_runtimeMinutes + log_numVotes, data = movies); summary(version3)
+
+
+
 
 # In the data preparation pipeline, we already created the dummy variable 
 # 'before_2010_dummy' (Release before 2010 vs Release since 2010).
@@ -34,12 +35,10 @@ tidy(CV_regression) %>% write_csv("../../gen/output/regression_with_controls_var
 # already performed in earlier pipeline steps, so we do not repeat them here.
 
 #General regression 
-Regression_Releaseyeardummy <- lm(averageRating ~ before_2010_dummy*animation_dummy, data = movies)
-summary(Regression_Releaseyeardummy)
+Regression_Releaseyeardummy <- lm(averageRating ~ before_2010_dummy*animation_dummy, data = movies); summary(Regression_Releaseyeardummy)
 
 #Regression including control variables
-CV_regression_Releaseyeardummy <- lm(averageRating ~ before_2010_dummy*animation_dummy + runtimeMinutes + numVotes, data = movies)
-summary(CV_regression_Releaseyeardummy)
+CV_regression_Releaseyeardummy <- lm(averageRating ~ before_2010_dummy*animation_dummy + runtimeMinutes + numVotes, data = movies); summary(CV_regression_Releaseyeardummy)
 
 tidy(Regression_Releaseyeardummy) %>% write_csv("../../gen/output/regression_before2010.csv")
 tidy(CV_regression_Releaseyeardummy) %>% write_csv("../../gen/output/regression_before2010_controls.csv")

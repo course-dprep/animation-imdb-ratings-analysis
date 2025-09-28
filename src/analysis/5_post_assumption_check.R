@@ -5,6 +5,8 @@ library(tidyverse)
 library(car)
 library(broom)
 
+#NOTE TO FELLOW TEAMMATES; YOU HAVE TO HAVE READ IN THE DATA FIRST YOURSELF IN SCRIPT 4!
+
 #Checking post-assumptions of a linear regression model is specificied to its residuals,
 #and includes; normality, linearity, homoscedasticity and independence of errors
 
