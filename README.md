@@ -128,6 +128,7 @@ The structure of our repository is as follows:
 ``` text
 project-name/
 ├─ reporting/
+│  ├─ .gitkeep
 │  ├─ report.Rmd
 │  └─ start_app.R
 ├─ src/
@@ -137,19 +138,20 @@ project-name/
 │  │  ├─ 3_pre_assumption_check.R
 │  │  ├─ 4_regression_analysis.R
 │  │  ├─ 5_post_assumption_check.R
+│  │  ├─ README.md
 │  │  ├─ analysis_raw.R
 │  │  ├─ assumption check_raw.R
-│  │  ├─ makefile
-│  │  └─ README.md
-│  └─ data-preparation/
-│     ├─ 1_download_raw_data.R
-│     ├─ 2_merge_raw_data.R
-│     ├─ 3_select_variables.R
-│     ├─ 4_handling_missing_values.R
-│     ├─ 5_filtering.R
-│     ├─ 6_feature_engineering.R
-│     ├─ makefile
-│     └─ README.md
+│  │  └─ makefile
+│  ├─data-preparation/
+│  │  ├─ 1_download_raw_data.R
+│  │  ├─ 2_merge_raw_data.R
+│  │  ├─ 3_select_variables.R
+│  │  ├─ 4_handling_missing_values.R
+│  │  ├─ 5_filtering.R
+│  │  ├─ 6_feature_engineering.R
+│  │  ├─ README.md
+│  │  └─ makefile
+│  └─ .gitkeep
 ├─ .RDataTmp
 ├─ .gitignore
 ├─ README.md
