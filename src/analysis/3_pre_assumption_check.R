@@ -1,23 +1,12 @@
-#Script to check the assumptions of variables to determine the regression model
+#Script to check the assumptions of variables that go into the regression model
 
 #Load packages
 library(tidyverse)
-library(patchwork)   # for combining plots
 
 #Load data
 movies <- read_csv("../../gen/temp/movies_prepped.csv")
 
-#1. NORMALITY
-#Check DV for Normality
-p_numVotes_raw1 <- movies %>% 
-  ggplot(aes(x = averageRating)) +
-  geom_histogram(binwidth = 0.1, fill = "purple", color = "white") +
-  xlim(0, 10)
-p_numVotes_raw1
-
-
-#2. LINEARITY
-#Create function to check assumption of linearity
+#Create function to check the assumption of linearity of predictors
 linearity_check <- function(data, predictor, outcome = "averageRating") {
   ggplot(data, aes(x = .data[[predictor]], y = .data[[outcome]])) +
     geom_point(alpha = 0.2) +
@@ -30,15 +19,13 @@ linearity_check <- function(data, predictor, outcome = "averageRating") {
     theme_minimal()
 }
 
-#Run function per predictor
-linearity_check(movies, "numVotes")
-linearity_check(movies, "runtimeMinutes")
-linearity_check(movies, "startYear")
+#Run function for predictor variables
+lapply(c("numVotes", "runtimeMinutes", "startYear"),
+       function(predictor) linearity_check(movies, predictor))
 
-#NumVotes violates Linearity, executing log transformation
-movies <- movies %>%
-  mutate(log_numVotes = log(numVotes))
+#Assumption of linearity violated for two variables, solve with log transformation
+movies <- movies %>% mutate(log_numVotes = log(numVotes),
+                            log_runtimeMinutes = log(runtimeMinutes))
 
-#Save file locally that will be used in the regression
+#Save file with transformed variables
 write.csv(movies, file = "../../gen/output/movies.csv", row.names = FALSE)
-

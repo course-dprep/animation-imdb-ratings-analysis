@@ -9,6 +9,7 @@ movies <- read_csv("../../gen/temp/movies_prepped.csv")
 #Inspecting definitive dataset
 summary(movies)
 table(movies$animation_dummy)
+table(movies$before_2010_dummy)
 
 #Creating subset of animation for further inspection
 animation_subset <- movies %>% 
