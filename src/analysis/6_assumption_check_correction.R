@@ -24,6 +24,14 @@ check_assumptions <- function(model, model_name = deparse(substitute(model))) {
   
   # 2) Residuals vs Fitted plot
   plot(model, which = 1, main = paste("Residuals vs Fitted -", model_name))
+  
+  #Multicollinearity
+  cat("\n[3] Multicollinearity (Variance Inflation Factors)\n")
+  print(car::vif(model))
+  
+  # Independence of residuals (Durbin Whatson test)
+  cat("\n[4] Independence of residuals (Durbin–Watson test)\n")
+  print(lmtest::dwtest(model))
 }
 
 # List of model names to try
@@ -41,4 +49,6 @@ for (nm in model_names) {
   } else {
     message("Model not found (did you run the regression script?): ", nm)
   }
+  
+  
 }
