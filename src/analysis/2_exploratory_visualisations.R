@@ -80,3 +80,16 @@ p_numVotes_raw1 <- movies %>%
     geom_histogram(binwidth = 0.1, fill = "purple", color = "white") +
     xlim(0, 10)
 p_numVotes_raw1
+
+
+
+
+#T-test
+ttest <- t.test(averageRating ~ animation_dummy, data = movies)
+ttest
+
+t.test(averageRating ~ animation_dummy, data = movies)
+
+tidy(ttest) %>% write_csv("../../gen/output/ttest_animation.csv")
+#There is a significant different, which aligns with the higher rating found
+#in the previous graph
