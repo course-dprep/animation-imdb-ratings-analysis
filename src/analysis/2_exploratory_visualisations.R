@@ -2,6 +2,7 @@
 
 #Load the package
 library(tidyverse)
+library(broom)
 
 #Loading definite dataset
 movies <- read_csv("../../gen/temp/movies_prepped.csv")
@@ -86,9 +87,7 @@ p_numVotes_raw1
 
 #T-test
 ttest <- t.test(averageRating ~ animation_dummy, data = movies)
-ttest
 
-t.test(averageRating ~ animation_dummy, data = movies)
 
 tidy(ttest) %>% write_csv("../../gen/output/ttest_animation.csv")
 #There is a significant different, which aligns with the higher rating found

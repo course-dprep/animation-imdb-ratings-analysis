@@ -21,8 +21,8 @@ capture.output(summary(version3), file = "../../gen/output/lr_model_with_extra_d
 #Version3 has the highest adjusted R2, however, the F-statistic is lower than for version2.
 #Therefore, version2 seems to be the best model fit.
 
-
-
+#While we are deciding on the model, version2 is used to conduct the further research (to be decided on wihch version)
+saveRDS(version2, "../../gen/output/version2.rds")
 
 
 
