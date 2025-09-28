@@ -2,7 +2,6 @@
 
 #Load packages
 library(tidyverse)
-library(patchwork)   # for combining plots
 
 #Load data
 movies <- read_csv("../../gen/temp/movies_prepped.csv")
