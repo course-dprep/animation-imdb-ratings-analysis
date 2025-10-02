@@ -8,8 +8,8 @@ library(lmtest)
 
 #Read in the regression results
 MODEL1_unstandardised <- readRDS("../../gen/output/MODEL1_unstandardised.rds")
-MODEL1_unstandardised <- readRDS("../../gen/output/MODEL2_unstandardised.rds")
-MODEL1_unstandardised <- readRDS("../../gen/output/MODEL3_unstandardised.rds")
+MODEL2_unstandardised <- readRDS("../../gen/output/MODEL2_unstandardised.rds")
+MODEL3_unstandardised <- readRDS("../../gen/output/MODEL3_unstandardised.rds")
 
 #Checking post-assumptions of a linear regression model is specified to its residuals,
 #and includes; normality, linearity, homoscedasticity and independence of errors.
@@ -84,7 +84,7 @@ check_assumptions <- function(REGRESSION_VERSION) {
   model_name <- deparse(substitute(REGRESSION_VERSION))
   zpz_file <- paste0("../../gen/output/assumptions_plot_ZPREDvsZRESID_", model_name, ".png")
   png(zpz_file)
-  plot(MODEL1_unstandardised, which=1)
+  plot(REGRESSION_VERSION, which=1)
   dev.off()
 
   #Automatically print the result of this assumption test
@@ -141,8 +141,9 @@ check_assumptions <- function(REGRESSION_VERSION) {
   
   model_name <- deparse(substitute(REGRESSION_VERSION))
   cat("\nThis marks the end of the assumption checking for", model_name, "\n")
-  
+
 }
+
 
 
 #The above function can be applied to the regression models
