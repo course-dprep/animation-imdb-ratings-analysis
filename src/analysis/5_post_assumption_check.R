@@ -6,9 +6,12 @@ library(car)
 library(broom)
 library(lmtest)
 
-#NOTE TO FELLOW TEAMMATES; YOU HAVE TO HAVE READ IN THE DATA FIRST YOURSELF IN SCRIPT 4!
-#for purpuse of makefile, Version 2 is used
-regression_model <- readRDS("../../gen/output/version2.rds")
+#Read in the regression results
+model1 <- readRDS("../../gen/output/model1.rds")
+model2 <- readRDS("../../gen/output/model2.rds")
+model3 <- readRDS("../../gen/output/model3.rds")
+
+
 #Checking post-assumptions of a linear regression model is specificied to its residuals,
 #and includes; normality, linearity, homoscedasticity and independence of errors
 
@@ -92,4 +95,4 @@ check_assumptions <- function(REGRESSION_VERSION) {
 }
 
 #The function has been created, and applied to the linear regression versions
-check_assumptions(regression_model)
+check_assumptions(model3)
