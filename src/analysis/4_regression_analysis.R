@@ -2,34 +2,31 @@
 
 #Load packages
 library(tidyverse)
+library(lm.beta)
 
 #Load definitive dataset
 movies <- read_csv("../../gen/output/movies.csv")
 
+#Ensure the dummies are treated as categorical variables
+movies$before_2010_dummy <- as.factor(movies$before_2010_dummy)
+movies$animation_dummy <- as.factor(movies$animation_dummy)
+
 #Model with basic variables
-model1 <- lm(averageRating ~ startYear*animation_dummy, data = movies); summary(version1)
-capture.output(summary(version1), file = "../../gen/output/lr_model_basic.txt")
+MODEL1_unstandardised <- lm(averageRating ~ before_2010_dummy + animation_dummy, data = movies); summary(MODEL1_unstandardised)
+MODEL1 <- lm.beta(MODEL1_unstandardised); summary(MODEL1)
+capture.output(summary(MODEL1), file = "../../gen/output/lr_model_basic.txt")
 
 #Model with basic + control variables
-model2 <- lm(averageRating ~ startYear*animation_dummy + log_runtimeMinutes + log_numVotes, data = movies); summary(version2)
-capture.output(summary(version2), file = "../../gen/output/lr_model_with_control_variables.txt")
+MODEL2_unstandardised <- lm(averageRating ~ before_2010_dummy + animation_dummy + startYear + log_runtimeMinutes + log_numVotes, data = movies); summary(MODEL2_unstandardised)
+MODEL2 <- lm.beta(MODEL2_unstandardised); summary(MODEL2)
+capture.output(summary(MODEL2), file = "../../gen/output/lr_model_with_control_variables.txt")
 
-#Model with basic + control + extra dummy release year
-model3 <- lm(averageRating ~ startYear*animation_dummy*before_2010_dummy + log_runtimeMinutes + log_numVotes, data = movies); summary(version3)
-capture.output(summary(version3), file = "../../gen/output/lr_model_with_extra_dummy.txt")
+#Model with basic + control + interactions
+MODEL3_unstandardised <- lm(averageRating ~ before_2010_dummy*animation_dummy + animation_dummy*startYear + log_runtimeMinutes + log_numVotes, data = movies); summary(MODEL3_unstandardised)
+MODEL3 <- lm.beta(MODEL3_unstandardised); summary(MODEL3)
+capture.output(summary(MODEL3), file = "../../gen/output/lr_model_with_extra_dummy.txt")
 
 #Save the regressions locally
-saveRDS(model1, "../../gen/output/model1.rds")
-saveRDS(model2, "../../gen/output/model2.rds")
-saveRDS(model3, "../../gen/output/model3.rds")
-
-
-
-
-
-#General regression 
-model4 <- lm(averageRating ~ before_2010_dummy*animation_dummy, data = movies); summary(model4)
-
-#Regression including control variables
-model5 <- lm(averageRating ~ before_2010_dummy*animation_dummy + log_runtimeMinutes + log_numVotes, data = movies); summary(model5)
-
+saveRDS(MODEL1_unstandardised, "../../gen/output/MODEL1_unstandardised.rds")
+saveRDS(MODEL2_unstandardised, "../../gen/output/MODEL2_unstandardised.rds")
+saveRDS(MODEL3_unstandardised, "../../gen/output/MODEL3_unstandardised.rds")
