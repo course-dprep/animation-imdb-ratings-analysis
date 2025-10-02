@@ -27,6 +27,6 @@ MODEL3 <- lm.beta(MODEL3_unstandardised); summary(MODEL3)
 capture.output(summary(MODEL3), file = "../../gen/output/lr_model_with_extra_dummy.txt")
 
 #Save the regressions locally
-saveRDS(MODEL1, "../../gen/output/MODEL1.rds")
-saveRDS(MODEL2, "../../gen/output/MODEL2.rds")
-saveRDS(MODEL3, "../../gen/output/MODEL3.rds")
+saveRDS(MODEL1_unstandardised, "../../gen/output/MODEL1_unstandardised.rds")
+saveRDS(MODEL2_unstandardised, "../../gen/output/MODEL2_unstandardised.rds")
+saveRDS(MODEL3_unstandardised, "../../gen/output/MODEL3_unstandardised.rds")
