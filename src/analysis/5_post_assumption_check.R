@@ -54,7 +54,7 @@ check_assumptions <- function(REGRESSION_VERSION) {
   
   
   cat("\n1.3) Histogram\n\n")
-  model_residuals <- data.frame(.resid = residuals(MODEL2_unstandardised))
+  model_residuals <- data.frame(.resid = residuals(REGRESSION_VERSION))
   create_histogram <- ggplot(model_residuals, aes(.resid)) +
     geom_histogram(aes(y = after_stat(density)),
                    bins = 40,
@@ -66,9 +66,9 @@ check_assumptions <- function(REGRESSION_VERSION) {
          x = "Residuals", 
          y = "Density"); print(create_histogram)
   
-  #To avoid images being overrun, a timestamp is used for saving the file
-  timestamp <- format(Sys.time(), "%Y-%m-%d_%H-%M-%S")
-  filename <- paste0("../../gen/output/assumptions_histogram_", timestamp, ".png")
+  #To avoid images being overrun, the model name is seperately saved
+  model_name <- deparse(substitute(REGRESSION_VERSION))
+  filename <- paste0("../../gen/output/assumptions_histogram_", model_name, ".png")
   ggsave(filename, plot = create_histogram)
 
   #Automatically print the result of this assumption test
@@ -80,11 +80,11 @@ check_assumptions <- function(REGRESSION_VERSION) {
   
   
   cat("\n2) Linearity and Homoscedasticity: ZPRED vs ZRESID plot\n\n")
-  #To avoid images being overrun, a timestamp is used for saving the file
-  timestamp <- format(Sys.time(), "%Y-%m-%d_%H-%M-%S")
-  zpz_file <- paste0("../../gen/output/assumptions_ZPRED_vs_ZRESID_plot_", timestamp, ".png")
+  #To avoid images being overrun, the model name is seperately saved
+  model_name <- deparse(substitute(REGRESSION_VERSION))
+  zpz_file <- paste0("../../gen/output/assumptions_plot_ZPREDvsZRESID_", model_name, ".png")
   png(zpz_file)
-  plot(REGRESSION_VERSION, which=1)
+  plot(MODEL1_unstandardised, which=1)
   dev.off()
 
   #Automatically print the result of this assumption test
