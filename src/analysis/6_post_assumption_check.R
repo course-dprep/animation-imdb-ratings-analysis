@@ -154,7 +154,7 @@ sink()
 
 #Model 2 - run and saved locally
 sink("../../gen/output/assumption_checks_model2.txt", split = TRUE)
-check_assumptions(MODEL1_unstandardised)
+check_assumptions(MODEL2_unstandardised)
 sink()
 
 #Model 3 - run and saved locally
