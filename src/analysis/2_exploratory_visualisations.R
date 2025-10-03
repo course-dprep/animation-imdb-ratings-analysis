@@ -4,20 +4,20 @@
 library(tidyverse)
 library(broom)
 
-#Loading definite dataset
+#Loading dataset
 movies <- read_csv("../../gen/temp/movies_prepped.csv")
 
 #Frequencies: histogram of average rating together
 p1 <- ggplot(movies, aes(x=averageRating, fill = animation_dummy)) + 
-  geom_histogram(binwidth = 0.1) +
-  labs(x = "Average Rating", y = "Count", fill = "Type of Movie")
+  geom_histogram(binwidth = 0.1, color - "white") +
+  labs(x = "Average Rating", y = "Count", fill = "Type of Movie"); p1
 ggsave("../../gen/output/hist_average_rating.png", p1, width = 7, height = 5)
 
 #Frequencies: histogram of number of movies per year split
 p2 <- ggplot(movies, aes(x=startYear, fill = animation_dummy)) + 
   geom_histogram(binwidth = 1.0) +
   labs(x = "Release Year", y = "Count", fill = "Type of Movie") +
-  theme_classic()
+  theme_classic(); p2
 ggsave("../../gen/output/hist_movies_per_year.png", p2, width = 7, height = 5)
 
 #Output aligns with expectation; increase in movies over the years, but seems more
@@ -36,7 +36,7 @@ p3 <- ggplot(graph_allmovies, aes(x=startYear, y=meanRating)) +
   scale_y_continuous(limits = c(0, 10)) +
   labs(x = "Release Year", 
        y = "Average IMDb Rating", 
-       title = "Average Rating per Year")
+       title = "Average Rating per Year"); p3
 
   ggsave("../../gen/output/line_avg_rating_all.png", p3, width = 7, height = 5)
 
@@ -51,7 +51,7 @@ p4 <- ggplot(graph_splitmovies, aes(x = startYear, y = meanRating, color = anima
   labs(x = "Release Year",
        y = "Average IMDb Rating",
        colour = "Type of Movie",
-       title = "Average Rating per Year per Type of Movie")
+       title = "Average Rating per Year per Type of Movie"); p4
 
   ggsave("../../gen/output/line_avg_rating_by_type.png", p4, width = 7, height = 5)
 
@@ -61,7 +61,7 @@ p5 <- ggplot(movies, aes(x = startYear, y = averageRating, colour = animation_du
   labs (x = "Year", y = "Average IMDb Rating",
         colour = "Type of Movie",
         title = "Average rating over time per movie type") +
-  theme_classic()
+  theme_classic(); p5
   
   ggsave("../../gen/output/smooth_avg_rating_by_type.png", p5, width = 7, height = 5)
 
@@ -69,26 +69,6 @@ p5 <- ggplot(movies, aes(x = startYear, y = averageRating, colour = animation_du
 p6 <- ggplot(movies, aes(y = runtimeMinutes, fill = animation_dummy)) + 
   geom_boxplot()+
   labs(y = "Runtime (minutes)", fill = "Type of Movie",
-       title = "Distribution of Runtime by Movie Type")
+       title = "Distribution of Runtime by Movie Type"); p6
   
   ggsave("../../gen/output/boxplot_runtime.png", p6, width = 7, height = 5)
-
-  
-  
-  
-p_numVotes_raw1 <- movies %>% 
-    ggplot(aes(x = averageRating)) +
-    geom_histogram(binwidth = 0.1, fill = "purple", color = "white") +
-    xlim(0, 10)
-p_numVotes_raw1
-
-
-
-
-#T-test
-ttest <- t.test(averageRating ~ animation_dummy, data = movies)
-
-
-tidy(ttest) %>% write_csv("../../gen/output/ttest_animation.csv")
-#There is a significant different, which aligns with the higher rating found
-#in the previous graph

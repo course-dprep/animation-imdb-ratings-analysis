@@ -24,7 +24,7 @@ capture.output(summary(MODEL2), file = "../../gen/output/lr_model_with_control_v
 #Model with basic + control + interactions
 MODEL3_unstandardised <- lm(averageRating ~ before_2010_dummy*animation_dummy + animation_dummy*startYear + log_runtimeMinutes + log_numVotes, data = movies); summary(MODEL3_unstandardised)
 MODEL3 <- lm.beta(MODEL3_unstandardised); summary(MODEL3)
-capture.output(summary(MODEL3), file = "../../gen/output/lr_model_with_extra_dummy.txt")
+capture.output(summary(MODEL3), file = "../../gen/output/lr_model_with_interaction.txt")
 
 #Save the regressions locally
 saveRDS(MODEL1_unstandardised, "../../gen/output/MODEL1_unstandardised.rds")
