@@ -1,0 +1,32 @@
+---
+title: "Data_exploration"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+# Data exploration
+
+## 1. Dataset description
+
+**Data source**
+
+**Data size**
+
+**Structure**
+
+**Key variables**
+
+## 2. Initial exploration
+
+**Missing values**
+
+**Duplicates**
+
+**Data types**
+
+## 3. Descriptive statistics
+
+## 4. Visualizations
+
+## 5. Key insights
