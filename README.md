@@ -60,7 +60,7 @@ sequels decades after his debut in 1995. On another note, animated films are oft
 targeted at children and families, which strengthens the sense of nostalgia through 
 intergenerational re-watches (Lizardi, 2020). The present study will test this with:
 
-***H2:*** _The negative impact of release year (before vs since 2010) on ratings is weaker for animated movies compared to non-animated movies._
+***H2:*** _The negative effect of release year on ratings is moderated by animation status, such that the decline is weaker for animated movies than for non-animated movies._
 
 ## Data
 
@@ -189,9 +189,6 @@ Netherlands. The project is implemented by team 2:
 
 ## Sources
 
-Billy Thompson. (2024, May 25). The Rise and Fall of Streaming TV? –
-Michigan Journal of Economics. Michigan Journal of Economics. <https://sites.lsa.umich.edu/mje/2024/05/25/the-rise-and-fall-of-streaming-tv/>
-
 Bollen, D., Graus, M. P., & Willemsen, M. C. (2012). Remembering the
 stars?: effect of time on preference retrieval from memory. Proceedings
 of the sixth ACM conference on Recommender systems.<https://doi.org/10.1145/2365952.2365998>
@@ -225,5 +222,5 @@ Sun, Z. (2023). What does cgi digital technology bring to the
 sustainable development of animated films?. Sustainability, 15(14),
 10895.<https://doi.org/10.3390/su151410895>
 
-
-
+Thompson, B. (2024, May 25). The Rise and Fall of Streaming TV? –
+Michigan Journal of Economics. Michigan Journal of Economics. <https://sites.lsa.umich.edu/mje/2024/05/25/the-rise-and-fall-of-streaming-tv/>
