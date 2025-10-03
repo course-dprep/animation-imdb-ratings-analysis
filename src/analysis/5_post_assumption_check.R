@@ -145,8 +145,19 @@ check_assumptions <- function(REGRESSION_VERSION) {
 }
 
 
+#The check_assumptions function from above can be applied to the regression models
 
-#The above function can be applied to the regression models
+#Model 1 - run and saved locally
+sink("../../gen/output/assumption_checks_model1.txt", split = TRUE)
 check_assumptions(MODEL1_unstandardised)
-check_assumptions(MODEL2_unstandardised)
+sink()
+
+#Model 2 - run and saved locally
+sink("../../gen/output/assumption_checks_model2.txt", split = TRUE)
+check_assumptions(MODEL1_unstandardised)
+sink()
+
+#Model 3 - run and saved locally
+sink("../../gen/output/assumption_checks_model3.txt", split = TRUE)
 check_assumptions(MODEL3_unstandardised)
+sink()
