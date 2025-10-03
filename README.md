@@ -60,7 +60,7 @@ sequels decades after his debut in 1995. On another note, animated films are oft
 targeted at children and families, which strengthens the sense of nostalgia through 
 intergenerational re-watches (Lizardi, 2020). The present study will test this with:
 
-***H2:*** _The negative effect of release year on ratings is moderated by animation status, such that the decline is weaker for animated movies than for non-animated movies._
+***H2:*** _The negative effect of release year (before vs since 2010) on ratings is moderated by animation status, such that the decline is less pronounced for animated movies than for non-animated movies._
 
 ## Data
 
