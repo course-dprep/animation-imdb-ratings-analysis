@@ -48,7 +48,7 @@ refer to this as a form of “positivity effect.” Overall, these findings unde
 the expectation that newer films tend to be rated lower than older films, which 
 will be tested with:
 
-***H1:*** _There is a negative relationship between release year and rating._
+***H1:*** _Movies released after 2010 receive lower average ratings than movies released before 2010._
 
 Animated films are more easily regarded as timeless, whereas the effect of H1 
 might differ between the two categories. As such, animation remains memorable 
@@ -60,7 +60,7 @@ sequels decades after his debut in 1995. On another note, animated films are oft
 targeted at children and families, which strengthens the sense of nostalgia through 
 intergenerational re-watches (Lizardi, 2020). The present study will test this with:
 
-***H2:*** _The negative effect of release year on rating is weaker for animated films compared to non-animated films._
+***H2:*** _The negative impact of release year (before vs since 2010) on ratings is weaker for animated movies compared to non-animated movies._
 
 ## Data
 
