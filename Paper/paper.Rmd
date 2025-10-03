@@ -1,17 +1,19 @@
 ---
-title: 'About Time: Predicting IMDb Movie Ratings with Release Year and the Effect of Animation'
-output: pdf_document
-authors: 
+title: '**About Time: Investigating IMDb Movie Ratings with Release Year and the Effect of Animation**'
 date: "`r Sys.Date()`"
+author: "Britt van Haaster, Isah Huijbregts, Lars van der Kroft, Amanda van Lankveld, Amy Quist, Stefan Valentijn"
+output:
+  pdf_document:
+    toc: true
+    toc_depth: 3
 ---
 
-## Table of Contents
-
-Make sure this works with automatic referencing!
-
-
-
 ## Introduction
+
+
+## Literature Review
+
+
 
 
 
@@ -42,7 +44,41 @@ Make sure this works with automatic referencing!
 
 ## Reference List
 
+Billy Thompson. (2024, May 25). The Rise and Fall of Streaming TV? –
+Michigan Journal of Economics. Michigan Journal of Economics. <https://sites.lsa.umich.edu/mje/2024/05/25/the-rise-and-fall-of-streaming-tv/>
 
+Bollen, D., Graus, M. P., & Willemsen, M. C. (2012). Remembering the
+stars?: effect of time on preference retrieval from memory. Proceedings
+of the sixth ACM conference on Recommender systems.<https://doi.org/10.1145/2365952.2365998>
+
+Hadida, A. L., Lampel, J., Walls, W. D., & Joshi, A. (2020). Hollywood
+Studio Filmmaking in the Age of Netflix: a Tale of Two Institutional
+Logics. Journal of Cultural Economics, 45(2), 213–238. <https://doi.org/10.1007/s10824-020-09379-z>
+
+Hennig-Thurau, T., Ravid, S. A., & Sorenson, O. (2021). The Economics of
+Filmed Entertainment in the Digital Era. Journal of Cultural Economics,
+45(2), 157–170. <https://doi.org/10.1007/s10824-021-09407-6>
+
+Kumar, L. (2023, April). A Study On The Impact Of The OTT Platform On
+The Cinema With The Special Reference On The Cinema Audience.
+ResearchGate; unknown. <https://www.researchgate.net/publication/376650380_A_Study_On_The_Impact_Of_The_OTT_Platform_On_The_Cinema_With_The_Special_Reference_On_The_Cinema_Audience>
+
+Larson, V. J. (2025). Philosophy in filmmaking: Animation vs. live action (Honors Program Theses No. 976) [Undergraduate thesis, University of Northern Iowa]. University of Northern Iowa Repository. <https://scholarworks.uni.edu/cgi/viewcontent.cgi?article=2004&context=hpt>
+
+Lizardi, R. (2020). The future of nostalgia is inevitable: Reflections on mediated nostalgia. In M. H. Jacobsen (Ed.), Nostalgia Now: Cross-disciplinary perspectives on the past in the present (1st ed., pp. 147-161). Routledge. <https://doi.org/10.4324/9780429287602-8>
+
+Moon, S., Bergey, P. K., & Iacobucci, D. (2009). Dynamic Effects among
+Movie Ratings, Movie Revenues, and Viewer Satisfaction. Journal Of
+Marketing, 74(1), 108–121. <https://doi.org/10.1509/jmkg.74.1.108>
+
+Oberoi, S. (2024, December 3). The Evolution of Netflix: from DVD
+Rentals to Global Streaming Leader. Seat11a.com. <https://seat11a.com/blog-the-evolution-of-netflix-from-dvd-rentals-to-global-streaming-leader/>
+
+Ramos, M., Calvão, A. M., & Anteneodo, C. (2015). Statistical patterns in movie rating behavior. PLOS ONE, 10(8), e0136083. <https://doi.org/10.1371/journal.pone.0136083>
+
+Sun, Z. (2023). What does cgi digital technology bring to the
+sustainable development of animated films?. Sustainability, 15(14),
+10895. <https://doi.org/10.3390/su151410895>
 
 
 
