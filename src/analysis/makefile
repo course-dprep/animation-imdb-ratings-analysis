@@ -12,7 +12,8 @@ $(OUTPUT)/assumptions_histogram_MODEL2_unstandardised.png \
 $(OUTPUT)/assumptions_histogram_MODEL3_unstandardised.png \
 $(OUTPUT)/assumptions_plot_ZPREDvsZRESID_MODEL1_unstandardised.png \
 $(OUTPUT)/assumptions_plot_ZPREDvsZRESID_MODEL2_unstandardised.png \
-$(OUTPUT)/assumptions_plot_ZPREDvsZRESID_MODEL3_unstandardised.png
+$(OUTPUT)/assumptions_plot_ZPREDvsZRESID_MODEL3_unstandardised.png \
+$(OUTPUT)/ttest_rating.txt
 
 # Step 1: Descriptive statistics
 $(OUTPUT)/animation_subset.csv \

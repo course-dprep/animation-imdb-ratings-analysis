@@ -10,4 +10,6 @@ movies <- read_csv("../../gen/temp/movies_prepped.csv")
 ttest <- t.test(averageRating ~ animation_dummy, data = movies)
 
 #Save the results of the t-test locally
-capture.output(ttest, file = "../../gen/output/ttest_rating.txt")
+sink("../../gen/output/ttest_rating.txt", split = TRUE)
+print(ttest)
+sink()
