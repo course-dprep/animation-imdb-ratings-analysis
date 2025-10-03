@@ -1,4 +1,4 @@
-# About Time: Predicting IMDb Movie Ratings with Release Year and the Effect of Animation
+# About Time: Analysing IMDb Movie Ratings with Release Year and the Effect of Animation
 
 ## Motivation
 Movies -a form of entertainment that has been around for centuries. Yet, the 
