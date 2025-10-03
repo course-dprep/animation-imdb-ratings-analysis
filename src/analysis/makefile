@@ -31,7 +31,7 @@ $(OUTPUT)/boxplot_runtime.png: 2_exploratory_visualisations.R $(TEMP)/movies_pre
 	Rscript --vanilla $<
 
 # Step 3: T-Test
-$(OUTPUT)/ttest_rating.csv: t-test.R $(TEMP)/movies_prepped.csv
+$(OUTPUT)/ttest_rating.txt: t-test.R $(TEMP)/movies_prepped.csv
 	Rscript --vanilla $<
 	
 # Step 4: Pre assumption check
