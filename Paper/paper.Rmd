@@ -21,6 +21,7 @@ Over the years, black-and-white deaf movies have advanced to colourful and effec
 
 *To what extent does the release year of a movie influence its average IMDb rating, and does this relationship differ between animated and non-animated films?*
 
+\newpage
 
 ## Literature Review
 
@@ -32,7 +33,7 @@ Animated films are more easily regarded as timeless, whereas the effect of H1 mi
 
 ***H2:*** _The negative effect of release year (before vs since 2010) on ratings is moderated by animation status, such that the decline is less pronounced for animated movies than for non-animated movies._
 
-
+\newpage
 
 ## Methodology
 
@@ -66,6 +67,7 @@ The dataset merged from the secondary data contains the following variables:
 | before_2010_dummy | dummy     | Whether a movie is released before or after 2010                        |
 | animation_dummy   | dummy     | Whether a movie is animated or not                                      |
 
+\newpage
 
 ## Findings
 
@@ -80,7 +82,7 @@ The dataset merged from the secondary data contains the following variables:
 
 
 
-
+\newpage
 
 ## Conclusions and Discussion
 
@@ -95,6 +97,7 @@ The dataset merged from the secondary data contains the following variables:
 ### Future Research
 
 
+\newpage
 
 ## Reference List
 
@@ -122,7 +125,9 @@ Sun, Z. (2023). What does cgi digital technology bring to the sustainable develo
 
 
 
+\newpage
 
+## Appendix
 
 
 
@@ -136,4 +141,3 @@ Note that the `echo = FALSE` parameter was added to the code chunk to prevent pr
 ```{r pressure, echo=FALSE}
 plot(pressure)
 ```
-
