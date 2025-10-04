@@ -78,14 +78,13 @@ Other potential factors that were not specifically hypothesised but could influe
 
 ### Descriptive Statistics
 
-
-
+<see SCRUM: part for ISAH + AMY>
 
 
 
 ### T-Test
 
-As visualised in <graph 2>, the average rating for animation movies is higher (M = 6.509, SD = ) then for non-animation movies (M = 6.218, SD = ). In further solidifying this, the independent t-test found that the difference, 0.291, BCa 95% CI [0.241, 0.341}, is significant t(1973) = 11.417, p = < 0.001.
+As visualised in <graph 2>, the average rating for animation movies with 6.509 (SD = ) is higher then for non-animation movies with 6.218 (SD = ). In further solidifying this, the independent t-test found that the difference, 0.291, BCa 95% CI [0.241, 0.341}, is significant t(1973) = 11.417, p = < 0.001.
 
 ```{r independent t-test, echo=FALSE}
 print(readLines("../gen/output/ttest_rating.txt"))
@@ -95,22 +94,40 @@ print(readLines("../gen/output/ttest_rating.txt"))
 
 ### Regression Analysis
 
+### Findings
 
+<see SCRUM: part for LARS>
+
+
+
+
+### Assumptions
+
+```{r fig.align='center', out.width='50%'}
+knitr::include_graphics("../gen/output/assumptions_histogram_MODEL3_unstandardised.png")
+```
+
+<see SCRUM: part for STEFAN>
 
 
 \newpage
 
 ## Chapter 5: Conclusions and Discussion
 
-
 ### Conclusion
+
+<see SCRUM: part for LARS>
 
 
 
 ### Limitations
 
+<see SCRUM: part for AMANDA>
+
 
 ### Future Research
+
+<see SCRUM: part for BRITT>
 
 
 \newpage
