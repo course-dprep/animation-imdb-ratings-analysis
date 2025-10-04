@@ -10,9 +10,11 @@ output:
     toc_depth: 3
 ---
 
-## Introduction
+\newpage
 
-## Motivation
+## Chapter 1: Introduction
+
+### Motivation
 Movies -a form of entertainment that has been around for centuries. Yet, the distribution and consumer perceptions of movies have shifted since the introduction of streaming services (Hennig-Hurau et al., 2021; Kumar, 2023). In 2010, the international expansion of Netflix across the globe marked a key point in the growth of on-demand content (Oberoj, 2024). The saturation and availability of the entertainment market have resulted in more critical consumers, which seemingly affects how audiences evaluate films (Hadida et al., 2020). Although research has been performed on movie ratings over time (e.g. Moon et al., 2010; Ramos et al., 2015), the effect of streaming remains rather unexplored.
 
 Over the years, black-and-white deaf movies have advanced to colourful and effects-heavy motion pictures due to technological developments. This is especially prominent in animation, where disruptions in Computer Generated Images (CGI) and production techniques have significantly enhanced visual quality and storytelling opportunities (Sun, 2023). Consequently, audience evaluations of animated films could differ from live-action films.  Yet, current research has not addressed this focus on animation.All in all, the present study provides academic relevance by investigating the temporal dynamics on  the quality perception of movies, while also accounting for the effect of animation. These insights are also socially relevant for filmmakers and distributors to better understand audiences. The focus of the research can be encapsulated with the following research question:
@@ -23,7 +25,7 @@ Over the years, black-and-white deaf movies have advanced to colourful and effec
 
 \newpage
 
-## Literature Review
+## Chapter 2: Literature Review
 
 Ever since the introduction of Netflix, more streaming services have entered the market with players such as Disney+, Amazon Prime Video and HBO Max. Competitiveness rose, resulting in a greater variety of TV shows and movies offered (Thompson, 2024). Simultaneously, the more experienced a viewer is in watching movies, the more criticalthey tend to become (Moon et al., 2009). As such, it could be expected that newer movies are rated worse than older movies because the frame of reference has increased. Additionally, with the rise of digital platforms and social media, review-bombinghas become an omnipresent phenomenon upon the release of new films. Moreover, there has been an increasingly vocal group that criticizes the franchise- and sequel-based strategies that movie corporations have adopted. Furthermore, it could be argued that movie consumers often experience nostalgia for films watched in their childhood, resulting in higher ratings for older movies. Authors such as Bollen et al. (2012) refer to this as a form of “positivity effect.” Overall, these findings underscore the expectation that newer films tend to be rated lower than older films, which will be tested with:
 
@@ -35,15 +37,7 @@ Animated films are more easily regarded as timeless, whereas the effect of H1 mi
 
 \newpage
 
-## Methodology
-
-### Type of Analyses
-
-To test the hypothesis, a linear regression was conducted in R Studio. Release year was treated as the independent variable, and average IMDb user rating as thedependent variable. 
-
-Whether a movie was an animation was dummy coded (0 = non-animated, 1 = animated) and included as a moderator to test whether it has a significant effect on the relationship from release year to the average rating. 
-
-Other potential factors that were not specifically hypothesised but could influence ratings were added as control variables in the regression. This included runtime, and number of votes. Furthermore, a dummy was created for whether a movie was released before 2010 or after, in order to test the effect of the rise in streaming services since the international introduction of Netflix.
+## Chapter 3: Methodology
 
 ### Data
 
@@ -67,14 +61,36 @@ The dataset merged from the secondary data contains the following variables:
 | before_2010_dummy | dummy     | Whether a movie is released before or after 2010                        |
 | animation_dummy   | dummy     | Whether a movie is animated or not                                      |
 
+
+### Type of Analyses
+
+In first assessing whether there was a signifciant difference in rating between animation and non-animation movies, an *independent t-test* was performed. 
+
+To test the hypothesis, a linear regression was conducted in R Studio. Release year was treated as the independent variable, and average IMDb user rating as the dependent variable. 
+
+Whether a movie was an animation was dummy coded (0 = non-animated, 1 = animated) and included as a moderator to test whether it has a significant effect on the relationship from release year to the average rating. 
+
+Other potential factors that were not specifically hypothesised but could influence ratings were added as control variables in the regression. This included runtime, and number of votes. Furthermore, a dummy was created for whether a movie was released before 2010 or after, in order to test the effect of the rise in streaming services since the international introduction of Netflix.
+
 \newpage
 
-## Findings
+## Chapter 4: Findings
 
 ### Descriptive Statistics
 
 
+
+
+
+
 ### T-Test
+
+As visualised in <graph 2>, the average rating for animation movies is higher (M = 6.509, SD = ) then for non-animation movies (M = 6.218, SD = ). In further solidifying this, the independent t-test found that the difference, 0.291, BCa 95% CI [0.241, 0.341}, is significant t(1973) = 11.417, p = < 0.001.
+
+```{r independent t-test, echo=FALSE}
+print(readLines("../gen/output/ttest_rating.txt"))
+```
+
 
 
 ### Regression Analysis
@@ -84,7 +100,7 @@ The dataset merged from the secondary data contains the following variables:
 
 \newpage
 
-## Conclusions and Discussion
+## Chapter 5: Conclusions and Discussion
 
 
 ### Conclusion
@@ -98,6 +114,7 @@ The dataset merged from the secondary data contains the following variables:
 
 
 \newpage
+
 
 ## Reference List
 
@@ -133,7 +150,7 @@ Sun, Z. (2023). What does cgi digital technology bring to the sustainable develo
 
 
 
-## Including Plots
+## Instruction for Including Plots
 
 You can also embed plots, for example:
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
