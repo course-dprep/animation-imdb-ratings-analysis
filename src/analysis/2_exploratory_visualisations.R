@@ -9,7 +9,7 @@ movies <- read_csv("../../gen/temp/movies_prepped.csv")
 
 #Frequencies: histogram of average rating together
 p1 <- ggplot(movies, aes(x=averageRating, fill = animation_dummy)) + 
-  geom_histogram(binwidth = 0.1, color - "white") +
+  geom_histogram(binwidth = 0.1, color = "white") +
   labs(x = "Average Rating", y = "Count", fill = "Type of Movie"); p1
 ggsave("../../gen/output/hist_average_rating.png", p1, width = 7, height = 5)
 
