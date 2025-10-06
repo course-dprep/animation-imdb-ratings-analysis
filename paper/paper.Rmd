@@ -71,11 +71,13 @@ In further testing the hypotheses, two dummy variables were feature engineered;
 
 In first assessing whether there was a significant difference in rating between animation and non-animation movies, an *independent t-test* was performed. For this, the procedure of Hair et al. (2019) was adopted.
 
-To test the hypothesis, a linear regression was conducted in R Studio. Release year was treated as the independent variable, and average IMDb user rating as the dependent variable. 
+To test H1 and H2, a *linear regression* was conducted in R Studio. The dependent variable that was aimed to be explained was the average IMDb rating. For the independent variables, these were entered step-wise in three models, and then assessed on fitness based on the Adjusted R^2. The variables in the three models consisted of;
 
-Whether a movie was an animation was dummy coded (0 = non-animated, 1 = animated) and included as a moderator to test whether it has a significant effect on the relationship from release year to the average rating. 
+1. Model 1: including the basic predictors. Whether a movie was an animation was dummy-coded into the variable `animation_dummy` (0 = non-animated, 1 = animated), while the release year was stored into `before_2010_dummy` (0 = since 2010, 1 = before 2010) and included. The interaction between variables was not yet tested in model 1.
 
-Other potential factors that were not specifically hypothesised but could influence ratings were added as control variables in the regression. This included runtime, and number of votes. Furthermore, a dummy was created for whether a movie was released before 2010 or after, in order to test the effect of the rise in streaming services since the international introduction of Netflix.
+2. Model 2: including the basic predictors and control variables. Other potential factors that were not specifically hypothesised but could influence ratings were added as control variables in model 2. This included `startYear`, `runtimeMinutes` and `numVotes`. Upon initial inspection, the distribution of `runtimeMinutes` and `numVotes` was not normal, whereby these have been log transformed and entered into the model as `log_runtimeMinutes` and `log_numVotes`.
+
+3. Model 3: including the basic predictors and control variables and interactions. The expected moderation effects between `before_2010_dummy` and `animation_dummy`, and `animation_dummy` and `startYear` was included in order to test H1 and H2. 
 
 \newpage
 
