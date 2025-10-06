@@ -19,9 +19,27 @@ In this project, a subset of the data set is used, consisting only of movies, as
 
 **Data size**
 
-The file raw_basics consists of 9 variables and 724580 observations. The file raw_ratings consists of 3 variables and 1609173 observations
+The file raw_basics consists of 9 variables and 724580 observations. The file raw_ratings consists of 3 variables and 1609173 observations. After merging the two datasets into one, with left join on tconst, the new dataset was saved in the object "raw_combined". 
+
+This new dataset contains 724.580 movies and 11 variables. Of the movies in this dataset, 334.916, have a rating record and 389.664 have missing rating fields, which is logical with a left join. 
 
 **Key variables and structure**
+
+As described in data size, the tconst variable is the join key and unique identifier used to merge the two initial datasets. The unit of analysis in the data sets, is one movie per row. 
+
+From the title.basics dataset the following variables were utilized: tconst, titleType, primaryTitle, originalTitle, isAdult, startYear, endYear, runtimeMinutes, genres. 
+- titleType, titles with "movies" are retained for the analysis
+- primaryTitle and originalTitle, human-readable titles, utilized for display and labeling in tables and plots 
+- isAdult, as a 0/1 flag, optional for filtering
+- startYear, shows the release year of the movie
+- endYear, is mostly relevant to series, and contains a lot of \N
+- runtimeMinutes, shows how long the movie is
+- genre, contains a comma-seperated list, for movies that fall under multiple genre's
+
+From the title.ratings dataset the following variables were utilized: tconst, averageRating and numVotes. 
+- averageRating, contains the average rating a movie got on a scale of 1 to 10
+- numVotes, the number of votes behind the averageRating
+
 
 ## 2. Initial exploration
 
