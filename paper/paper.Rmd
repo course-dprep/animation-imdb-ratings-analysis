@@ -44,7 +44,6 @@ Movies can comprise of many different genres. In terms of the effect of time, th
 
 In order to test H1 and H2 and therefore answer the main research question, secondary data is consulted from [IMDb.com](https://developer.imdb.com/non-commercial-datasets/). The database holds several datasets, of which two provide relevance in the context of the present study:
 
-
 1. [title.basics.tsv.gz](https://datasets.imdbws.com/title.basics.tsv.gz), which contains information about the title, runtime, genre and release year of motion pictures.
 
 2. [title.rating.tsv.gz](https://datasets.imdbws.com/title.ratings.tsv.gz), which provides data on ratings for all titles. These IMDb ratings are derived from IMDb users and can comprise of movie consumers or professionals.
@@ -67,7 +66,6 @@ In further testing the hypotheses, two dummy variables were feature engineered;
 |-------------------|-----------|-------------------------------------------------------------------------|
 | before_2010_dummy | dummy     | Whether a movie is released before or after 2010                        |
 | animation_dummy   | dummy     | Whether a movie is animated or not                                      |
-
 
 ### Type of Analyses
 
@@ -96,20 +94,18 @@ Besides the unstandardised effects, the standardised effects were also calculate
 
 The runtime of films looks similar for the different subsets, ranging between 90 and 100 minutes. When it comes to ratings, animated titles tend to score slightly higher on average, with a mean of 6.5 compared to 6.2 for other genres. For releaseyear the ratings look similar. The animated movies are underrepresented in the subset. And it can be seen that since 2010 many more movies are available but the movies are rated less times per movie.
 
-| Subset | Observations | Mean Runtime (min) | Mean Rating | Mean Votes | SD Rating |
-|------------|------------|------------|------------|------------|------------|
-| Animation | 1,846 | 90.5 | 6.51 | 43,393 | 1.08 |
-| Non-Animation | 64,051 | 96.8 | 6.22 | 30,608 | 1.17 |
-| Before 2010 | 20,537 | 97.0 | 6.29 | 35,085 | 1.14 |
-| Since 2010 | 45,360 | 96.4 | 6.20 | 29,101 | 1.18 |
+| Subset        | Number of Observations | Mean Rating | SD Rating | Mean Runtime (minutes) | Mean Number of Votes |
+| ------------- | ---------------------- | ----------- | --------- | ---------------------- | -------------------- |
+| Animation     | 1,846                  | 6.51        | 1.08      | 90.5                   | 43,393               |
+| Non-Animation | 64,051                 | 6.22        | 1.17      | 96.8                   | 30,608               |
+| Before 2010   | 20,537                 | 6.29        | 1.14      | 97.0                   | 35,085               |
+| Since 2010    | 45,360                 | 6.20        | 1.18      | 96.4                   | 29,101               |
+
+
 
 ### T-Test
 
-As visualised in \<graph 2\>, the average rating for animation movies with 6.509 (SD = ) is higher then for non-animation movies with 6.218 (SD = ). In further solidifying this, the independent t-test found that the difference, 0.291, BCa 95% CI [0.241, 0.341}, is significant t(1973) = 11.417, p = \< 0.001.
-
-```{r independent t-test, echo=FALSE}
-print(readLines("../gen/output/ttest_rating.txt"))
-```
+As visualised in \<graph 2\>, the average rating for animation movies with 6.51 (SD = 1.08) is higher then for non-animation movies with 6.22 (SD = 1.17). In further solidifying this, the independent t-test (see the full output in Appendix I) found that this difference, 0.29, BCa 95% CI [0.241, 0.341}, is significant t(1973) = 11.417, p =\< 0.001. Thus, on average, animation movies receive higher grades than non-animation movies.
 
 ### Regression Analysis
 
@@ -121,11 +117,14 @@ While the results for H1 point to a clear negative shift in ratings after 2010, 
 
 ### Assumptions
 
-```{r fig.align='center', out.width='50%'}
-knitr::include_graphics("../gen/output/assumptions_histogram_MODEL3_unstandardised.png")
-```
+Appendix III shows the full output of the assumptions checking of the regression models. Since model 3 is the highest in explanatory power, this finding section is specified to that model. Below, the summary can be found.
 
-<see SCRUM: part for STEFAN>
+|        | Normality                                                                 | Linearity                              | Homoscedasticity                             | Multicollinearity                          | Independence                       |
+|------------------|---------------------------------------------------------------------------|----------------------------------------|----------------------------------------------|-------------------------------------------|------------------------------------|
+| **Tested**       | Shapiro-Wilk + Kolmogorov-Smirnov + Histogram show non-normality| ZPRED vs ZRESID shows linearity        | ZPRED vs ZRESID shows heteroscedasticity     | Variance Inflation Factor below 1          | Durbin-Watson test close to 2      |
+| **Verdict**      | **VIOLATED**                                                              | **MET**                                | **VIOLATED**                                 | **MET**                                   | **MET**                             |
+
+
 
 \newpage
 
@@ -178,9 +177,15 @@ Thompson, B. (2024, May 25). The Rise and Fall of Streaming TV? –Michigan Jour
 
 \newpage
 
+## Appendix I - Results T-Test
 
+```{r independent t-test, echo=FALSE}
+print(readLines("../gen/output/ttest_rating.txt"))
+```
 
-## Appendix - Results Multiple Regression
+\newpage
+
+## Appendix II - Results Multiple Regression
 
 ### Model 1
 
@@ -200,13 +205,49 @@ model2 <- print(readLines("../gen/output/lr_model_with_control_variables.txt"))
 model3 <- print(readLines("../gen/output/lr_model_with_interaction.txt"))
 ```
 
+\newpage
+
+## Appendix III -Assumptions Results Multiple Regression
+
+### Assumptions model 1
+
+```{r assumptions model 1, echo=FALSE}
+assumptionsmodel1 <- print(readLines("../gen/output/assumption_checks_model1.txt"))
+```
+
+```{r fig.align='center', echo=FALSE, out.width='50%'}
+knitr::include_graphics("../gen/output/assumptions_histogram_MODEL1_unstandardised.png")
+```
+
+```{r fig.align='center', echo=FALSE, out.width='50%'}
+knitr::include_graphics("../gen/output/assumptions_plot_ZPREDvsZRESID_MODEL1_unstandardised.png")
+```
+
+### Assumptions model 2
+
+```{r assumptions model 2, echo=FALSE}
+assumptionsmodel2 <- print(readLines("../gen/output/assumption_checks_model2.txt"))
+```
+
+```{r fig.align='center', echo=FALSE, out.width='50%'}
+knitr::include_graphics("../gen/output/assumptions_histogram_MODEL2_unstandardised.png")
+```
+
+```{r fig.align='center', echo=FALSE, out.width='50%'}
+knitr::include_graphics("../gen/output/assumptions_plot_ZPREDvsZRESID_MODEL2_unstandardised.png")
+```
+
+### Assumptions model 3
+
+```{r assumptions model 3, echo=FALSE}
+assumptionsmodel3 <- print(readLines("../gen/output/assumption_checks_model3.txt"))
+```
 
 
+```{r fig.align='center', echo=FALSE, out.width='50%'}
+knitr::include_graphics("../gen/output/assumptions_histogram_MODEL3_unstandardised.png")
+```
 
-## Instruction for Including Plots
-
-You can also embed plots, for example: Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+```{r fig.align='center', echo=FALSE, out.width='50%'}
+knitr::include_graphics("../gen/output/assumptions_plot_ZPREDvsZRESID_MODEL3_unstandardised.png")
 ```
