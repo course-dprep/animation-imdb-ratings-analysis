@@ -112,7 +112,7 @@ print(readLines("../gen/output/ttest_rating.txt"))
 
 Both in model 1 and model 2 the start year dummy has a significant effect on the average movie ratings (p-value < 0.001). In the most basic model, movies released since 2010 on average score 0.088 lower than movies that were released in the prior time period (1995-2009). When adding control variables, this average score is has a little less negative effect of 0.070. We do report a very low adjusted R2 in the first model (0.002872). This would hint to the start year dummy not having a big impact on explaining the movie rating differences. These results provide support for H1, indicating that movies released after 2010 tend to receive lower ratings than those released before, although the overall explanatory power of this effect is limited.
 
-While the results for H1 point to a clear negative shift in ratings after 2010, the analyses for H2 do not provide evidence that this time effect differs between animated and non-animated films. In Model 3, we introduced interaction terms to examine whether the negative effect of release year on ratings is moderated by animation status. Neither the interaction between release since 2010 × animation nor the interaction between start year × animation reached statistical significance (p > 0.05). This indicates no strong evidence that the slope of release year differs between animated and non-animated movies. While the control variables (runtime and number of votes) remained highly significant, the moderation effect central to H2 is not observed. Taken together, these findings suggest that H2 is not supported, as animation does not significantly moderate the negative relationship between release year and ratings.
+While the results for H1 point to a clear negative shift in ratings after 2010, the analyses for H2 do not provide evidence that this time effect differs between animated and non-animated films. In Model 3, we introduced interaction terms to examine whether the negative effect of release year on ratings is moderated by animation status. Neither the interaction between release since 2010 × animation nor the interaction between start year × animation reached statistical significance (p > 0.05). This indicates no strong evidence that the slope of release year differs between animated and non-animated movies. While the control variables (`log_runtimeMinutes` and `log_numVotes`) remained highly significant, the moderation effect central to H2 is not observed. Taken together, these findings suggest that H2 is not supported, as animation does not significantly moderate the negative relationship between release year and ratings.
 
 ### Assumptions
 
@@ -135,10 +135,12 @@ Overall, the results indicate that movie ratings have declined slightly in the p
 
 <see SCRUM: part for AMANDA>
 
+A limitation of the present study is that the rating data was obtained through IMDb, which summarises the average rating at that point in time. In other words, differences in rating over time could not be statistically analysed.
+
 
 ### Future Research
 
-With data being created on a daily basis, the analysis of IMDB datasets remains an ongoing proces. By repeating this type of research over time it could reveal potential trends in IMDb ratings for animation movies compared to non-animated movies. 
+With data being created on a daily basis, the analysis of IMDB datasets remains an ongoing proces. By repeating this type of research over time it could reveal potential trends in IMDb ratings for animation movies compared to non-animated movies.
 
 Future research could focus more on the role of movie popularity and its influence on IMDB rating. Many animated fils are reboots of older, nostalgic classics, which may affect audiences perception and engagement. These type of movies might attract more reviews due to their established fan base and may receive more critical evaluations becuase viewers have a direct point of c comparison with the original. 
 
