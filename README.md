@@ -152,6 +152,9 @@ project-name/
 │  │  ├─ README.md
 │  │  └─ makefile
 │  └─ .gitkeep
+├─ Paper
+│  ├─ makefile
+│  └─ paper.Rmd
 ├─ .RDataTmp
 ├─ .gitignore
 ├─ README.md
