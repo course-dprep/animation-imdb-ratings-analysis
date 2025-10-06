@@ -117,11 +117,14 @@ While the results for H1 point to a clear negative shift in ratings after 2010, 
 
 ### Assumptions
 
-```{r fig.align='center', out.width='50%'}
-knitr::include_graphics("../gen/output/assumptions_histogram_MODEL3_unstandardised.png")
-```
+Appendix III shows the full output of the assumptions checking of the regression models. Since model 3 is the highest in explanatory power, this finding section is specified to that model. Below, the summary can be found.
 
-<see SCRUM: part for STEFAN>
+|        | Normality                                                                 | Linearity                              | Homoscedasticity                             | Multicollinearity                          | Independence                       |
+|------------------|---------------------------------------------------------------------------|----------------------------------------|----------------------------------------------|-------------------------------------------|------------------------------------|
+| **Tested**       | Shapiro-Wilk + Kolmogorov-Smirnov + Histogram show non-normality| ZPRED vs ZRESID shows linearity        | ZPRED vs ZRESID shows heteroscedasticity     | Variance Inflation Factor below 1          | Durbin-Watson test close to 2      |
+| **Verdict**      | **VIOLATED**                                                              | **MET**                                | **VIOLATED**                                 | **MET**                                   | **MET**                             |
+
+
 
 \newpage
 
@@ -174,8 +177,6 @@ Thompson, B. (2024, May 25). The Rise and Fall of Streaming TV? –Michigan Jour
 
 \newpage
 
-
-
 ## Appendix I - Results T-Test
 
 ```{r independent t-test, echo=FALSE}
@@ -204,16 +205,36 @@ model2 <- print(readLines("../gen/output/lr_model_with_control_variables.txt"))
 model3 <- print(readLines("../gen/output/lr_model_with_interaction.txt"))
 ```
 
+\newpage
+
+## Appendix III -Assumptions Results Multiple Regression
+
 ### Assumptions model 1
 
 ```{r assumptions model 1, echo=FALSE}
 assumptionsmodel1 <- print(readLines("../gen/output/assumption_checks_model1.txt"))
 ```
 
+```{r fig.align='center', echo=FALSE, out.width='50%'}
+knitr::include_graphics("../gen/output/assumptions_histogram_MODEL1_unstandardised.png")
+```
+
+```{r fig.align='center', echo=FALSE, out.width='50%'}
+knitr::include_graphics("../gen/output/assumptions_plot_ZPREDvsZRESID_MODEL1_unstandardised.png")
+```
+
 ### Assumptions model 2
 
 ```{r assumptions model 2, echo=FALSE}
 assumptionsmodel2 <- print(readLines("../gen/output/assumption_checks_model2.txt"))
+```
+
+```{r fig.align='center', echo=FALSE, out.width='50%'}
+knitr::include_graphics("../gen/output/assumptions_histogram_MODEL2_unstandardised.png")
+```
+
+```{r fig.align='center', echo=FALSE, out.width='50%'}
+knitr::include_graphics("../gen/output/assumptions_plot_ZPREDvsZRESID_MODEL2_unstandardised.png")
 ```
 
 ### Assumptions model 3
@@ -223,12 +244,10 @@ assumptionsmodel3 <- print(readLines("../gen/output/assumption_checks_model3.txt
 ```
 
 
+```{r fig.align='center', echo=FALSE, out.width='50%'}
+knitr::include_graphics("../gen/output/assumptions_histogram_MODEL3_unstandardised.png")
+```
 
-
-## Instruction for Including Plots
-
-You can also embed plots, for example: Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+```{r fig.align='center', echo=FALSE, out.width='50%'}
+knitr::include_graphics("../gen/output/assumptions_plot_ZPREDvsZRESID_MODEL3_unstandardised.png")
 ```
