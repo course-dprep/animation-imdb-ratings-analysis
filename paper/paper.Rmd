@@ -15,6 +15,7 @@ output:
 ## Chapter 1: Introduction
 
 ### Motivation
+
 Movies -a form of entertainment that has been around for centuries. Yet, the distribution and consumer perceptions of movies have shifted since the introduction of streaming services (Hennig-Hurau et al., 2021; Kumar, 2023). In 2010, the international expansion of Netflix across the globe marked a key point in the growth of on-demand content (Oberoj, 2024). The saturation and availability of the entertainment market have resulted in more critical consumers, which seemingly affects how audiences evaluate films (Hadida et al., 2020). Although research has been performed on movie ratings over time (e.g. Moon et al., 2010; Ramos et al., 2015), the effect of streaming remains rather unexplored.
 
 Over the years, black-and-white deaf movies have advanced to colourful and effects-heavy motion pictures due to technological developments. This is especially prominent in animation, where disruptions in Computer Generated Images (CGI) and production techniques have significantly enhanced visual quality and storytelling opportunities (Sun, 2023). Consequently, this makes it plausible to assume audience evaluations of animated films could differ from live-action films. Yet, current research has not addressed this focus on animation. All in all, the present study provides academic relevance by investigating the temporal dynamics on the quality perception of movies, while also accounting for the effect of animation. These insights are also socially relevant for filmmakers and distributors to better understand audiences. The focus of the research can be encapsulated with the following research question:
@@ -29,11 +30,19 @@ Over the years, black-and-white deaf movies have advanced to colourful and effec
 
 In 2010, Netflix released globally, with more streaming services having entered the market ever since with players such as Disney+, Amazon Prime Video and HBO Max. Competitiveness rose, resulting in a greater variety of TV shows and movies offered (Thompson, 2024). Simultaneously, the more experienced a viewer is in watching movies, the more critical they tend to become (Moon et al., 2009). As such, it could be expected that newer movies are rated worse than older movies because the frame of reference has increased. Additionally, with the rise of digital platforms and social media, review-bombing has become an omnipresent phenomenon upon the release of new films. Moreover, there has been an increasingly vocal group that criticizes the franchise- and sequel-based strategies that movie corporations have adopted. Furthermore, it could be argued that movie consumers often experience nostalgia for films watched in their childhood, resulting in higher ratings for older movies. Authors such as Bollen et al. (2012) refer to this as a form of “positivity effect”. Overall, the present study examines whether the introduction of streaming services has an effect on the average rating of films by testing;
 
+<<<<<<< HEAD:Paper/paper.Rmd
+***H1:*** *Movies released after 2010 receive lower average ratings than movies released before 2010.*
+=======
 ***H1:*** _Movies released since 2010 receive lower average ratings than movies released before 2010._
+>>>>>>> main:paper/paper.Rmd
 
 Movies can comprise of many different genres. In terms of the effect of time, the particular interest of the present study, different results could be expected from animation versus live-action movies. For instance, animated films are more easily regarded as timeless, while live-action movies risk the fact these could become outdated due to changes in fashion, technology or cultural norms, while animation movies remain fairly consistent over time (Larson, 2025). Furthermore, live-action more heavily depend on the actors, who visibly age, while animated characters remain fairly consistent over time. For example, Woody from Toy Story remains unchanged in sequels decades after his debut in 1995. In line with this, this results in more frequent intergenerational re-watches for animation movies (Lizardi, 2020), as these are also often targeted at children and families. This strengthens the sense of nostalgia and therefore the aforementioned positivity effect. The present study inspects whether animation movies are rated differently from non-animation movies by testing:
 
+<<<<<<< HEAD:Paper/paper.Rmd
+***H2:*** *The negative effect of release year (before vs since 2010) on ratings is moderated by animation status, such that the decline is less pronounced for animated movies than for non-animated movies.*
+=======
 ***H2:*** _The negative effect of release year (before vs since 2010) on ratings is moderated by animation status, in that the decline is less pronounced for animated movies than for non-animated movies._
+>>>>>>> main:paper/paper.Rmd
 
 \newpage
 
@@ -43,6 +52,33 @@ Movies can comprise of many different genres. In terms of the effect of time, th
 
 In order to test H1 and H2 and therefore answer the main research question, secondary data is consulted from [IMDb.com](https://developer.imdb.com/non-commercial-datasets/). The database holds several datasets, of which two provide relevance in the context of the present study:
 
+<<<<<<< HEAD:Paper/paper.Rmd
+> [title.basics.tsv.gz](https://datasets.imdbws.com/title.basics.tsv.gz), which contains information about the title, runtime, genre and release year of motion pictures.
+
+> [title.rating.tsv.gz](https://datasets.imdbws.com/title.ratings.tsv.gz), which provides data on ratings from all titles. These IMDb ratings are derived from IMDb users and can comprise of movie consumers or professionals.
+
+The dataset merged from the secondary data contains the following variables:
+
+| Variable | Type | Definition |
+|--------------|--------------|---------------------------------------------|
+| tconst | character | Unique IMDb identifier for each title |
+| primaryTitle | character | The title most commonly used by the general public |
+| startYear | integer | Year the title was released |
+| runtimeMinutes | integer | Runtime expressed in minutes |
+| genres | character | Genres separated by commas |
+| averageRating | numeric | Weighted average IMDb user rating (0.0–10.0) |
+| numVotes | integer | Number of votes received by the title |
+| before_2010_dummy | dummy | Whether a movie is released before or after 2010 |
+| animation_dummy | dummy | Whether a movie is animated or not |
+
+### Type of Analyses
+
+In first assessing whether there was a signifciant difference in rating between animation and non-animation movies, an *independent t-test* was performed.
+
+To test the hypothesis, a linear regression was conducted in R Studio. Release year was treated as the independent variable, and average IMDb user rating as the dependent variable.
+
+Whether a movie was an animation was dummy coded (0 = non-animated, 1 = animated) and included as a moderator to test whether it has a significant effect on the relationship from release year to the average rating.
+=======
 1.[title.basics.tsv.gz](https://datasets.imdbws.com/title.basics.tsv.gz), which contains information about the title, runtime, genre and release year of motion pictures.
 
 2.[title.rating.tsv.gz](https://datasets.imdbws.com/title.ratings.tsv.gz), which provides data on ratings for all titles. These IMDb ratings are derived from IMDb users and can comprise of movie consumers or professionals.
@@ -74,6 +110,7 @@ In first assessing whether there was a significant difference in rating between 
 To test H1 and H2, a *linear regression* was conducted in R Studio. The dependent variable that was aimed to be explained was the average IMDb rating. For the independent variables, these were entered step-wise in three models, and then assessed on fitness based on the Adjusted R^2. The variables in the three models consisted of;
 
 1. Model 1: including the basic predictors. Whether a movie was an animation was dummy-coded into the variable `animation_dummy` (0 = non-animated, 1 = animated), while the release year was stored into `before_2010_dummy` (0 = since 2010, 1 = before 2010) and included. The interaction between variables was not yet tested in model 1.
+>>>>>>> main:paper/paper.Rmd
 
 2. Model 2: including the basic predictors and control variables. Other potential factors that were not specifically hypothesised but could influence ratings were added as control variables in model 2. This included `startYear`, `runtimeMinutes` and `numVotes`. Upon initial inspection, the distribution of `runtimeMinutes` and `numVotes` was not normal, whereby these have been log transformed and entered into the model as `log_runtimeMinutes` and `log_numVotes`.
 
@@ -85,27 +122,30 @@ To test H1 and H2, a *linear regression* was conducted in R Studio. The dependen
 
 ### Descriptive Statistics
 
-<see SCRUM: part for ISAH + AMY>
+The runtime of films looks similar for the different subsets, ranging between 90 and 100 minutes. When it comes to ratings, animated titles tend to score slightly higher on average, with a mean of 6.5 compared to 6.2 for other genres. For releaseyear the ratings look similar. The animated movies are underrepresented in the subset. And it can be seen that since 2010 many more movies are available but the movies are rated less times per movie.
 
-
+| Subset | Observations | Mean Runtime (min) | Mean Rating | Mean Votes | SD Rating |
+|------------|------------|------------|------------|------------|------------|
+| Animation | 1,846 | 90.5 | 6.51 | 43,393 | 1.08 |
+| Non-Animation | 64,051 | 96.8 | 6.22 | 30,608 | 1.17 |
+| Before 2010 | 20,537 | 97.0 | 6.29 | 35,085 | 1.14 |
+| Since 2010 | 45,360 | 96.4 | 6.20 | 29,101 | 1.18 |
 
 ### T-Test
 
-As visualised in <graph 2>, the average rating for animation movies with 6.509 (SD = ) is higher then for non-animation movies with 6.218 (SD = ). In further solidifying this, the independent t-test found that the difference, 0.291, BCa 95% CI [0.241, 0.341}, is significant t(1973) = 11.417, p = < 0.001.
+As visualised in \<graph 2\>, the average rating for animation movies with 6.509 (SD = ) is higher then for non-animation movies with 6.218 (SD = ). In further solidifying this, the independent t-test found that the difference, 0.291, BCa 95% CI [0.241, 0.341}, is significant t(1973) = 11.417, p = \< 0.001.
 
 ```{r independent t-test, echo=FALSE}
 print(readLines("../gen/output/ttest_rating.txt"))
 ```
 
-
-
 ### Regression Analysis
 
 ### Findings
 
-Both in model 1 and model 2 the start year dummy has a significant effect on the average movie ratings (p-value < 0.001). In the most basic model, movies released since 2010 on average score 0.088 lower than movies that were released in the prior time period (1995-2009). When adding control variables, this average score is has a little less negative effect of 0.070. We do report a very low adjusted R2 in the first model (0.002872). This would hint to the start year dummy not having a big impact on explaining the movie rating differences. These results provide support for H1, indicating that movies released after 2010 tend to receive lower ratings than those released before, although the overall explanatory power of this effect is limited.
+Both in model 1 and model 2 the start year dummy has a significant effect on the average movie ratings (p-value \< 0.001). In the most basic model, movies released since 2010 on average score 0.088 lower than movies that were released in the prior time period (1995-2009). When adding control variables, this average score is has a little less negative effect of 0.070. We do report a very low adjusted R2 in the first model (0.002872). This would hint to the start year dummy not having a big impact on explaining the movie rating differences. These results provide support for H1, indicating that movies released after 2010 tend to receive lower ratings than those released before, although the overall explanatory power of this effect is limited.
 
-While the results for H1 point to a clear negative shift in ratings after 2010, the analyses for H2 do not provide evidence that this time effect differs between animated and non-animated films. In Model 3, we introduced interaction terms to examine whether the negative effect of release year on ratings is moderated by animation status. Neither the interaction between release since 2010 × animation nor the interaction between start year × animation reached statistical significance (p > 0.05). This indicates no strong evidence that the slope of release year differs between animated and non-animated movies. While the control variables (runtime and number of votes) remained highly significant, the moderation effect central to H2 is not observed. Taken together, these findings suggest that H2 is not supported, as animation does not significantly moderate the negative relationship between release year and ratings.
+While the results for H1 point to a clear negative shift in ratings after 2010, the analyses for H2 do not provide evidence that this time effect differs between animated and non-animated films. In Model 3, we introduced interaction terms to examine whether the negative effect of release year on ratings is moderated by animation status. Neither the interaction between release since 2010 × animation nor the interaction between start year × animation reached statistical significance (p \> 0.05). This indicates no strong evidence that the slope of release year differs between animated and non-animated movies. While the control variables (runtime and number of votes) remained highly significant, the moderation effect central to H2 is not observed. Taken together, these findings suggest that H2 is not supported, as animation does not significantly moderate the negative relationship between release year and ratings.
 
 ### Assumptions
 
@@ -114,7 +154,6 @@ knitr::include_graphics("../gen/output/assumptions_histogram_MODEL3_unstandardis
 ```
 
 <see SCRUM: part for STEFAN>
-
 
 \newpage
 
@@ -128,17 +167,15 @@ Overall, the results indicate that movie ratings have declined slightly in the p
 
 <see SCRUM: part for AMANDA>
 
-
 ### Future Research
 
-With data being created on a daily basis, the analysis of IMDB datasets remains an ongoing proces. By repeating this type of research over time it could reveal potential trends in IMDb ratings for animation movies compared to non-animated movies. 
+With data being created on a daily basis, the analysis of IMDB datasets remains an ongoing proces. By repeating this type of research over time it could reveal potential trends in IMDb ratings for animation movies compared to non-animated movies.
 
-Future research could focus more on the role of movie popularity and its influence on IMDB rating. Many animated fils are reboots of older, nostalgic classics, which may affect audiences perception and engagement. These type of movies might attract more reviews due to their established fan base and may receive more critical evaluations becuase viewers have a direct point of c comparison with the original. 
+Future research could focus more on the role of movie popularity and its influence on IMDB rating. Many animated fils are reboots of older, nostalgic classics, which may affect audiences perception and engagement. These type of movies might attract more reviews due to their established fan base and may receive more critical evaluations becuase viewers have a direct point of c comparison with the original.
 
-In addition, it would be valuable to examine whether there is a significant different in ratings between animated reboots and newly created animated concepts. These researches can also be done on TV shows, bring a different angle with some shows from gen-z youth still continuing to be produced in current day of time. 
+In addition, it would be valuable to examine whether there is a significant different in ratings between animated reboots and newly created animated concepts. These researches can also be done on TV shows, bring a different angle with some shows from gen-z youth still continuing to be produced in current day of time.
 
 \newpage
-
 
 ## Reference List
 
@@ -168,14 +205,9 @@ Thompson, B. (2024, May 25). The Rise and Fall of Streaming TV? –Michigan Jour
 
 ## Appendix
 
-
-
-
-
 ## Instruction for Including Plots
 
-You can also embed plots, for example:
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+You can also embed plots, for example: Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 
 ```{r pressure, echo=FALSE}
 plot(pressure)
