@@ -152,7 +152,7 @@ project-name/
 │  │  ├─ README.md
 │  │  └─ makefile
 │  └─ .gitkeep
-├─ Paper
+├─ paper
 │  ├─ makefile
 │  └─ paper.Rmd
 ├─ .RDataTmp
