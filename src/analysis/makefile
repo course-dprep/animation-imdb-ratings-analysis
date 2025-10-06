@@ -4,22 +4,22 @@ TEMP    = ../../gen/temp
 OUTPUT  = ../../gen/output
 
 # Main target
-all: $(OUTPUT)/assumption_checks_model1.txt \
-$(OUTPUT)/assumption_checks_model2.txt \
-$(OUTPUT)/assumption_checks_model3.txt \
-$(OUTPUT)/assumptions_histogram_MODEL1_unstandardised.png \
-$(OUTPUT)/assumptions_histogram_MODEL2_unstandardised.png \
-$(OUTPUT)/assumptions_histogram_MODEL3_unstandardised.png \
-$(OUTPUT)/assumptions_plot_ZPREDvsZRESID_MODEL1_unstandardised.png \
-$(OUTPUT)/assumptions_plot_ZPREDvsZRESID_MODEL2_unstandardised.png \
-$(OUTPUT)/assumptions_plot_ZPREDvsZRESID_MODEL3_unstandardised.png \
-$(OUTPUT)/ttest_rating.txt
+.PHONY: all
+
+all: step1 step2 step3 step4 step5 step6
+
+step1: $(TEMP)/since_2010_subset.csv
+step2: $(OUTPUT)/boxplot_runtime.png
+step3: $(OUTPUT)/ttest_rating.txt
+step4: $(OUTPUT)/movies.csv
+step5: $(OUTPUT)/MODEL3_unstandardised.rds
+step6: $(OUTPUT)/assumption_checks_model3.txt
 
 # Step 1: Descriptive statistics
-$(OUTPUT)/animation_subset.csv \
-$(OUTPUT)/non_animation_subset.csv \
-$(OUTPUT)/before_2010_subset.csv \
-$(OUTPUT)/since_2010_subset.csv: 1_descriptive_statistics.R $(TEMP)/movies_prepped.csv
+$(TEMP)/animation_subset.csv \
+$(TEMP)/non_animation_subset.csv \
+$(TEMP)/before_2010_subset.csv \
+$(TEMP)/since_2010_subset.csv: 1_descriptive_statistics.R $(TEMP)/movies_prepped.csv
 	Rscript --vanilla $<
 
 # Step 2: Exploratory visualisations

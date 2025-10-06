@@ -8,6 +8,7 @@ paper.pdf
 .Rhistory
 .RData
 .pdf
+src/analysis/Rplots.pdf
 **/temp/
 **/data/
 **/gen/
