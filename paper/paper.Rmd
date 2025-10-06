@@ -103,16 +103,9 @@ The runtime of films looks similar for the different subsets, ranging between 90
 
 
 
-
-```{r ratings, echo=FALSE}
-plot("../gen/output/hist_average.rating.png")
-```
-
-
-
 ### T-Test
 
-As visualised in \<graph 2\>, the average rating for animation movies with 6.51 (SD = 1.08) is higher then for non-animation movies with 6.22 (SD = 1.17). In further solidifying this, the independent t-test found that this difference, 0.29, BCa 95% CI [0.241, 0.341}, is significant t(1973) = 11.417, p =\< 0.001. The full output can be consulted in Appendix I. Thus, animation movie
+As visualised in \<graph 2\>, the average rating for animation movies with 6.51 (SD = 1.08) is higher then for non-animation movies with 6.22 (SD = 1.17). In further solidifying this, the independent t-test (see the full output in Appendix I) found that this difference, 0.29, BCa 95% CI [0.241, 0.341}, is significant t(1973) = 11.417, p =\< 0.001. Thus, on average, animation movies receive higher grades than non-animation movies.
 
 ### Regression Analysis
 
@@ -211,7 +204,23 @@ model2 <- print(readLines("../gen/output/lr_model_with_control_variables.txt"))
 model3 <- print(readLines("../gen/output/lr_model_with_interaction.txt"))
 ```
 
+### Assumptions model 1
 
+```{r assumptions model 1, echo=FALSE}
+assumptionsmodel1 <- print(readLines("../gen/output/assumption_checks_model1.txt"))
+```
+
+### Assumptions model 2
+
+```{r assumptions model 2, echo=FALSE}
+assumptionsmodel2 <- print(readLines("../gen/output/assumption_checks_model2.txt"))
+```
+
+### Assumptions model 3
+
+```{r assumptions model 3, echo=FALSE}
+assumptionsmodel3 <- print(readLines("../gen/output/assumption_checks_model3.txt"))
+```
 
 
 
