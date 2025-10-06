@@ -140,7 +140,7 @@ A limitation of the present study is that the rating data was obtained through I
 
 ### Future Research
 
-With data being created on a daily basis, the analysis of IMDB datasets remains an ongoing proces. By repeating this type of research over time it could reveal potential trends in IMDb ratings for animation movies compared to non-animated movies.
+With data being created on a daily basis, the analysis of IMDB datasets remains an ongoing process. By repeating this type of research over time it could reveal potential trends in IMDb ratings for animation movies compared to non-animated movies.
 
 Future research could focus more on the role of movie popularity and its influence on IMDB rating. Many animated fils are reboots of older, nostalgic classics, which may affect audiences perception and engagement. These type of movies might attract more reviews due to their established fan base and may receive more critical evaluations becuase viewers have a direct point of c comparison with the original. 
 
@@ -175,7 +175,30 @@ Thompson, B. (2024, May 25). The Rise and Fall of Streaming TV? –Michigan Jour
 
 \newpage
 
-## Appendix
+
+
+## Appendix - Results Multiple Regression
+
+### Model 1
+
+```{r model 1, echo=FALSE}
+model1 <- print(readLines("../gen/output/lr_model_basic.txt"))
+```
+
+### Model 2
+
+```{r model 2, echo=FALSE}
+model2 <- print(readLines("../gen/output/lr_model_with_control_variables.txt"))
+```
+
+### Model 3
+
+```{r model 3, echo=FALSE}
+model3 <- print(readLines("../gen/output/lr_model_with_interaction.txt"))
+```
+
+
+
 
 
 
