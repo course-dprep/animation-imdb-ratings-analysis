@@ -17,7 +17,7 @@ output:
 ### Motivation
 Movies -a form of entertainment that has been around for centuries. Yet, the distribution and consumer perceptions of movies have shifted since the introduction of streaming services (Hennig-Hurau et al., 2021; Kumar, 2023). In 2010, the international expansion of Netflix across the globe marked a key point in the growth of on-demand content (Oberoj, 2024). The saturation and availability of the entertainment market have resulted in more critical consumers, which seemingly affects how audiences evaluate films (Hadida et al., 2020). Although research has been performed on movie ratings over time (e.g. Moon et al., 2010; Ramos et al., 2015), the effect of streaming remains rather unexplored.
 
-Over the years, black-and-white deaf movies have advanced to colourful and effects-heavy motion pictures due to technological developments. This is especially prominent in animation, where disruptions in Computer Generated Images (CGI) and production techniques have significantly enhanced visual quality and storytelling opportunities (Sun, 2023). Consequently, audience evaluations of animated films could differ from live-action films.  Yet, current research has not addressed this focus on animation.All in all, the present study provides academic relevance by investigating the temporal dynamics on  the quality perception of movies, while also accounting for the effect of animation. These insights are also socially relevant for filmmakers and distributors to better understand audiences. The focus of the research can be encapsulated with the following research question:
+Over the years, black-and-white deaf movies have advanced to colourful and effects-heavy motion pictures due to technological developments. This is especially prominent in animation, where disruptions in Computer Generated Images (CGI) and production techniques have significantly enhanced visual quality and storytelling opportunities (Sun, 2023). Consequently, this makes it plausible to assume audience evaluations of animated films could differ from live-action films. Yet, current research has not addressed this focus on animation. All in all, the present study provides academic relevance by investigating the temporal dynamics on the quality perception of movies, while also accounting for the effect of animation. These insights are also socially relevant for filmmakers and distributors to better understand audiences. The focus of the research can be encapsulated with the following research question:
 
 ### Research Question
 
@@ -27,13 +27,13 @@ Over the years, black-and-white deaf movies have advanced to colourful and effec
 
 ## Chapter 2: Literature Review
 
-Ever since the introduction of Netflix, more streaming services have entered the market with players such as Disney+, Amazon Prime Video and HBO Max. Competitiveness rose, resulting in a greater variety of TV shows and movies offered (Thompson, 2024). Simultaneously, the more experienced a viewer is in watching movies, the more criticalthey tend to become (Moon et al., 2009). As such, it could be expected that newer movies are rated worse than older movies because the frame of reference has increased. Additionally, with the rise of digital platforms and social media, review-bombinghas become an omnipresent phenomenon upon the release of new films. Moreover, there has been an increasingly vocal group that criticizes the franchise- and sequel-based strategies that movie corporations have adopted. Furthermore, it could be argued that movie consumers often experience nostalgia for films watched in their childhood, resulting in higher ratings for older movies. Authors such as Bollen et al. (2012) refer to this as a form of “positivity effect.” Overall, these findings underscore the expectation that newer films tend to be rated lower than older films, which will be tested with:
+In 2010, Netflix released globally, with more streaming services having entered the market ever since with players such as Disney+, Amazon Prime Video and HBO Max. Competitiveness rose, resulting in a greater variety of TV shows and movies offered (Thompson, 2024). Simultaneously, the more experienced a viewer is in watching movies, the more critical they tend to become (Moon et al., 2009). As such, it could be expected that newer movies are rated worse than older movies because the frame of reference has increased. Additionally, with the rise of digital platforms and social media, review-bombing has become an omnipresent phenomenon upon the release of new films. Moreover, there has been an increasingly vocal group that criticizes the franchise- and sequel-based strategies that movie corporations have adopted. Furthermore, it could be argued that movie consumers often experience nostalgia for films watched in their childhood, resulting in higher ratings for older movies. Authors such as Bollen et al. (2012) refer to this as a form of “positivity effect”. Overall, the present study examines whether the introduction of streaming services has an effect on the average rating of films by testing;
 
-***H1:*** _Movies released after 2010 receive lower average ratings than movies released before 2010._
+***H1:*** _Movies released since 2010 receive lower average ratings than movies released before 2010._
 
-Animated films are more easily regarded as timeless, whereas the effect of H1 might differ between the two categories. As such, animation remains memorable due to the distinct visual identity that is rooted in a fantasised setting. In addition, live-action characters' visible age or become outdated due to changes in fashion, technology or cultural norms, while animated characters remain fairly consistent over time(Larson, 2025). For example, Woody from Toy Story remains unchanged in sequels decades after his debut in 1995. On another note, animated films are oftentargeted at children and families, which strengthens the sense of nostalgia through intergenerational re-watches (Lizardi, 2020). The present study will test this with:
+Movies can comprise of many different genres. In terms of the effect of time, the particular interest of the present study, different results could be expected from animation versus live-action movies. For instance, animated films are more easily regarded as timeless, while live-action movies risk the fact these could become outdated due to changes in fashion, technology or cultural norms, while animation movies remain fairly consistent over time (Larson, 2025). Furthermore, live-action more heavily depend on the actors, who visibly age, while animated characters remain fairly consistent over time. For example, Woody from Toy Story remains unchanged in sequels decades after his debut in 1995. In line with this, this results in more frequent intergenerational re-watches for animation movies (Lizardi, 2020), as these are also often targeted at children and families. This strengthens the sense of nostalgia and therefore the aforementioned positivity effect. The present study inspects whether animation movies are rated differently from non-animation movies by testing:
 
-***H2:*** _The negative effect of release year (before vs since 2010) on ratings is moderated by animation status, such that the decline is less pronounced for animated movies than for non-animated movies._
+***H2:*** _The negative effect of release year (before vs since 2010) on ratings is moderated by animation status, in that the decline is less pronounced for animated movies than for non-animated movies._
 
 \newpage
 
@@ -43,9 +43,9 @@ Animated films are more easily regarded as timeless, whereas the effect of H1 mi
 
 In order to test H1 and H2 and therefore answer the main research question, secondary data is consulted from [IMDb.com](https://developer.imdb.com/non-commercial-datasets/). The database holds several datasets, of which two provide relevance in the context of the present study:
 
->[title.basics.tsv.gz](https://datasets.imdbws.com/title.basics.tsv.gz), which contains information about the title, runtime, genre and release year of motion pictures.
+1.[title.basics.tsv.gz](https://datasets.imdbws.com/title.basics.tsv.gz), which contains information about the title, runtime, genre and release year of motion pictures.
 
->[title.rating.tsv.gz](https://datasets.imdbws.com/title.ratings.tsv.gz), which provides data on ratings from all titles. These IMDb ratings are derived from IMDb users and can comprise of movie consumers or professionals.
+2.[title.rating.tsv.gz](https://datasets.imdbws.com/title.ratings.tsv.gz), which provides data on ratings for all titles. These IMDb ratings are derived from IMDb users and can comprise of movie consumers or professionals.
 
 The dataset merged from the secondary data contains the following variables:
 
@@ -58,13 +58,18 @@ The dataset merged from the secondary data contains the following variables:
 | genres            | character | Genres separated by commas                                              |
 | averageRating     | numeric   | Weighted average IMDb user rating (0.0–10.0)                            |
 | numVotes          | integer   | Number of votes received by the title                                   |
+
+In further testing the hypotheses, two dummy variables were feature engineered;
+
+| Variable          | Type      | Definition                                                             |
+|-------------------|-----------|-------------------------------------------------------------------------|
 | before_2010_dummy | dummy     | Whether a movie is released before or after 2010                        |
 | animation_dummy   | dummy     | Whether a movie is animated or not                                      |
 
 
 ### Type of Analyses
 
-In first assessing whether there was a signifciant difference in rating between animation and non-animation movies, an *independent t-test* was performed. 
+In first assessing whether there was a significant difference in rating between animation and non-animation movies, an *independent t-test* was performed. For this, the procedure of Hair et al. (2019) was adopted.
 
 To test the hypothesis, a linear regression was conducted in R Studio. Release year was treated as the independent variable, and average IMDb user rating as the dependent variable. 
 
