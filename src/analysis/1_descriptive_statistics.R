@@ -80,8 +80,8 @@ for (nm in names(subsets)) {
 }
 
 #Saving subsets in output folder
-write_csv(animation_subset,   "../../gen/output/animation_subset.csv")
-write_csv(non_animation_subset,"../../gen/output/non_animation_subset.csv")
-write_csv(before_2010_subset, "../../gen/output/before_2010_subset.csv")
-write_csv(since_2010_subset,  "../../gen/output/since_2010_subset.csv")
+write_csv(animation_subset,   "../../gen/temp/animation_subset.csv")
+write_csv(non_animation_subset,"../../gen/temp/non_animation_subset.csv")
+write_csv(before_2010_subset, "../../gen/temp/before_2010_subset.csv")
+write_csv(since_2010_subset,  "../../gen/temp/since_2010_subset.csv")
 
