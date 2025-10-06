@@ -134,18 +134,35 @@ Appendix III shows the full output of the assumptions checking of the regression
 
 Overall, the results indicate that movie ratings have declined slightly in the post-2010 era, supporting the notion that audiences have become more critical in the age of streaming. However, this temporal shift explains only a small portion of the variation in ratings, suggesting that other factors such as popularity and runtime play a more substantial role in how movies are evaluated. Moreover, the absence of a significant interaction effect implies that the changing rating patterns over time apply similarly to both animated and non-animated films. In sum, while there is evidence of a general negative trend in movie ratings after 2010 (H1), the moderation by animation status is not supported (H2).
 
+### Discussion
+
+The present study aimed to examine whether the release year of a movie influences its IMDb rating and whether this relationship differs between animated and non-animated movies. The findings show a slight but significant decline in average ratings for films released after 2010, providing partial support for H1. This outcome aligns with Moon, Bergey, and Iacobucci (2009), who argued that audiences have become more critical as their exposure to films increases. Likewise, Hadida et al. (2020) and Hennig-Thurau et al. (2021) described how the streaming era has intensified competition and expanded consumer choice, which may lead viewers to evaluate movies more harshly. Thus, the current results reinforce the notion that the expansion of digital content and on-demand viewing has reshaped expectations of film quality. 
+
+However, while a temporal effect on ratings was confirmed, the moderation effect of animation (H2) was not supported. Contrary to Larson (2025), who proposed that animated films are perceived as more timeless due to their visual consistency and limited dependence on aging actors, the present analysis found no significant difference in how ratings changed over time for animation compared to live action. One possible explanation is that animated films have also evolved considerably in style and storytelling sophistication. As animation increasingly targets adult audiences, nostalgia may be offset by higher critical standards and greater scrutiny of production quality. Furthermore, because animated movies make up a smaller portion of total releases, any distinct pattern may be diluted by the predominance of live-action titles in the data set.
+
+Although statistically significant, the models explain only a small proportion of variance in IMDb ratings (adjusted R2 ≈ 0.06). This indicates that the timing of release alone cannot account for the complexity of audience evaluations. Other influences, such as genre preferences, marketing exposure, critical reviews, or star power, likely play a much larger role. Nevertheless, the study provides empirical support for the idea that streaming-era audiences have become incrementally more discerning and that this shift applies broadly across both animated and non-animated movies.
+
+
 ### Limitations
 
-<see SCRUM: part for AMANDA>
+Several limitations should be considered when interpreting these findings. Firstly, the analysis relied solely on IMDb data, which represents a self-selected community of users rather than a random sample of movie consumers. Ratings on the platform may therefore reflect demographic or cultural biases, such as the overrepresentation of younger or more media-savvy audiences.
 
-A limitation of the present study is that the rating data was obtained through IMDb, which summarises the average rating at that point in time. In other words, differences in rating over time could not be statistically analysed.
+Furthermore, the dataset captured IMDb scores at a single point in time. However, because ratings can evolve after release, possibly increasing with nostalgia or decreasing due to review-bombing, the cross-sectional nature of the data prevents analysis of longitudinal rating changes.
+
+Another limitation is that the temporal variable was simplified into a binary indicator (before vs. since 2010). While this aligns with the introduction of major streaming services, it limits the ability to detect gradual or nonlinear trends across individual years.
+
+Moreover, genre overlap may confound the results. Many animated movies also belong to other genres such as adventure or comedy, which independently influence ratings.
+
+Additionally, several regression assumptions, specifically normality and homoscedasticity, were violated, as shown in Appendix III. These violations are likely a result of the large sample size and the nature of IMDb ratings, which are bounded between 0 and 10 and tend to cluster towards higher scores. As Field (2018) notes, even small deviations from normality can appear statistically significant when working with large data sets. Although such violations are common in social-science data and may not critically distort the estimates, they can reduce the precision of statistical inference and should be interpreted with caution. However, it is also important to note that these assumptions are not considered the most important of all the necessary assumptions and thus should not pose too much of a concern.
+
+Lastly, the relatively low adjusted R2 suggests omitted-variable bias. Factors such as production budget, marketing effort, or critical acclaim were not included but could have a substantial effect on audience ratings. Future studies could incorporate these variables and employ longitudinal or mixed-effects models to better capture temporal and genre-specific dynamics.
 
 
 ### Future Research
 
-With data being created on a daily basis, the analysis of IMDB datasets remains an ongoing process. By repeating this type of research over time it could reveal potential trends in IMDb ratings for animation movies compared to non-animated movies.
+With data being created on a daily basis, the analysis of IMDB data sets remains an ongoing process. By repeating this type of research over time it could reveal potential trends in IMDb ratings for animation movies compared to non-animated movies.
 
-Future research could focus more on the role of movie popularity and its influence on IMDB rating. Many animated fils are reboots of older, nostalgic classics, which may affect audiences perception and engagement. These type of movies might attract more reviews due to their established fan base and may receive more critical evaluations becuase viewers have a direct point of c comparison with the original.
+Future research could focus more on the role of movie popularity and its influence on IMDB rating. Many animated films are reboots of older, nostalgic classics, which may affect audiences perception and engagement. These type of movies might attract more reviews due to their established fan base and may receive more critical evaluations because viewers have a direct point of c comparison with the original.
 
 In addition, it would be valuable to examine whether there is a significant different in ratings between animated reboots and newly created animated concepts. These researches can also be done on TV shows, bring a different angle with some shows from gen-z youth still continuing to be produced in current day of time.
 
