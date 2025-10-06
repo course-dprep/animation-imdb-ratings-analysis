@@ -124,8 +124,11 @@ Overall, the results indicate that movie ratings have declined slightly in the p
 
 ### Future Research
 
-<see SCRUM: part for BRITT>
+With data being created on a daily basis, the analysis of IMDB datasets remains an ongoing proces. By repeating this type of research over time it could reveal potential trends in IMDb ratings for animation movies compared to non-animated movies. 
 
+Future research could focus more on the role of movie popularity and its influence on IMDB rating. Many animated fils are reboots of older, nostalgic classics, which may affect audiences perception and engagement. These type of movies might attract more reviews due to their established fan base and may receive more critical evaluations becuase viewers have a direct point of c comparison with the original. 
+
+In addition, it would be valuable to examine whether there is a significant different in ratings between animated reboots and newly created animated concepts. These researches can also be done on TV shows, bring a different angle with some shows from gen-z youth still continuing to be produced in current day of time. 
 
 \newpage
 
