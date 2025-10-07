@@ -1,8 +1,8 @@
 ---
 title: "Data_exploration"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
 
 # Data exploration
@@ -51,9 +51,9 @@ The variables: tconst, titleType, primaryTitle, originalTitle, genres, are kept 
 
 ## 3. Descriptive statistics
 
-The runtime of films looks similar for the different subsets, ranging between 90 and 100 minutes. When it comes to ratings, animated titles tend to score slightly higher on average, with a mean of 6.5 compared to 6.2 for other genres. For releaseyear the ratings look similar. The animated movies are underrepresented in the subset. And it can be seen that since 2010 many more movies are available but the movies are rated less times per movie.
+The runtime of films looks similar for the different subsets, ranging between 90 and 100 minutes. When it comes to average ratings, animated titles tend to score slightly higher on average, with a mean of 6.5 compared to 6.2 for other genres. For startyear the average ratings look similar. The animated movies are underrepresented in the subset. And it can be seen that since 2010 many more movies are available but the movies are rated less times per movie.
 
-| Subset | Observations | Mean Runtime (min) | Mean Rating | Mean Votes | SD Rating |
+| Subset | Observations | Mean runtime minutes | Mean averageratings | Mean number of votes | SD averageratings |
 |------------|------------|------------|------------|------------|------------|
 | Animation | 1,846 | 90.5 | 6.51 | 43,393 | 1.08 |
 | Non-Animation | 64,051 | 96.8 | 6.22 | 30,608 | 1.17 |
