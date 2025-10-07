@@ -8,6 +8,7 @@ output:
   pdf_document:
     toc: true
     toc_depth: 3
+    latex_engine: xelatex
 ---
 
 \newpage
@@ -18,7 +19,7 @@ output:
 
 Movies -a form of entertainment that has been around for centuries. Yet, the distribution and consumer perceptions of movies have shifted since the introduction of streaming services (Hennig-Hurau et al., 2021; Kumar, 2023). In 2010, the international expansion of Netflix across the globe marked a key point in the growth of on-demand content (Oberoj, 2024). The saturation and availability of the entertainment market have resulted in more critical consumers, which seemingly affects how audiences evaluate films (Hadida et al., 2020). Although research has been performed on movie ratings over time (e.g. Moon et al., 2010; Ramos et al., 2015), the effect of streaming remains rather unexplored.
 
-Over the years, black-and-white deaf movies have advanced to colourful and effects-heavy motion pictures due to technological developments. This is especially prominent in animation, where disruptions in Computer Generated Images (CGI) and production techniques have significantly enhanced visual quality and storytelling opportunities (Sun, 2023). Consequently, this makes it plausible to assume audience evaluations of animated films could differ from live-action films. Yet, current research has not addressed this focus on animation. All in all, the present study provides academic relevance by investigating the temporal dynamics on the quality perception of movies, while also accounting for the effect of animation. These insights are also socially relevant for filmmakers and distributors to better understand audiences. The focus of the research can be encapsulated with the following research question:
+Over the years, black-and-white silent movies have advanced to colourful and effects-heavy motion pictures due to technological developments. This is especially prominent in animation, where disruptions in Computer Generated Images (CGI) and production techniques have significantly enhanced visual quality and storytelling opportunities (Sun, 2023). Consequently, this makes it plausible to assume audience evaluations of animated films could differ from live-action films. Yet, current research has not addressed this focus on animation. All in all, the present study provides academic relevance by investigating the temporal dynamics on the quality perception of movies, while also accounting for the effect of animation. These insights are also socially relevant for filmmakers and distributors to better understand audiences. The focus of the research can be encapsulated with the following research question:
 
 ### Research Question
 
@@ -69,17 +70,17 @@ In further testing the hypotheses, two dummy variables were feature engineered;
 
 ### Type of Analyses
 
-In first assessing whether there was a significant difference in rating between animation and non-animation movies, an **independent t-test** was performed. For this, the procedure of Hair et al. (2019) was adopted.
+Besides **descriptive statistics**, in further assessment of whether there was a significant difference in rating between animation and non-animation movies, an **independent t-test** was performed. For this, the procedure of Hair et al. (2019) was adopted.
 
-To test H1 and H2, a **linear regression** was conducted in R Studio. The dependent variable that was aimed to be explained was the average IMDb rating. For the independent variables, these were entered step-wise in three models, and then assessed on fitness based on the Adjusted R^2. The variables in the three models consisted of;
+To test H1 and H2, a **linear regression** was conducted in R Studio. This method was chosen because it allows for examining the relationship between a continuous dependent variable (average IMDb rating) and multiple continuous or categorical independent variables, including interactions. For the independent variables, these were entered step-wise in three models, and then assessed on fitness based on the F-statistic and the Adjusted R². The following three hierarchical regression models were estimated;
 
 1. *Model 1*: including the basic predictors. Whether a movie was an animation was dummy-coded into the variable `animation_dummy` (0 = non-animated, 1 = animated), while the release year was stored into `before_2010_dummy` (0 = since 2010, 1 = before 2010) and included. The interaction between variables was not yet tested in model 1.
 
-2. *Model 2*: including the basic predictors and control variables. Other potential factors that were not specifically hypothesised but could influence ratings were added as control variables in model 2. This included `startYear`, `runtimeMinutes` and `numVotes`. In verifying whether the assumption of linearity was met, it was shown to be violated for `runtimeMinutes` and `numVotes`, whereby these have been log transformed and entered into the model as `log_runtimeMinutes` and `log_numVotes`. 
+2. *Model 2*: including the basic predictors and control variables. Other potential factors that were not specifically hypothesised but could influence ratings were added as control variables in model 2. This included `startYear`, `runtimeMinutes` and `numVotes`. In verifying whether the assumption of linearity was met, it was revealed to be violated for `runtimeMinutes` and `numVotes`, whereby these have been log transformed and entered into the model as `log_runtimeMinutes` and `log_numVotes`. 
 
 3. *Model 3*: including the basic predictors and control variables and interactions. The expected moderation effects between `before_2010_dummy` and `animation_dummy`, and `animation_dummy` and `startYear` was included in order to test H1 and H2.
 
-Besides the unstandardised effects, the standardised effects were also calculated since these allow to compare coefficients on their magnitude. Following the procedure of Field (2018) and Hair et al. (2019), each regression model was checked on the following assumption;
+Besides the unstandardised effects, the standardised effects were also calculated since these allow to compare coefficients on their magnitude. Following the procedure of Field (2018) and Hair et al. (2019), each regression model was checked on the following assumptions;
 
 - *Normality*: using the Shapiro-Wilk test, the Kolmogorov-Smirnov test and a histogram of residuals
 - *Homoscedasticity* and *Linearity*: using a ZPRED vs ZRESID plot
@@ -111,7 +112,40 @@ As visualised in \<graph 2\>, the average rating for animation movies with 6.51 
 
 ### Findings
 
-To test the hypotheses, three hierarchical regression models were estimated.
+The full regression output can be consulted in Appendix II. In the table below, a summary is provided of the significant relationships per model.
+
+```{r results='asis', echo = FALSE}
+library(knitr)
+
+data <- data.frame(
+  Variable = c(
+    "before_2010_dummyRelease since 2010",
+    "animation_dummyNon-Animation",
+    "startYear",
+    "log_runtimeMinutes",
+    "log_numVotes",
+    "before_2010_dummyRelease since 2010:animation_dummyNon-Animation",
+    "animation_dummyNon-Animation:startYear"
+  ),
+  Model1_Estimate = c(-0.088223, -0.292777, NA, NA, NA, NA, NA),
+  Model1_StdError = c(0.009831, 0.027595, NA, NA, NA, NA, NA),
+  Model1_Standardised = c(-0.034909, -0.041273, NA, NA, NA, NA, NA),
+  
+  Model2_Estimate = c(-0.0699701, -0.2489657, NA, 0.1695445, 0.1769982, NA, NA),
+  Model2_StdError = c(0.0173959, 0.0268355, NA, 0.0156716, 0.0028827, NA, NA),
+  Model2_Standardised = c(-0.0276866, -0.0350970, NA, 0.0409379, 0.2326277, NA, NA),
+  
+  Model3_Estimate = c(NA, NA, NA, 0.1695846, 0.1769870, NA, NA),
+  Model3_StdError = c(NA, NA, NA, 0.0156727, 0.0028830, NA, NA),
+  Model3_Standardised = c(NA, NA, NA, 0.0409476, 0.2326131, NA, NA)
+)
+
+kable(data, caption = "Regression Results (Models 1–3)", digits = 6)
+
+```
+
+
+
 Model 1 includes only the main predictors (release period dummy (before vs. since 2010) and animation status) and therefore primarily tests H1, which concerns whether movies released since 2010 have lower ratings than those released before. Model 2 extends this specification by adding control variables for runtime, number of votes, and release year, allowing a more accurate estimate of the main effects while accounting for potential confounding influences. Model 3 introduces interaction terms between release period and animation and between animation and release year, to test H2.
 
 In both Model 1 and Model 2, the start-year dummy has a significant effect on average movie ratings (p < 0.001). In the most basic model, movies released since 2010 on average score 0.088 lower than those released in the prior period (1995–2009). When control variables are added in model 2, this difference decreases slightly to 0.070. The first model reports a low adjusted R² (0.0029), indicating that the release period alone explains little of the variance in ratings. These findings statistically support H1, showing that the period of release (before versus since 2010) is significantly related to movie ratings, although the overall explanatory power of this variable is limited.
@@ -213,11 +247,15 @@ print(readLines("../gen/output/ttest_rating.txt"))
 model1 <- print(readLines("../gen/output/lr_model_basic.txt"))
 ```
 
+\newpage
+
 ### Model 2
 
 ```{r model 2, echo=FALSE}
 model2 <- print(readLines("../gen/output/lr_model_with_control_variables.txt"))
 ```
+
+\newpage
 
 ### Model 3
 
@@ -243,6 +281,8 @@ knitr::include_graphics("../gen/output/assumptions_histogram_MODEL1_unstandardis
 knitr::include_graphics("../gen/output/assumptions_plot_ZPREDvsZRESID_MODEL1_unstandardised.png")
 ```
 
+\newpage
+
 ### Assumptions model 2
 
 ```{r assumptions model 2, echo=FALSE}
@@ -257,12 +297,13 @@ knitr::include_graphics("../gen/output/assumptions_histogram_MODEL2_unstandardis
 knitr::include_graphics("../gen/output/assumptions_plot_ZPREDvsZRESID_MODEL2_unstandardised.png")
 ```
 
+\newpage
+
 ### Assumptions model 3
 
 ```{r assumptions model 3, echo=FALSE}
 assumptionsmodel3 <- print(readLines("../gen/output/assumption_checks_model3.txt"))
 ```
-
 
 ```{r fig.align='center', echo=FALSE, out.width='50%'}
 knitr::include_graphics("../gen/output/assumptions_histogram_MODEL3_unstandardised.png")
