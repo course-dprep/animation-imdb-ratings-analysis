@@ -143,6 +143,21 @@ However, while a temporal effect on ratings was confirmed, the moderation effect
 Although statistically significant, the models explain only a small proportion of variance in IMDb ratings (adjusted R2 ≈ 0.06). This indicates that the timing of release alone cannot account for the complexity of audience evaluations. Other influences, such as genre preferences, marketing exposure, critical reviews, or star power, likely play a much larger role. Nevertheless, the study provides empirical support for the idea that streaming-era audiences have become incrementally more discerning and that this shift applies broadly across both animated and non-animated movies.
 
 
+### Limitations
+
+Several limitations should be considered when interpreting these findings. Firstly, the analysis relied solely on IMDb data, which represents a self-selected community of users rather than a random sample of movie consumers. Ratings on the platform may therefore reflect demographic or cultural biases, such as the overrepresentation of younger or more media-savvy audiences.
+
+Furthermore, the dataset captured IMDb scores at a single point in time. However, because ratings can evolve after release, possibly increasing with nostalgia or decreasing due to review-bombing, the cross-sectional nature of the data prevents analysis of longitudinal rating changes.
+
+Another limitation is that the temporal variable was simplified into a binary indicator (before vs. since 2010). While this aligns with the introduction of major streaming services, it limits the ability to detect gradual or nonlinear trends across individual years.
+
+Moreover, genre overlap may confound the results. Many animated movies also belong to other genres such as adventure or comedy, which independently influence ratings.
+
+Additionally, several regression assumptions, specifically normality and homoscedasticity, were violated, as shown in Appendix III. These violations are likely a result of the large sample size and the nature of IMDb ratings, which are bounded between 0 and 10 and tend to cluster towards higher scores. As Field (2018) notes, even small deviations from normality can appear statistically significant when working with large data sets. Although such violations are common in social-science data and may not critically distort the estimates, they can reduce the precision of statistical inference and should be interpreted with caution. However, it is also important to note that these assumptions are not considered the most important of all the necessary assumptions and thus should not pose too much of a concern.
+
+Lastly, the relatively low adjusted R2 suggests omitted-variable bias. Factors such as production budget, marketing effort, or critical acclaim were not included but could have a substantial effect on audience ratings. Future studies could incorporate these variables and employ longitudinal or mixed-effects models to better capture temporal and genre-specific dynamics.
+
+
 ### Future Research
 
 With data being created on a daily basis, the analysis of IMDB data sets remains an ongoing process. By repeating this type of research over time it could reveal potential trends in IMDb ratings for animation movies compared to non-animated movies.
