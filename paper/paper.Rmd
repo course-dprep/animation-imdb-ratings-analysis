@@ -8,6 +8,7 @@ output:
   pdf_document:
     toc: true
     toc_depth: 3
+    latex_engine: xelatex
 ---
 
 \newpage
@@ -213,11 +214,15 @@ print(readLines("../gen/output/ttest_rating.txt"))
 model1 <- print(readLines("../gen/output/lr_model_basic.txt"))
 ```
 
+\newpage
+
 ### Model 2
 
 ```{r model 2, echo=FALSE}
 model2 <- print(readLines("../gen/output/lr_model_with_control_variables.txt"))
 ```
+
+\newpage
 
 ### Model 3
 
@@ -243,6 +248,8 @@ knitr::include_graphics("../gen/output/assumptions_histogram_MODEL1_unstandardis
 knitr::include_graphics("../gen/output/assumptions_plot_ZPREDvsZRESID_MODEL1_unstandardised.png")
 ```
 
+\newpage
+
 ### Assumptions model 2
 
 ```{r assumptions model 2, echo=FALSE}
@@ -257,12 +264,13 @@ knitr::include_graphics("../gen/output/assumptions_histogram_MODEL2_unstandardis
 knitr::include_graphics("../gen/output/assumptions_plot_ZPREDvsZRESID_MODEL2_unstandardised.png")
 ```
 
+\newpage
+
 ### Assumptions model 3
 
 ```{r assumptions model 3, echo=FALSE}
 assumptionsmodel3 <- print(readLines("../gen/output/assumption_checks_model3.txt"))
 ```
-
 
 ```{r fig.align='center', echo=FALSE, out.width='50%'}
 knitr::include_graphics("../gen/output/assumptions_histogram_MODEL3_unstandardised.png")
