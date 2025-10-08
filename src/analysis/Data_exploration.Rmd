@@ -1,11 +1,9 @@
 ---
 title: "Data_exploration"
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 ---
-
-# Data exploration
 
 ## 1. Data set description
 
@@ -27,7 +25,7 @@ This new dataset contains 724.580 movies and 11 variables. Of the movies in this
 
 As described in data size, the tconst variable is the join key and unique identifier used to merge the two initial datasets. The unit of analysis in the data sets, is one movie per row.
 
-From the title.basics dataset the following variables were utilized: tconst, titleType, primaryTitle, originalTitle, isAdult, startYear, endYear, runtimeMinutes, genres. - titleType, titles with "movies" are retained for the analysis - primaryTitle and originalTitle, human-readable titles, utilized for display and labeling in tables and plots - isAdult, as a 0/1 flag, optional for filtering - startYear, shows the release year of the movie - endYear, is mostly relevant to series, and contains a lot of \N - runtimeMinutes, shows how long the movie is - genre, contains a comma-seperated list, for movies that fall under multiple genre's
+From the title.basics dataset the following variables were utilized: tconst, titleType, primaryTitle, originalTitle, isAdult, startYear, endYear, runtimeMinutes, genres. - titleType, titles with "movies" are retained for the analysis - primaryTitle and originalTitle, human-readable titles, utilized for display and labeling in tables and plots - isAdult, as a 0/1 flag, optional for filtering - startYear, shows the release year of the movie - endYear, is mostly relevant to series, and contains a lot of NA's - runtimeMinutes, shows how long the movie is - genre, contains a comma-seperated list, for movies that fall under multiple genre's
 
 From the title.ratings dataset the following variables were utilized: tconst, averageRating and numVotes. - averageRating, contains the average rating a movie got on a scale of 1 to 10 - numVotes, the number of votes behind the averageRating
 
@@ -35,7 +33,7 @@ From the title.ratings dataset the following variables were utilized: tconst, av
 
 **Missing values**
 
-First, the dataset movies_selected was checked for missing values. A visual inspection of genres revealed additional missing values encoded by IMDb as the literal string \N, instead of NA. \N was therefore recoded to NA. Hereafter, a second check confirmed that missing values remained in the variables startYear, runtimeMinutes, genres, averageRating, and numVotes.
+First, the dataset movies_selected was checked for missing values. A visual inspection of genres revealed additional missing values encoded by IMDb with other values, instead of NA.  THese were therefore recoded to NA. Hereafter, a second check confirmed that missing values remained in the variables startYear, runtimeMinutes, genres, averageRating, and numVotes.
 
 To address these missing values, the MICE package was utilized, with an accurate predictive imputation method. Since MICE primarily targets continuous variables, the genres variable is not imputable. Therefore, the rows with missing genres were removed before running the imputation. This allows the imputation model to use the remaining information to predict the missing numeric values and helps reduce biased results.
 
@@ -64,15 +62,13 @@ The runtime of films looks similar for the different subsets, ranging between 90
 
 For the visualizations, three plots were selected that provided a good clear overview of relevant information about movies and movie types.
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, out.width="60%", fig.align="center"}
 # Line plot, average rating per year per type
-knitr::include_graphics("../gen/output/line_avg_rating_by_type.png")
-
-# Smooth plot,  average rating per year per type
-knitr::include_graphics("../gen/output/smooth_avg_rating_by_type.png")
-
-# Boxplot, runtime 
-knitr::include_graphics("../gen/output/boxplot_runtime.png")
+knitr::include_graphics("../../gen/output/line_avg_rating_by_type.png")
+# Smooth plot, average rating per year per type
+knitr::include_graphics("../../gen/output/smooth_avg_rating_by_type.png")
+# Boxplot, runtime
+knitr::include_graphics("../../gen/output/boxplot_runtime.png")
 ```
 
 In the first plot the average rating over time for animated and non-animated movies can be seen. It can be seen that the ratings are close but animated movies are typically rated somewhat higher than non-animated movies.
