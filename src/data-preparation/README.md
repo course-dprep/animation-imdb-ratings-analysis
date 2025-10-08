@@ -18,7 +18,7 @@ the ratings per title based on the IMDb-users, which is summarised in the averag
 As for the data structure, the unit of analysis in the data sets, is one movie per row. 
 Neither dataset holds temporal information based on for example date.
 
-Initially, the basics dataset prpvides data on several mediums besides movies, such as series, tv movies,
+Initially, the basics dataset provides data on several mediums besides movies, such as series, tv movies,
 specials, shorts, etc. From a technological consideration to not overload older devices, this 
 raw dataset was specified to movies before saving it to Google Drive. After the data was read-in 
 using this script, a local data folder was created to store the files, which were saved as 
