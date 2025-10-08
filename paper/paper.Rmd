@@ -250,7 +250,7 @@ Thompson, B. (2024, May 25). The Rise and Fall of Streaming TV? –Michigan Jour
 ## Appendix I - Results T-Test
 
 ```{r independent t-test, echo=FALSE}
-print(readLines("../gen/output/ttest_rating.txt"))
+print(readLines("../gen/output/ttest_rating.txt", warn = FALSE, encoding = "UTF-8"))
 ```
 
 \newpage
@@ -260,7 +260,7 @@ print(readLines("../gen/output/ttest_rating.txt"))
 ### Model 1
 
 ```{r model 1, echo=FALSE}
-model1 <- print(readLines("../gen/output/lr_model_basic.txt"))
+model1 <- print(readLines("../gen/output/lr_model_basic.txt", warn = FALSE, encoding = "UTF-8"))
 ```
 
 \newpage
@@ -268,7 +268,7 @@ model1 <- print(readLines("../gen/output/lr_model_basic.txt"))
 ### Model 2
 
 ```{r model 2, echo=FALSE}
-model2 <- print(readLines("../gen/output/lr_model_with_control_variables.txt"))
+model2 <- print(readLines("../gen/output/lr_model_with_control_variables.txt", warn = FALSE, encoding = "UTF-8"))
 ```
 
 \newpage
@@ -276,7 +276,7 @@ model2 <- print(readLines("../gen/output/lr_model_with_control_variables.txt"))
 ### Model 3
 
 ```{r model 3, echo=FALSE}
-model3 <- print(readLines("../gen/output/lr_model_with_interaction.txt"))
+model3 <- print(readLines("../gen/output/lr_model_with_interaction.txt", warn = FALSE, encoding = "UTF-8"))
 ```
 
 \newpage
@@ -286,7 +286,7 @@ model3 <- print(readLines("../gen/output/lr_model_with_interaction.txt"))
 ### Assumptions model 1
 
 ```{r assumptions model 1, echo=FALSE}
-assumptionsmodel1 <- print(readLines("../gen/output/assumption_checks_model1.txt"))
+assumptionsmodel1 <- print(readLines("../gen/output/assumption_checks_model1.txt", warn = FALSE, encoding = "UTF-8"))
 ```
 
 ```{r fig.align='center', echo=FALSE, out.width='50%'}
@@ -302,7 +302,7 @@ knitr::include_graphics("../gen/output/assumptions_plot_ZPREDvsZRESID_MODEL1_uns
 ### Assumptions model 2
 
 ```{r assumptions model 2, echo=FALSE}
-assumptionsmodel2 <- print(readLines("../gen/output/assumption_checks_model2.txt"))
+assumptionsmodel2 <- print(readLines("../gen/output/assumption_checks_model2.txt", warn = FALSE, encoding = "UTF-8"))
 ```
 
 ```{r fig.align='center', echo=FALSE, out.width='50%'}
@@ -318,7 +318,7 @@ knitr::include_graphics("../gen/output/assumptions_plot_ZPREDvsZRESID_MODEL2_uns
 ### Assumptions model 3
 
 ```{r assumptions model 3, echo=FALSE}
-assumptionsmodel3 <- print(readLines("../gen/output/assumption_checks_model3.txt"))
+assumptionsmodel3 <- print(readLines("../gen/output/assumption_checks_model3.txt", warn = FALSE, encoding = "UTF-8"))
 ```
 
 ```{r fig.align='center', echo=FALSE, out.width='50%'}
