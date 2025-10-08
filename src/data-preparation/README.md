@@ -3,15 +3,26 @@
 Below, the six files related to the data preparation are summarised.
 
 ---
+### **Data source**
 
 #### **1_download_raw_data.R**
 
-The raw data were downloaded from a Google Drive link. To ensure a manageable 
-dataset with relevant information, the data only focuses on movies, excluding content
-related to series, short movies and videos. Two public [IMDb-datasets](https://developer.imdb.com/non-commercial-datasets/ "Non-Commercial IMDb-datasets")
-were retrieved: *title.basics.tsv.gz* and *title.ratings.tsv.gz*. A local data 
-folder was created to store the files, which were saved as CSV-format to 
-facilitate subsequent data preparation.
+For this project, a database provided by IMDb (Internet Movie Database) was used. IMDb 
+provides rich databases on movies, series, actors, directors and more related to the 
+movie industry, and an active group of raters. 
+
+Two public [IMDb-datasets](https://developer.imdb.com/non-commercial-datasets/ "Non-Commercial IMDb-datasets")
+were retrieved: *title.basics.tsv.gz* and *title.ratings.tsv.gz*. Title.basics provides information 
+about the name, release year, duration, and genre(s) of the movies. Title.ratings contains 
+the ratings per title based on the IMDb-users, which is summarised in the average rating and the number of votes.
+As for the data structure, the unit of analysis in the data sets, is one movie per row. 
+Neither dataset holds temporal information based on for example date.
+
+Initially, the basics dataset prpvides data on several mediums besides movies, such as series, tv movies,
+specials, shorts, etc. From a technological consideration to not overload older devices, this 
+raw dataset was specified to movies before saving it to Google Drive. After the data was read-in 
+using this script, a local data folder was created to store the files, which were saved as 
+CSV-format to facilitate subsequent data preparation.
 
 ---
 
@@ -19,8 +30,13 @@ facilitate subsequent data preparation.
 
 In this step, the two raw datasets: **raw_basics** and **raw_ratings** were merged into 
 a single dataset; **raw_combined**. The merge was performed using the variable `tconst`, 
-which serves as a unique identifier for each movie in both datasets. This merged dataset
-was the basis for the remainder of the data preparation.
+which serves as the join key and unique identifier for each movie in both datasets. 
+This merged dataset was the basis for the remainder of the data preparation.
+
+Initially, the file **raw_basics** consists of 724.580 observations, while the **raw_ratings** 
+consists of 1.609.173 observations. Note that this difference is explainable through the 
+pre-selection on movies for the basics dataset. The **raw_combined** consists of 724.580 movies
+after the left-join of the datasets
 
 ---
 
@@ -32,9 +48,20 @@ the research were selected: `tconst`, `primaryTitle`, `startYear`, `runtimeMinut
 `averageRating`, `numVotes`. To ensure proper data handling, the variables `startYear` 
 and `runtimeMinutes` were converted from character to numeric format.
 
+Initially, the file **raw_basics** consists of 9 variables and 724580 observations, 
+while the **raw_ratings** consists of 3 variables and 1609173 observations. These variables
+are summarised in the table below.
+
+
+
+
 ---
 
 #### **4_handling_missing_values.R**
+
+Of the movies in this data set, 334.916, have a rating record and 389.664 have missing rating fields, 
+which is logical with a left join.
+
 
 The inspection of the dataset revealed  missing values ("na"") in `startYear`, `runtimeMinutes`,
 `averageRating` and `numVotes`. These missing values were imputed through an accurate 
