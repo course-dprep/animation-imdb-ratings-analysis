@@ -62,8 +62,6 @@ information about movies and movie types.
 ![Box plot, average rating per year per type](../../gen/output/boxplot_runtime.png)
 
 
-```
-
 In the first plot the average rating over time for animated and non-animated movies can be seen. 
 It can be seen that the ratings are close but animated movies are typically rated somewhat higher 
 than non-animated movies.
@@ -93,10 +91,46 @@ for the release year.
 
 ### **4_pre_assumption_check.R**
 
+Before running the regression analyses, several preliminary checks were performed to verify key model assumptions.
+The prepared dataset (movies_prepped.csv) contains 65,897 observations and 9 variables, including both numerical
+(startYear, runtimeMinutes, averageRating, numVotes) and categorical features.
+
+As part of the pre-assumption checks, the linearity between each numerical predictor (numVotes, runtimeMinutes, startYear)
+and the dependent variable (averageRating) was visually assessed. Scatterplots with LOESS smoothers were generated to evaluate
+whether a linear relationship could be reasonably assumed. These plots serve as a diagnostic step to confirm that the data
+meet the linearity assumption required for subsequent regression analyses.
 ---
 
 ### **5_regression_analysis.R**
+Three linear regression models were estimated to examine how animation status and release period relate to IMDb ratings.
+Categorical dummy variables were created for animation type and whether a movie was released before or after 2010.
+In addition, log-transformed versions of numVotes and runtimeMinutes were included as control variables to reduce skewness.
 
+Model 1 included only the two dummy variables and showed that both being released since 2010 and being non-animated
+were associated with slightly lower average ratings. Although statistically significant, the model explained very little variance (R² ≈ 0.003).
+
+Model 2 added control variables for startYear, log_runtimeMinutes, and log_numVotes. The model fit improved
+(R² ≈ 0.06). The number of votes and runtime showed positive associations with ratings, while the main effects of release
+period and animation type remained negative and significant.
+
+Model 3 included interaction terms to test whether the effect of animation type differed across release periods or
+over time. These interaction effects were not significant, and the model fit did not improve further.
+
+Overall, the analyses suggest that animated movies tend to receive slightly higher ratings than non-animated ones,
+but more recent movies (since 2010) tend to be rated slightly lower. Films with longer runtimes and higher numbers
+of votes are generally rated more positively.
 ---
 
 ### **6_post_assumption_check.R**
+
+After estimating the regression models, a comprehensive post-assumption check was performed to ensure that the main assumptions of linear regression were met.
+For each model, residual diagnostics were conducted to assess normality, linearity, homoscedasticity, multicollinearity, and independence of residuals.
+
+Normality of residuals was tested using the Shapiro–Wilk and Kolmogorov–Smirnov tests, both of which were significant across all models, indicating mild deviations from perfect normality.
+However, with a large sample size (n ≈ 65,000), such tests are highly sensitive, and visual inspection of the residual histograms suggested that deviations were not severe.
+
+Plots of standardized predicted values versus residuals showed no strong nonlinear patterns, suggesting that the assumptions of linearity and homoscedasticity were broadly acceptable.
+The Variance Inflation Factor (VIF) values for all predictors were well below common thresholds, indicating no problematic multicollinearity.
+Finally, the Durbin–Watson test yielded values around 2 for all models, suggesting that residuals were independent and not autocorrelated.
+
+Overall, while minor departures from normality were observed (as expected in large datasets), the diagnostic checks indicated that the regression assumptions were sufficiently met for reliable interpretation of the models.
