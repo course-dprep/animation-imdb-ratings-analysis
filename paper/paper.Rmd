@@ -92,15 +92,32 @@ Besides the unstandardised effects, the standardised effects were also calculate
 
 ### Descriptive Statistics
 
-The runtime of films looks similar for the different subsets, ranging between 90 and 100 minutes. When it comes to ratings, animated titles tend to score slightly higher on average, with a mean of 6.5 compared to 6.2 for other genres. For releaseyear the ratings look similar. The animated movies are underrepresented in the subset. And it can be seen that since 2010 many more movies are available but the movies are rated less times per movie.
+The runtime of films looks similar for the different subsets, ranging between 90 and 100 minutes. When it comes to average ratings, animated titles tend to score slightly higher on average, with a mean of 6.5 compared to 6.2 for other genres. For startyear the average ratings look similar. The animated movies are underrepresented in the subset. And it can be seen that since 2010 many more movies are available but the movies are rated less times per movie.
 
-| Subset        | Number of Observations | Mean Rating | SD Rating | Mean Runtime (minutes) | Mean Number of Votes |
-| ------------- | ---------------------- | ----------- | --------- | ---------------------- | -------------------- |
-| Animation     | 1,846                  | 6.51        | 1.08      | 90.5                   | 43,393               |
-| Non-Animation | 64,051                 | 6.22        | 1.17      | 96.8                   | 30,608               |
-| Before 2010   | 20,537                 | 6.29        | 1.14      | 97.0                   | 35,085               |
-| Since 2010    | 45,360                 | 6.20        | 1.18      | 96.4                   | 29,101               |
+| Subset | Observations | Mean runtime minutes | Mean averageratings | Mean number of votes | SD averageratings |
+|------------|------------|------------|------------|------------|------------|
+| Animation | 1,846 | 90.5 | 6.51 | 43,393 | 1.08 |
+| Non-Animation | 64,051 | 96.8 | 6.22 | 30,608 | 1.17 |
+| Before 2010 | 20,537 | 97.0 | 6.29 | 35,085 | 1.14 |
+| Since 2010 | 45,360 | 96.4 | 6.20 | 29,101 | 1.18 |
 
+### Visualization of data
+
+```{r, echo=FALSE, out.width="60%", fig.align="center"}
+library(here)
+# Line plot, average rating per year per type
+knitr::include_graphics(here::here("gen/output/line_avg_rating_by_type.png"))
+# Smooth plot, average rating per year per type
+knitr::include_graphics(here::here("gen/output/smooth_avg_rating_by_type.png"))
+# Boxplot, runtime
+knitr::include_graphics(here::here("gen/output/boxplot_runtime.png"))
+```
+
+In the first plot the average rating over time for animated and non-animated movies can be seen. It can be seen that the ratings are close but animated movies are typically rated somewhat higher than non-animated movies.
+
+In the second plot it can be seen that the average rating for animated movies is declining over time and the rating of non-animated movies is not stable but in the last years the rating is increasing.
+
+In the last plot the distribution for runtime can be seen. It can be seen that for both genres the average runtime is similar and around 90/100 minutes. For both genres there are some outliers which are longer than 200 minutes, or under 50 minutes.
 
 
 ### T-Test
