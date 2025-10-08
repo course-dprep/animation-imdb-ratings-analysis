@@ -1,9 +1,8 @@
-# **Data Preparation Steps**
+# **Data Preparation Information**
 
-Below, the six files related to the data preparation are summarised.
+Below, the six files related to the data preparation are  are elaborated on.
 
 ---
-### **Data source**
 
 #### **1_download_raw_data.R**
 
