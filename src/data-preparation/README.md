@@ -20,7 +20,7 @@ Neither dataset holds temporal information based on for example date.
 
 Initially, the basics dataset provides data on several mediums besides movies, such as series, tv movies,
 specials, shorts, etc. From a technological consideration to not overload older devices, this 
-raw dataset was specified to movies before saving it to Google Drive. After the data was read-in 
+raw dataset was narrowed down to solely movies before saving it to Google Drive. Upon the data being read-in 
 using this script, a local data folder was created to store the files, which were saved as 
 CSV-format to facilitate subsequent data preparation.
 
@@ -42,37 +42,54 @@ after the left-join of the datasets
 
 #### **3_select_variables.R**
 
-First, it was verified if the dataset contains only movies, which is consistent 
-with the focus of the study. Subsequently, the variables that are directly relevant for 
-the research were selected: `tconst`, `primaryTitle`, `startYear`, `runtimeMinutes`, `genres`, 
-`averageRating`, `numVotes`. To ensure proper data handling, the variables `startYear` 
-and `runtimeMinutes` were converted from character to numeric format.
+The table below displays the initial variables found in the **raw_combined** dataset.
 
-Initially, the file **raw_basics** consists of 9 variables and 724580 observations, 
-while the **raw_ratings** consists of 3 variables and 1609173 observations. These variables
-are summarised in the table below.
+| Column Name       | Description                                                                 |
+|-------------------|-----------------------------------------------------------------------------|
+| `tconst`          | Unique identifier for each title                                            |
+| `titleType`       | Type of medium, such as movie, TV movie, series, short, or special          |
+| `primaryTitle`    | Title of the content in its original language                               |
+| `originalTitle`   | Title of the content in international language, if applicable               |
+| `isAdult`         | Dummy-coded variable indicating whether the content is for adults (0/1)     |
+| `startYear`       | Release year of the medium                                                  |
+| `endYear`         | End year of the medium; relevant for series and often contains NA values    |
+| `runtimeMinutes`  | Duration of the movie in minutes                                            |
+| `genres`          | Comma-separated list of genres; supports multiple genres per movie          |
+| `averageRating`   | Average rating on a scale from 1 to 10                                      |
+| `numVotes`        | Number of votes contributing to the average rating                          |
 
+First, it was verified if the dataset contains only movies using the `titleType` variable.
+Subsequently, the variables that were irrelevant to the focus of the research were removed, which
+included `originalTitle`, `isAdult` and `endYear`.
 
+As for the data types, the variables that were kept as a character variable were `tconst`, `titleType`, 
+`primaryTitle` and `genres`. Numeric fields, like `startYear` and `runtimeMinutes` were converted from 
+a character to a numeric variable. `numVotes` remained an an integer count, while `averageRating` 
+remained a numeric variable on a scale of 1.0-10.0.
 
+The file was stored as **movies_selected** for further data preparation.
 
 ---
 
 #### **4_handling_missing_values.R**
 
-Of the movies in this data set, 334.916, have a rating record and 389.664 have missing rating fields, 
-which is logical with a left join.
+Due to the `tconst` variable serving as the join key, the issue of duplicated values did not occur.
+However, the inspection of the dataset revealed  missing values ("na") in `startYear`, `runtimeMinutes`,
+`averageRating` and `numVotes`. Most notably, the merging of the **raw_ratings** to the **raw_basics**
+file introduced 389.664 missing fields for the `averageRating` and `numVotes`, which is about
+half of the total 724580 observations.
 
-
-The inspection of the dataset revealed  missing values ("na"") in `startYear`, `runtimeMinutes`,
-`averageRating` and `numVotes`. These missing values were imputed through an accurate 
+These missing values were imputed through an accurate 
 predictive imputation method using the *mice* package. This method is proven to be suitable for 
 the prediction of continuous variables based on all other variables in the dataset. This
 avoided bias in that these movies were thus not disregarded from further analysis. 
 However, upon visual inspection it was revealed the `genres` variable also contained
 missing data, which were not automatically detected as "na". Since the *mice* procedure 
 works most reliable for continuous variables (numeric), the `genres` variable contained
-text and would thus cause problems. Therefore, movies with missing values here were 
-removed before the *mice* procedure was performed.
+text and would thus cause problems. Therefore, movies with missing values for `genres` were 
+removed before the *mice* procedure was performed. Note that the choice was made to
+impute these values *before* filtering took place, so bias would not be introduced this way.
+Results of this step were stored in **movies_imputed**.
 
 ---
 
@@ -98,12 +115,14 @@ analysis, as low voting numbers are problematic in biasing the average ratings, 
 do not provide a generalisable and stable result in comparison to movies with more than
 1,000 votes.
 
+The results of this step were temporarily saved as **movies_filtered**.
+
 ---
 
 #### **6_feature_engineering.R**
 
 For the analysis, dummy variables were created. From the variable `startYear`, a 
-dummy was constructed that distinguishes between movies *released before 2010* and 
-those *released since 2010*. Also, a dummy variable was created for animation based
-on the `genres` variable, classifying a movie as *Animation* or *Non-Animation*.
+dummy was constructed that distinguishes between movies *released before 2010* (= 1) and 
+those *released since 2010* (= 0). Also, a dummy variable was created for animation based
+on the `genres` variable, classifying a movie as *Animation* (= 1) or *Non-Animation* (= 0).
 This step finalised the data preperation and resulted in the CSV-file **movies_prepped**.
