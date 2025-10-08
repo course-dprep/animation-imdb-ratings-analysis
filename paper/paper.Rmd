@@ -93,6 +93,8 @@ Besides the unstandardised effects, the standardised effects were also calculate
 
 ### Descriptive Statistics
 
+
+
 The runtime of films looks similar for the different subsets, ranging between 90 and 100 minutes. When it comes to ratings, animated titles tend to score slightly higher on average, with a mean of 6.5 compared to 6.2 for other genres. For releaseyear the ratings look similar. The animated movies are underrepresented in the subset. And it can be seen that since 2010 many more movies are available but the movies are rated less times per movie.
 
 | Subset        | Number of Observations | Mean Rating | SD Rating | Mean Runtime (minutes) | Mean Number of Votes |
@@ -158,7 +160,7 @@ Appendix III shows the full output of the assumptions checking of the regression
 
 |        | Normality                                                                 | Linearity                              | Homoscedasticity                             | Multicollinearity                          | Independence                       |
 |------------------|---------------------------------------------------------------------------|----------------------------------------|----------------------------------------------|-------------------------------------------|------------------------------------|
-| **Tested**       | Shapiro-Wilk + Kolmogorov-Smirnov + Histogram show non-normality| ZPRED vs ZRESID shows linearity        | ZPRED vs ZRESID shows heteroscedasticity     | Variance Inflation Factor below 1          | Durbin-Watson test close to 2      |
+| **Tested**       | Shapiro-Wilk + Kolmogorov-Smirnov + Histogram show non-normality| ZPRED vs ZRESID shows linearity        | ZPRED vs ZRESID shows heteroscedasticity     | Variance Inflation Factor shows no problem          | Durbin-Watson shows no problem      |
 | **Verdict**      | **VIOLATED**                                                              | **MET**                                | **VIOLATED**                                 | **MET**                                   | **MET**                             |
 
 
