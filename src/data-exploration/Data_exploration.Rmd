@@ -4,60 +4,7 @@ output:
   pdf_document
 ---
 
-## 1. Data set description
-
-### **Data source**
-
-For this project, a data set provided by IMDb (Internet Movie Database) was used. IMDb is an online database about movies, series, actors, directors and everything else related to the movie industry. Users can rate movies and series with a score from 1 to 10, and with that, IMDb shows a rating for each movie and provides rankings of the most popular movies.
-
-The data sets used in this project are title.basics.tsv.gz and title.ratings.tsv.gz. Title.basics contains basic information about all titles on IMDb. Think about the name, release year, duration of the movie, and genre(s). Title.ratings contains information about the ratings per title. The average rating and the number of votes are provided in this data set.
-
-Initially, the dataset holds data on different types of mediums, including movies, series, tv shows, shorts, etc. In this project, a subset of the data set is used, consisting only of movies, as the entire data set is too large and caused problems on some older laptops during data download.
-
-
-### **Data size**
-
-The file raw_basics consists of 9 variables and 724580 observations. The file raw_ratings consists of 3 variables and 1609173 observations. After merging the two data sets into one, with left join on tconst, the new dataset was saved in the object "raw_combined".
-
-This new dataset contains 724.580 movies and 11 variables. Of the movies in this data set, 334.916, have a rating record and 389.664 have missing rating fields, which is logical with a left join.
-
-
-### **Key variables and structure**
-
-As described in data size, the tconst variable is the join key and unique identifier used to merge the two initial datasets. The unit of analysis in the data sets, is one movie per row. Neither dataset holds temporal information on date.
-
-From the title.basics dataset the following variables were utilized: tconst, titleType, primaryTitle, originalTitle, isAdult, startYear, endYear, runtimeMinutes, genres. 
-- titleType, titles with "movies" are retained for the analysis 
-- primaryTitle and originalTitle, human-readable titles, utilized for display and labeling in tables and plots 
-- isAdult, as a 0/1 flag, optional for filtering 
-- startYear, shows the release year of the movie 
-- endYear, is mostly relevant to series, and contains a lot of NA's 
-- runtimeMinutes, shows how long the movie is 
-- genres, contains a comma-seperated list, for movies that fall under multiple genre's
-
-From the title.ratings dataset the following variables were utilized: tconst, averageRating and numVotes. 
-- averageRating, contains the average rating a movie got on a scale of 1 to 10 
-- numVotes, the number of votes behind the averageRating
-
-## 2. Initial exploration
-
-### **Missing values**
-
-First, the dataset movies_selected was checked for missing values. A visual inspection of genres revealed additional missing values encoded by IMDb with other values, instead of NA.  These were therefore recoded to NA. Hereafter, a second check confirmed that missing values remained in the variables startYear, runtimeMinutes, genres, averageRating, and numVotes.
-
-To address these missing values, the MICE package was utilized, with an accurate predictive imputation method. Since MICE primarily targets continuous variables, the genres variable is not imputable. Therefore, the rows with missing genres were removed before running the imputation. This allows the imputation model to use the remaining information to predict the missing numeric values and helps reduce biased results.
-
-The multiple imputation was performed and the results were stored in movies_imputed. Finally, a check to see if there are no missing values left.
-
-### **Duplicates**
-
-Due to the tconst variable, serving as the join key, the uniqueness was able to be verified and preserved in the marged data set. No duplicates tconst values were found, which confirms that one row represents one movie. Duplicated in the primaryTitle variable, where different movies share the same title, can legitimately occur, because these are disambiguated by tconst.
-
-### **Data types**
-
-The variables: `tconst`, `titleType`, `primaryTitle`, `originalTitle`, `genres`, are kept as character variables. Before analysis, numeric fields, like `startYear` and `runtimeMinutes` are converted from a character to a numeric variable. `numVotes` is converted to an integer count, `averageRating` converted to a numeric variable on a scale of 1-10.
-
-## 3. Descriptive statistics
+## Descriptive statistics
 
 The runtime of films looks similar for the different subsets, ranging between 90 and 100 minutes. When it comes to average ratings, animated titles tend to score slightly higher on average, with a mean of 6.5 compared to 6.2 for other genres. For startyear the average ratings look similar. The animated movies are underrepresented in the subset. And it can be seen that since 2010 many more movies are available but the movies are rated less times per movie.
 
@@ -68,7 +15,9 @@ The runtime of films looks similar for the different subsets, ranging between 90
 | Before 2010 | 20,537 | 97.0 | 6.29 | 35,085 | 1.14 |
 | Since 2010 | 45,360 | 96.4 | 6.20 | 29,101 | 1.18 |
 
-## 4. Visualizations
+
+
+## Visualizations
 
 For the visualizations, three plots were selected that provided a good clear overview of relevant information about movies and movie types.
 
@@ -87,7 +36,10 @@ In the second plot it can be seen that the average rating for animated movies is
 
 In the last plot the distribution for runtime can be seen. It can be seen that for both genres the average runtime is similar and around 90/100 minutes. For both genres there are some outliers which are longer than 200 minutes, or under 50 minutes.
 
-## 5. Key insights
+
+
+
+## Key insights
 
 Some of the key insights that came forward after the initial data exploration were:
 
