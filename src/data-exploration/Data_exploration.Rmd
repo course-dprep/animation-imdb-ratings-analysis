@@ -8,6 +8,9 @@ output:
 
 The runtime of films looks similar for the different subsets, ranging between 90 and 100 minutes. When it comes to average ratings, animated titles tend to score slightly higher on average, with a mean of 6.5 compared to 6.2 for other genres. For startyear the average ratings look similar. The animated movies are underrepresented in the subset. And it can be seen that since 2010 many more movies are available but the movies are rated less times per movie.
 
+
+REMARK; WHY IN THIS GRAPH BELOW IS THE SD GIVEN AS THE ALST COLUMN? WHY NOT NEXT TO THE MEAN, THAT IS MORE LOGICAL
+
 | Subset | Observations | Mean runtime minutes | Mean averageratings | Mean number of votes | SD averageratings |
 |------------|------------|------------|------------|------------|------------|
 | Animation | 1,846 | 90.5 | 6.51 | 43,393 | 1.08 |
@@ -20,6 +23,8 @@ The runtime of films looks similar for the different subsets, ranging between 90
 ## Visualizations
 
 For the visualizations, three plots were selected that provided a good clear overview of relevant information about movies and movie types.
+
+REMARK; I WOULD SPLIT THESE, SO NOT ALL THREE BELOW BUT FIRST A PICTURE AND THEN EXPLAIN WHAT IT DOES.
 
 ```{r, echo=FALSE, out.width="60%", fig.align="center"}
 # Line plot, average rating per year per type
