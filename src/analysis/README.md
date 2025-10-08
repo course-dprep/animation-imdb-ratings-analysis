@@ -50,15 +50,18 @@ for both animated and non-animated movies. Second, a boxplot that shows the dist
 of movie runtimes in minutes, comparing the spread and median values between the two categories.
 
 
-For the visualizations, three plots were selected that provided a good clear overview of relevant information about movies and movie types.
+For the visualizations, three plots were selected that provided a good clear overview of relevant 
+information about movies and movie types.
 
-```{r, echo=FALSE, out.width="60%", fig.align="center"}
-# Line plot, average rating per year per type
-knitr::include_graphics("../../gen/output/line_avg_rating_by_type.png")
-# Smooth plot, average rating per year per type
-knitr::include_graphics("../../gen/output/smooth_avg_rating_by_type.png")
-# Boxplot, runtime
-knitr::include_graphics("../../gen/output/boxplot_runtime.png")
+![Line plot of average rating per year per type](../../gen/output/line_avg_rating_by_type.png)
+
+
+![Smooth plot, average rating per year per type](../../gen/output/smooth_avg_rating_by_type.png)
+
+
+![Box plot, average rating per year per type](../../gen/output/boxplot_runtime.png)
+
+
 ```
 
 In the first plot the average rating over time for animated and non-animated movies can be seen. 
