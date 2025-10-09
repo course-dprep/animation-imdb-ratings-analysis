@@ -70,7 +70,7 @@ In further testing the hypotheses, two dummy variables were feature engineered;
 
 ### Type of Analyses
 
-Besides **descriptive statistics**, in further assessment of whether there was a significant difference in rating between animation and non-animation movies, an **independent t-test** was performed. For this, the procedure of Hair et al. (2019) was adopted.
+Besides **descriptive statistics**, in further assessment of whether there was a significant difference in rating between animation and non-animation movies, an **independent t-test** was performed. For this, the procedure of Hair et al. (2019) was adopted. An additional test was performed to assess difference in rating of movies released before 2010 and since 2010.
 
 To test H1 and H2, a **linear regression** was conducted in R Studio. This method was chosen because it allows for examining the relationship between a continuous dependent variable (average IMDb rating) and multiple continuous or categorical independent variables, including interactions. For the independent variables, these were entered step-wise in three models, and then assessed on fitness based on the F-statistic and the Adjusted R². The following three hierarchical regression models were estimated;
 
@@ -93,7 +93,7 @@ Besides the unstandardised effects, the standardised effects were also calculate
 
 ### Descriptive Statistics
 
-The runtime of films looks similar for the different subsets, ranging between 90 and 100 minutes. When it comes to average ratings, animated titles tend to score slightly higher on average, with a mean of 6.5 compared to 6.2 for other genres. For startyear the average ratings look similar. The animated movies are underrepresented in the subset. And it can be seen that since 2010 many more movies are available but the movies are rated less times per movie.
+Below, descriptive statistics of the key variables are presented. The runtime of films looks similar for the different subsets, ranging between 90 and 100 minutes. When it comes to average ratings, animated titles tend to score slightly higher on average, with a mean of 6.5 compared to 6.2 for other genres. For startyear the average ratings look similar. The animated movies are underrepresented in the subset. And it can be seen that since 2010 many more movies are available but the movies are rated less times per movie.
 
 | Subset | Observations | Mean runtime minutes | Mean averageratings | Mean number of votes | SD averageratings |
 |------------|------------|------------|------------|------------|------------|
@@ -120,10 +120,11 @@ In the second plot it can be seen that the average rating for animated movies is
 
 In the last plot the distribution for runtime can be seen. It can be seen that for both genres the average runtime is similar and around 90/100 minutes. For both genres there are some outliers which are longer than 200 minutes, or under 50 minutes.
 
-
-### T-Test
+### T-Tests
 
 The average rating for animation movies with 6.51 (SD = 1.08) is higher then for non-animation movies with 6.22 (SD = 1.17). In further solidifying this, the independent t-test (see the full output in Appendix I) found that this difference, 0.29, BCa 95% CI [0.241, 0.341}, is significant t(1973) = 11.417, p =\< 0.001. Thus, on average, animation movies receive higher grades than non-animation movies. This is in line with the visualisation in the previous section, which shows animation movies on average score consistently higher than non-animation movies.
+
+Movies released before 2010 receive significantly higher ratings than those released since 2010, as resulting from the second independent t-test (see Appendix I for the full output). On average, movies released since 2010 score a 6.2 (SD = 1.18), while those released before 2010 score a 6.3. Although minimal, this difference, 0.09, 95% CI [0.069, 0.106], is statistically significant, t(41202) = 9.03, p \< .001.
 
 ### Regression Analysis
 
@@ -312,6 +313,11 @@ Thompson, B. (2024, May 25). The Rise and Fall of Streaming TV? –Michigan Jour
 ```{r independent t-test, echo=FALSE}
 print(readLines("../gen/output/ttest_rating.txt", warn = FALSE, encoding = "UTF-8"))
 ```
+
+```{r independent t-test, echo=FALSE}
+print(readLines("../gen/output/ttest_release.txt", warn = FALSE, encoding = "UTF-8"))
+```
+
 
 \newpage
 
