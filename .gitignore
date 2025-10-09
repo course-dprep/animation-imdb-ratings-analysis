@@ -8,6 +8,7 @@ animation-imdb-ratings-analysis.Rproj
 README.html
 Data_exploration.pdf
 paper.pdf
+paper.log
 **/temp/
 **/data/
 **/gen/
