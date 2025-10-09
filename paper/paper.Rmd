@@ -11,8 +11,6 @@ output:
     latex_engine: xelatex
 ---
 
-\newpage
-
 ## Chapter 1: Introduction
 
 ### Motivation
@@ -127,12 +125,71 @@ The average rating for animation movies with 6.51 (SD = 1.08) is higher then for
 
 ### Regression Analysis
 
-#### Findings
+As for the findings, the full regression output can be consulted in Appendix II. Summaries are provided in Table 4, Table 5 and Table 6 below.
 
-The full regression output can be consulted in Appendix II. In the table below, a summary is provided of the significant relationships per model.
+```{r results='asis', message = FALSE, warning = FALSE, echo = FALSE}
+
+#Load package for visualisation
+library(stargazer)
+
+#Load final model
+model1 <- readRDS("../gen/output/MODEL1_unstandardised.rds")
+
+#Capture stargazer
+stargazer_tex1 <- capture.output(
+  stargazer(model1,
+            type = "latex",
+            title = "Regression Results OF MODEL 1",
+            label = "tab:regression",
+            dep.var.labels = "Average Rating",
+            digits = 3,
+            out.header = FALSE,
+            no.space = TRUE,
+            notes.append = FALSE)
+)
+
+#Remove automated stargazer message
+stargazer_tex_clean1 <- stargazer_tex1[!grepl("^%", stargazer_tex1)]
+
+#Summarise clean table
+cat(paste(stargazer_tex_clean1, collapse = "\n"))
+
+```
 
 
-```{r results='asis', echo = FALSE}
+```{r results='asis', message = FALSE, warning = FALSE, echo = FALSE}
+
+#Load package for visualisation
+library(stargazer)
+
+#Load final model
+model2 <- readRDS("../gen/output/MODEL2_unstandardised.rds")
+
+#Capture stargazer
+stargazer_tex2 <- capture.output(
+  stargazer(model2,
+            type = "latex",
+            title = "Regression Results OF MODEL 2",
+            label = "tab:regression",
+            dep.var.labels = "Average Rating",
+            digits = 3,
+            out.header = FALSE,
+            no.space = TRUE,
+            notes.append = FALSE)
+)
+
+#Remove automated stargazer message
+stargazer_tex_clean2 <- stargazer_tex2[!grepl("^%", stargazer_tex2)]
+
+#Summarise clean table
+cat(paste(stargazer_tex_clean2, collapse = "\n"))
+
+```
+
+In both Model 1 and Model 2, the start-year dummy has a significant effect on average movie ratings (p < 0.001). In the most basic model, movies released since 2010 on average score 0.088 lower than those released in the prior period (1995–2009). When control variables are added in model 2, this difference decreases slightly to 0.070. The first model reports a low adjusted R² (0.0029), indicating that the release period alone explains little of the variance in ratings. These findings statistically support H1, showing that the period of release (before versus since 2010) is significantly related to movie ratings, although the overall explanatory power of this variable is limited.
+
+
+```{r results='asis', message = FALSE, warning = FALSE, echo = FALSE}
 
 #Load package for visualisation
 library(stargazer)
@@ -140,27 +197,30 @@ library(stargazer)
 #Load final model
 model3 <- readRDS("../gen/output/MODEL3_unstandardised.rds")
 
-#Summarise final model as a table
-stargazer(model3,
-          type = "latex",  # for PDF output
-          title = "Regression Results",
-          label = "tab:regression",
-          dep.var.labels = "Average Rating",
-          digits = 3,
-          out.header = FALSE)
+#Capture stargazer
+stargazer_tex3 <- capture.output(
+  stargazer(model3,
+            type = "latex",
+            title = "Regression Results OF MODEL 3",
+            label = "tab:regression",
+            dep.var.labels = "Average Rating",
+            digits = 3,
+            out.header = FALSE,
+            no.space = TRUE,
+            notes.append = FALSE)
+)
+
+#Remove automated stargazer message
+stargazer_tex_clean3 <- stargazer_tex3[!grepl("^%", stargazer_tex3)]
+
+#Summarise clean table
+cat(paste(stargazer_tex_clean3, collapse = "\n"))
 
 ```
 
-
-Model 1 includes only the main predictors (release period dummy (before vs. since 2010) and animation status) and therefore primarily tests H1, which concerns whether movies released since 2010 have lower ratings than those released before. Model 2 extends this specification by adding control variables for runtime, number of votes, and release year, allowing a more accurate estimate of the main effects while accounting for potential confounding influences. Model 3 introduces interaction terms between release period and animation and between animation and release year, to test H2.
-
-In both Model 1 and Model 2, the start-year dummy has a significant effect on average movie ratings (p < 0.001). In the most basic model, movies released since 2010 on average score 0.088 lower than those released in the prior period (1995–2009). When control variables are added in model 2, this difference decreases slightly to 0.070. The first model reports a low adjusted R² (0.0029), indicating that the release period alone explains little of the variance in ratings. These findings statistically support H1, showing that the period of release (before versus since 2010) is significantly related to movie ratings, although the overall explanatory power of this variable is limited.
-
 Model 3 adds the interaction terms to examine whether the relationship between release year and ratings differs between animated and non-animated films. Neither the interaction between release since 2010 × animation nor the interaction between start year × animation is statistically significant (p > 0.05). This suggests no strong evidence that the relationship between release year and ratings depends on animation status. The control variables (runtime and number of votes) remain significant and positive across models, indicating their consistent influence on ratings. Consequently, H2 is not statistically supported.
 
-#### Assumptions
-
-Appendix III shows the full output of the assumptions checking of the regression models. Since model 3 is the highest in explanatory power, this finding section is specified to that model. Below, the summary can be found.
+Regarding the assumptions of the models, Appendix III shows the full output of the assumptions checking of the regression models. Since model 3 is the highest in explanatory power, this finding section is specified to that model. Below, the summary can be found.
 
 |        | Normality                                                                 | Linearity                              | Homoscedasticity                             | Multicollinearity                          | Independence                       |
 |------------------|---------------------------------------------------------------------------|----------------------------------------|----------------------------------------------|-------------------------------------------|------------------------------------|
