@@ -1,5 +1,9 @@
 ---
 title: "**Data Exploration Document**"
+date: "`r Sys.Date()`"
+author:
+  - "Britt van Haaster, Isah Huijbregts, Lars van der Kroft"
+  - "Amanda van Lankveld, Amy Quist, Stefan Valentijn"
 output:
   pdf_document
 ---
@@ -13,12 +17,21 @@ In aligning with the focus of the research, four subsets were created were descr
 - Movies released before 2010
 - Movies released since 2010
 
-In further understanding the data, a function was created that calculates several descriptives for the different subsets, including the number of observations :
+In further understanding the data, a function was created that calculates several descriptives for the different subsets, including the number of observations, range of variables (min and max) and standard deviation:
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+#Load library
+suppressPackageStartupMessages({
+  library(tidyverse)
+})
+
+#Read in the data
+movies <- read_csv("../../gen/temp/movies_prepped.csv")
+```
 
 ```{r}
 
 #Function to generate descriptive statistics
-
 inspect_data <- function(df) {
   cat("Generating descriptive statistics...\n\n")
   cat("\n\n")
@@ -59,7 +72,7 @@ inspect_data <- function(df) {
 
 ```
 
-The Appendix shows the full output of generating these descriptives. Below, a table is provided that summarises some key statistics.
+The Appendix to this documents shows the full output of generating these descriptives. Below, a table is provided that summarises some key statistics.
 
 
 | Subset        | Observations | Mean runtime minutes | Mean averageratings | SD averageratings | Mean number of votes |
@@ -69,45 +82,53 @@ The Appendix shows the full output of generating these descriptives. Below, a ta
 | Before 2010   | 20,537       | 97.0                 | 6.29                | 1.14              | 35,085               |
 | Since 2010    | 45,360       | 96.4                 | 6.20                | 1.18              | 29,101               |
 
-The runtime of films looks similar for the different subsets, ranging between 90 and 100 minutes. When it comes to average ratings, animated titles tend to score slightly higher on average, with a mean of 6.5 compared to 6.2 for other genres. For startyear the average ratings look similar. The animated movies are underrepresented in the subset. And it can be seen that since 2010 many more movies are available but the movies are rated less times per movie.
+As for the observations, the far majority of the dataset contains non-animation movies. In fact, it is possible to calculate the ratio, which comes down to roughly 35 times more non-animation movies than animation movies;
 
+```{r}
+
+ratio_summary <- movies %>%
+  summarise(ratio = sum(animation_dummy == "Non-Animation") / sum(animation_dummy == "Animation"))
+
+print(ratio_summary)
+
+```
+
+The *average runtime* is fairly consistent for the different subsets, ranging between 90 and 100 minutes. Animation movies tend to be slightly shorter. When it comes to *average ratings*, animated titles tend to score slightly higher on average, with a mean of 6.5 compared to 6.2 for other genres. There seems to be less variance in the average rating for the startyear subsets. For the *number of votes*, it can be seen that animation movies receive a higher number than non-animation movies.
+
+\newpage
 
 ## Visualizations
 
-For the visualizations, three plots were selected that provided a good clear overview of relevant information about movies and movie types.
+In visualising the distribution of the four subsets, the **histogram** below provides further insights into this. The figure seems to confirm the oversaturation of the entertainment industry, with an increasing amount of movies (with a dip in the COVID-19 period) since 1995. Over the years, the share of animation movies has increased, yet this is still small in comparison with the non-animation movies.
+
+```{r, echo=FALSE, out.width="60%", fig.align="center"}
+# Histogram, amount of movies
+knitr::include_graphics("../../gen/output/hist_movies_per_year.png")
+```
+
+The descriptives revealed a higher rating for animation movies when compared to non-animation movies. The **line plot** below further visualises this trend for the release year period of 1995 up to and including 2025. The graph reaffirms that the average rating are close but typically rated somewhat higher for animation movies.
 
 ```{r, echo=FALSE, out.width="60%", fig.align="center"}
 # Line plot, average rating per year per type
 knitr::include_graphics("../../gen/output/line_avg_rating_by_type.png")
 ```
-In this plot the average rating over time for animated and non-animated movies can be seen. It can be seen that the ratings are close but animated movies are typically rated somewhat higher than non-animated movies.
+
+As the scores from the graph above are on a scale of 0-10, another **smooth plot** can be created to assess the trends in rating on a close scale. Over time, the average rating for animation movies seems declining, while non-animation movies have seen a decline and then a slight increase over the years. Nevertheless, animation movies are still rated higher.
 
 ```{r, echo=FALSE, out.width="60%", fig.align="center"}
 # Smooth plot, average rating per year per type
 knitr::include_graphics("../../gen/output/smooth_avg_rating_by_type.png")
 ```
-In this plot it can be seen that the average rating for animated movies is declining over time and the rating of non-animated movies is not stable but in the last years the rating is increasing. 
-
-```{r, echo=FALSE, out.width="60%", fig.align="center"}
-# Boxplot, runtime
-knitr::include_graphics("../../gen/output/boxplot_runtime.png")
-```
-
-In this plot the distribution for runtime can be seen. It can be seen that for both genres the average runtime is similar and around 90/100 minutes. For both genres there are some outliers which are longer than 200 minutes, or under 50 minutes.
-
 
 ## Key insights
 
 Some of the key insights that came forward after the initial data exploration were:
 
--	Due to the fact that there were a lot of missing values in the data set, this is something that may have consequences for the accuracy of the predictions, which has to be taken into account when analyzing the results. 
-
--	Animated titles are far less common than non-animated ones, so their summaries are based on fewer observations. 
-
--	Both groups show similar typical runtimes (roughly 90–100 minutes) but contain clear outliers, some films exceed 200 minutes while others are under 50. 
+- The majority of movies are non-animation movies
 
 -	All titles tend to be widely rated, yet the average number of votes per film drops after 2010, consistent with a larger volume of releases spreading audience attention across more movies.
 
+\newpage
 
 ## Appendix: Full Data
 
