@@ -33,40 +33,39 @@ movies <- read_csv("../../gen/temp/movies_prepped.csv")
 
 #Function to generate descriptive statistics
 inspect_data <- function(df) {
-  cat("Generating descriptive statistics...\n\n")
-  cat("\n\n")
+  cat("Generating descriptive statistics...\n")
+  cat("\n")
   
   cat('Summary statistics\n')
   print(summary(df))
-  cat('\n\n')
-  
+
   cat('Number of observations in subset: ')
   cat(nrow(df))
   cat('\n\n')
   
   cat('Range in runtime:\n')
   print(max(df$runtimeMinutes) - min(df$runtimeMinutes))
-  cat('\n\n')
+  cat('\n')
   
   cat('Standard deviation of runtime:\n')
   print(sd(df$runtimeMinutes))
-  cat('\n\n')
+  cat('\n')
   
   cat('Range in average rating:\n')
   print(max(df$averageRating) - min(df$averageRating))
-  cat('\n\n')
+  cat('\n')
   
   cat('Standard deviation of average rating:\n')
   print(sd(df$averageRating))
-  cat('\n\n')
+  cat('\n')
   
   cat('Range in number of votes:\n')
   print(max(df$numVotes) - min(df$numVotes))
-  cat('\n\n')
+  cat('\n')
   
   cat('Standard deviation of number of votes:\n')
   print(sd(df$numVotes))
-  cat('\n\n')
+  cat('\n')
   
 }
 
@@ -106,7 +105,7 @@ In visualising the distribution of the four subsets, the **histogram** below pro
 knitr::include_graphics("../../gen/output/hist_movies_per_year.png")
 ```
 
-The descriptives revealed a higher rating for animation movies when compared to non-animation movies. The **line plot** below further visualises this trend for the release year period of 1995 up to and including 2025. The graph reaffirms that the average rating are close but typically rated somewhat higher for animation movies.
+Since the average rating is the particular interest of this study, it is intriguing to further visualise this variable. The descriptives revealed a higher rating for animation movies when compared to non-animation movies. The **line plot** below further visualises this trend for the release year period of 1995 up to and including 2025. The graph reaffirms that the average rating are close but typically rated somewhat higher for animation movies.
 
 ```{r, echo=FALSE, out.width="60%", fig.align="center"}
 # Line plot, average rating per year per type
@@ -120,9 +119,12 @@ As the scores from the graph above are on a scale of 0-10, another **smooth plot
 knitr::include_graphics("../../gen/output/smooth_avg_rating_by_type.png")
 ```
 
+
+
+
 ## Key insights
 
-Some of the key insights that came forward after the initial data exploration were:
+Some of the conclusions that come forward after the initial data exploration were:
 
 - The majority of movies are non-animation movies
 
@@ -132,33 +134,50 @@ Some of the key insights that came forward after the initial data exploration we
 
 ## Appendix: Full Data
 
-```{r, echo = FALSE}
-library(tidyverse)
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+#Load library
+suppressPackageStartupMessages({
+  library(tidyverse)
+})
+
+#Read in the data
 animation_subset <- read_csv("../../gen/temp/animation_subset.csv")
-inspect_data(animation_subset)
-
-```
-
-\newpage
-
-```{r, echo = FALSE}
 non_animation_subset <- read_csv("../../gen/temp/non_animation_subset.csv")
+before_2010_subset <- read_csv("../../gen/temp/before_2010_subset.csv")
+since_2010_subset <- read_csv("../../gen/temp/since_2010_subset.csv")
+
+```
+
+**ANIMATION SUBSET**
+
+```{r, echo = FALSE}
 inspect_data(animation_subset)
 
 ```
 
 \newpage
 
+**NON-ANIMATION SUBSET**
+
 ```{r, echo = FALSE}
-before_2010_subset <- read_csv("../../gen/temp/before_2010_subset.csv")
+inspect_data(animation_subset)
+
+```
+
+\newpage
+
+**BEFORE 2010 SUBSET**
+
+```{r, echo = FALSE}
 inspect_data(before_2010_subset)
 
 ```
 
 \newpage
 
+**SINCE 2010 SUBSET**
+
 ```{r, echo = FALSE}
-since_2010_subset <- read_csv("../../gen/temp/since_2010_subset.csv")
 inspect_data(since_2010_subset)
 
 ```
