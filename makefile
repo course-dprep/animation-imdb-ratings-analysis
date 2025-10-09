@@ -11,3 +11,7 @@ analysis: data-preparation
 
 paper: analysis
 	make -C paper
+
+clean:
+	Rscript -e "unlink('data', recursive = TRUE)"
+	Rscript -e "unlink('gen', recursive = TRUE)"
