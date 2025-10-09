@@ -123,41 +123,31 @@ In the last plot the distribution for runtime can be seen. It can be seen that f
 
 ### T-Test
 
-As visualised in \<graph 2\>, the average rating for animation movies with 6.51 (SD = 1.08) is higher then for non-animation movies with 6.22 (SD = 1.17). In further solidifying this, the independent t-test (see the full output in Appendix I) found that this difference, 0.29, BCa 95% CI [0.241, 0.341}, is significant t(1973) = 11.417, p =\< 0.001. Thus, on average, animation movies receive higher grades than non-animation movies.
+The average rating for animation movies with 6.51 (SD = 1.08) is higher then for non-animation movies with 6.22 (SD = 1.17). In further solidifying this, the independent t-test (see the full output in Appendix I) found that this difference, 0.29, BCa 95% CI [0.241, 0.341}, is significant t(1973) = 11.417, p =\< 0.001. Thus, on average, animation movies receive higher grades than non-animation movies. This is in line with the visualisation in the previous section, which shows animation movies on average score consistently higher than non-animation movies.
 
 ### Regression Analysis
 
-### Findings
+#### Findings
 
 The full regression output can be consulted in Appendix II. In the table below, a summary is provided of the significant relationships per model.
 
+
 ```{r results='asis', echo = FALSE}
-library(knitr)
 
-data <- data.frame(
-  Variable = c(
-    "before_2010_dummyRelease since 2010",
-    "animation_dummyNon-Animation",
-    "startYear",
-    "log_runtimeMinutes",
-    "log_numVotes",
-    "before_2010_dummyRelease since 2010:animation_dummyNon-Animation",
-    "animation_dummyNon-Animation:startYear"
-  ),
-  Model1_Estimate = c(-0.088223, -0.292777, NA, NA, NA, NA, NA),
-  Model1_StdError = c(0.009831, 0.027595, NA, NA, NA, NA, NA),
-  Model1_Standardised = c(-0.034909, -0.041273, NA, NA, NA, NA, NA),
-  
-  Model2_Estimate = c(-0.0699701, -0.2489657, NA, 0.1695445, 0.1769982, NA, NA),
-  Model2_StdError = c(0.0173959, 0.0268355, NA, 0.0156716, 0.0028827, NA, NA),
-  Model2_Standardised = c(-0.0276866, -0.0350970, NA, 0.0409379, 0.2326277, NA, NA),
-  
-  Model3_Estimate = c(NA, NA, NA, 0.1695846, 0.1769870, NA, NA),
-  Model3_StdError = c(NA, NA, NA, 0.0156727, 0.0028830, NA, NA),
-  Model3_Standardised = c(NA, NA, NA, 0.0409476, 0.2326131, NA, NA)
-)
+#Load package for visualisation
+library(stargazer)
 
-kable(data, caption = "Regression Results (Models 1–3)", digits = 6)
+#Load final model
+model3 <- readRDS("../gen/output/MODEL3_unstandardised.rds")
+
+#Summarise final model as a table
+stargazer(model3,
+          type = "latex",  # for PDF output
+          title = "Regression Results",
+          label = "tab:regression",
+          dep.var.labels = "Average Rating",
+          digits = 3,
+          out.header = FALSE)
 
 ```
 
@@ -168,7 +158,7 @@ In both Model 1 and Model 2, the start-year dummy has a significant effect on av
 
 Model 3 adds the interaction terms to examine whether the relationship between release year and ratings differs between animated and non-animated films. Neither the interaction between release since 2010 × animation nor the interaction between start year × animation is statistically significant (p > 0.05). This suggests no strong evidence that the relationship between release year and ratings depends on animation status. The control variables (runtime and number of votes) remain significant and positive across models, indicating their consistent influence on ratings. Consequently, H2 is not statistically supported.
 
-### Assumptions
+#### Assumptions
 
 Appendix III shows the full output of the assumptions checking of the regression models. Since model 3 is the highest in explanatory power, this finding section is specified to that model. Below, the summary can be found.
 
