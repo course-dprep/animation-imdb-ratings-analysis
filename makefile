@@ -1,15 +1,14 @@
+.PHONY: all data-preparation data-exploration analysis paper clean
 
-.PHONY: all data-preparation analysis paper
-
-all: data-preparation analysis paper
+all: data-preparation data-exploration analysis paper
 
 data-preparation:
 	make -C src/data-preparation
-	
-data-exploratino:
+
+data-exploration: data-preparation
 	make -C src/data-exploration
 
-analysis: data-preparation
+analysis: data-exploration
 	make -C src/analysis
 
 paper: analysis
