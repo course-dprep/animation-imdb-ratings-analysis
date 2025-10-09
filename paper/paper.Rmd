@@ -189,7 +189,7 @@ cat(paste(stargazer_tex_clean2, collapse = "\n"))
 
 ```
 
-In both Model 1 and Model 2, the start-year dummy has a significant effect on average movie ratings (p < 0.001). In the most basic model, movies released since 2010 on average score 0.088 lower than those released in the prior period (1995–2009). When control variables are added in model 2, this difference decreases slightly to 0.070. The first model reports a low adjusted R² (0.0029), indicating that the release period alone explains little of the variance in ratings. These findings statistically support H1, showing that the period of release (before versus since 2010) is significantly related to movie ratings, although the overall explanatory power of this variable is limited.
+In both Model 1 and Model 2, the start-year dummy has a significant effect on average movie ratings (p < 0.001). In the most basic model, movies released since 2010 on average score 0.088 lower than those released in the prior period (1995–2009). When control variables are added in model 2, this difference decreases slightly to 0.070. The first model reports a low adjusted R² (0.0029), indicating that the release period alone explains little of the variance in ratings.
 
 
 ```{r results='asis', message = FALSE, warning = FALSE, echo = FALSE}
@@ -221,7 +221,7 @@ cat(paste(stargazer_tex_clean3, collapse = "\n"))
 
 ```
 
-Model 3 adds the interaction terms to examine whether the relationship between release year and ratings differs between animated and non-animated films. Neither the interaction between release since 2010 × animation nor the interaction between start year × animation is statistically significant (p > 0.05). This suggests no strong evidence that the relationship between release year and ratings depends on animation status. The control variables (runtime and number of votes) remain significant and positive across models, indicating their consistent influence on ratings. Consequently, H2 is not statistically supported.
+Model 3 adds the interaction terms to examine whether the relationship between release year and ratings differs between animated and non-animated films. Neither the interaction between release since 2010 × animation nor the interaction between start year × animation is statistically significant (p > 0.05). This suggests no strong evidence that the relationship between release year and ratings depends on animation status. The control variables (runtime and number of votes) remain significant and positive across models, indicating their consistent influence on ratings.
 
 Regarding the assumptions of the models, Appendix III shows the full output of the assumptions checking of the regression models. Since model 3 is the highest in explanatory power, this finding section is specified to that model. Below, the summary can be found.
 
