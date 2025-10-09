@@ -1,4 +1,4 @@
-#This file is used to keep certain files from being versioned in GitHub
+#The following files are NOT versioned in GitHub
 .DS_Store
 .RData
 .Rhistory
@@ -6,10 +6,8 @@
 .Rproj.user
 animation-imdb-ratings-analysis.Rproj
 README.html
-
 Data_exploration.pdf
 paper.pdf
-
 **/temp/
 **/data/
 **/gen/
