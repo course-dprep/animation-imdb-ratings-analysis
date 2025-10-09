@@ -64,7 +64,7 @@ check_assumptions <- function(REGRESSION_VERSION) {
                   color = "red", size = 1) +
     labs(title = "Histogram of Residuals with Normal Curve",
          x = "Residuals", 
-         y = "Density"); print(create_histogram)
+         y = "Density")
   
   #To avoid images being overrun, the model name is seperately saved
   model_name <- deparse(substitute(REGRESSION_VERSION))
