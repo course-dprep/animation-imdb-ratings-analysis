@@ -13,8 +13,6 @@ output:
 
 \newpage
 
-test
-
 ## Chapter 1: Introduction
 
 ### Motivation
