@@ -1,5 +1,9 @@
 ---
 title: "**Data Exploration Document**"
+date: "`r Sys.Date()`"
+author:
+  - "Britt van Haaster, Isah Huijbregts, Lars van der Kroft"
+  - "Amanda van Lankveld, Amy Quist, Stefan Valentijn"
 output:
   pdf_document
 ---
@@ -13,12 +17,21 @@ In aligning with the focus of the research, four subsets were created were descr
 - Movies released before 2010
 - Movies released since 2010
 
-In further understanding the data, a function was created that calculates several descriptives for the different subsets, including the number of observations :
+In further understanding the data, a function was created that calculates several descriptives for the different subsets, including the number of observations, range of variables (min and max) and standard deviation:
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+#Load library
+suppressPackageStartupMessages({
+  library(tidyverse)
+})
+
+#Read in the data
+movies <- read_csv("../../gen/temp/movies_prepped.csv")
+```
 
 ```{r}
 
 #Function to generate descriptive statistics
-
 inspect_data <- function(df) {
   cat("Generating descriptive statistics...\n\n")
   cat("\n\n")
@@ -59,7 +72,7 @@ inspect_data <- function(df) {
 
 ```
 
-The Appendix shows the full output of generating these descriptives. Below, a table is provided that summarises some key statistics.
+The Appendix to this documents shows the full output of generating these descriptives. Below, a table is provided that summarises some key statistics.
 
 
 | Subset        | Observations | Mean runtime minutes | Mean averageratings | SD averageratings | Mean number of votes |
@@ -69,8 +82,20 @@ The Appendix shows the full output of generating these descriptives. Below, a ta
 | Before 2010   | 20,537       | 97.0                 | 6.29                | 1.14              | 35,085               |
 | Since 2010    | 45,360       | 96.4                 | 6.20                | 1.18              | 29,101               |
 
-The runtime of films looks similar for the different subsets, ranging between 90 and 100 minutes. When it comes to average ratings, animated titles tend to score slightly higher on average, with a mean of 6.5 compared to 6.2 for other genres. For startyear the average ratings look similar. The animated movies are underrepresented in the subset. And it can be seen that since 2010 many more movies are available but the movies are rated less times per movie.
+As for the observations, the far majority of the dataset contains non-animation movies. In fact, it is possible to calculate the ratio, which comes down to roughly 35 times more non-animation movies than animation movies;
 
+```{r}
+
+ratio_summary <- movies %>%
+  summarise(ratio = sum(animation_dummy == "Non-Animation") / sum(animation_dummy == "Animation"))
+
+print(ratio_summary)
+
+```
+
+The *average runtime* is fairly consistent for the different subsets, ranging between 90 and 100 minutes. Animation movies tend to be slightly shorter. When it comes to *average ratings*, animated titles tend to score slightly higher on average, with a mean of 6.5 compared to 6.2 for other genres. There seems to be less variance in the average rating for the startyear subsets. For the *number of votes*, it can be seen that animation movies receive a higher number than non-animation movies.
+
+\newpage
 
 ## Visualizations
 
