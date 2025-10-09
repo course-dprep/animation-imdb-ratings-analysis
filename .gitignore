@@ -1,14 +1,15 @@
 #This file is used to keep certain files from being versioned in GitHub
+.DS_Store
+.RData
+.Rhistory
+.Rproj
+.Rproj.user
 animation-imdb-ratings-analysis.Rproj
 README.html
+
+Data_exploration.pdf
 paper.pdf
-.DS_Store
-.Rproj.user
-.Rproj
-.Rhistory
-.RData
-.pdf
-src/analysis/Rplots.pdf
+
 **/temp/
 **/data/
 **/gen/
