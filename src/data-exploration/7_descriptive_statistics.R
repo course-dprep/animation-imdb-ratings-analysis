@@ -29,16 +29,15 @@ since_2010_subset <- movies %>%
 
 #Creating a function for efficiency
 inspect_data <- function(df) {
-  cat("Generating descriptive statistics...\n\n")
+  cat("Generating descriptive statistics...\n")
   cat("\n")
   
   cat('Summary statistics\n')
   print(summary(df))
-  cat('\n')
   
   cat('Number of observations in subset: ')
   cat(nrow(df))
-  cat('\n')
+  cat('\n\n')
   
   cat('Range in runtime:\n')
   print(max(df$runtimeMinutes) - min(df$runtimeMinutes))
