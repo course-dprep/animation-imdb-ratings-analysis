@@ -6,7 +6,14 @@ output:
 
 ## Descriptive statistics
 
-A function was created that calculates several descriptives for the different subsets:
+In aligning with the focus of the research, four subsets were created were descriptive statistics were calculated of. These included;
+
+- Animation movies
+- Non-Animation movies
+- Movies released before 2010
+- Movies released since 2010
+
+In further understanding the data, a function was created that calculates several descriptives for the different subsets, including the number of observations :
 
 ```{r}
 
@@ -52,16 +59,7 @@ inspect_data <- function(df) {
 
 ```
 
-This function was used on four different subsets of the data;
-
-- Animation movies
-- Non-Animation movies
-- Movies released before 2010
-- Movies released since 2010
-
 The Appendix shows the full output of generating these descriptives. Below, a table is provided that summarises some key statistics.
-
-The runtime of films looks similar for the different subsets, ranging between 90 and 100 minutes. When it comes to average ratings, animated titles tend to score slightly higher on average, with a mean of 6.5 compared to 6.2 for other genres. For startyear the average ratings look similar. The animated movies are underrepresented in the subset. And it can be seen that since 2010 many more movies are available but the movies are rated less times per movie.
 
 
 | Subset        | Observations | Mean runtime minutes | Mean averageratings | SD averageratings | Mean number of votes |
@@ -70,6 +68,8 @@ The runtime of films looks similar for the different subsets, ranging between 90
 | Non-Animation | 64,051       | 96.8                 | 6.22                | 1.17              | 30,608               |
 | Before 2010   | 20,537       | 97.0                 | 6.29                | 1.14              | 35,085               |
 | Since 2010    | 45,360       | 96.4                 | 6.20                | 1.18              | 29,101               |
+
+The runtime of films looks similar for the different subsets, ranging between 90 and 100 minutes. When it comes to average ratings, animated titles tend to score slightly higher on average, with a mean of 6.5 compared to 6.2 for other genres. For startyear the average ratings look similar. The animated movies are underrepresented in the subset. And it can be seen that since 2010 many more movies are available but the movies are rated less times per movie.
 
 
 ## Visualizations
@@ -111,8 +111,6 @@ Some of the key insights that came forward after the initial data exploration we
 
 ## Appendix: Full Data
 
-
-
 ```{r, echo = FALSE}
 library(tidyverse)
 animation_subset <- read_csv("../../gen/temp/animation_subset.csv")
@@ -120,12 +118,15 @@ inspect_data(animation_subset)
 
 ```
 
+\newpage
+
 ```{r, echo = FALSE}
 non_animation_subset <- read_csv("../../gen/temp/non_animation_subset.csv")
 inspect_data(animation_subset)
 
 ```
 
+\newpage
 
 ```{r, echo = FALSE}
 before_2010_subset <- read_csv("../../gen/temp/before_2010_subset.csv")
@@ -133,6 +134,7 @@ inspect_data(before_2010_subset)
 
 ```
 
+\newpage
 
 ```{r, echo = FALSE}
 since_2010_subset <- read_csv("../../gen/temp/since_2010_subset.csv")
