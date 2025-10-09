@@ -1,19 +1,16 @@
-# Script: 2_exploratory_visualisations.R
-# Goal: Produce exploratory visualisations for the movie dataset
-
+#Script to produce exploratory visualisations of the data
 
 # Load packages
 library(tidyverse)
 library(broom)
 
-# Ensure output directory exists
+#Ensure output directory exists
 if (!dir.exists("../../gen/output")) dir.create("../../gen/output", recursive = TRUE)
 
-# Load dataset
+#Load dataset
 movies <- read_csv("../../gen/temp/movies_prepped.csv")
 
-# 1. Histogram of average IMDb ratings (by movie type)
-
+#1. Histogram of average IMDb ratings (by movie type)
 p1 <- ggplot(movies, aes(x = averageRating, fill = animation_dummy)) +
   geom_histogram(binwidth = 0.1, color = "white") +
   labs(
@@ -27,8 +24,7 @@ p1 <- ggplot(movies, aes(x = averageRating, fill = animation_dummy)) +
 ggsave("../../gen/output/hist_average_rating.png", plot = p1, width = 7, height = 5)
 
 
-# 2. Histogram of number of movies per release year (by movie type)
-
+#2. Histogram of number of movies per release year (by movie type)
 p2 <- ggplot(movies, aes(x = startYear, fill = animation_dummy)) +
   geom_histogram(binwidth = 1.0, color = "white") +
   labs(
@@ -42,17 +38,14 @@ p2 <- ggplot(movies, aes(x = startYear, fill = animation_dummy)) +
 ggsave("../../gen/output/hist_movies_per_year.png", plot = p2, width = 7, height = 5)
 
 
-
-# 3. Summary: ratio of non-animated to animated movies
-
+#3. Summary: ratio of non-animated to animated movies
 ratio_summary <- movies %>%
   summarise(ratio = sum(animation_dummy == "Non-Animation") / sum(animation_dummy == "Animation"))
+
 print(ratio_summary)
 
 
-
-# 4. Average rating per year (all movies combined)
-
+#4. Average rating per year (all movies combined)
 graph_allmovies <- movies %>%
   group_by(startYear) %>%
   summarise(meanRating = mean(averageRating), .groups = "drop")
@@ -70,9 +63,7 @@ p3 <- ggplot(graph_allmovies, aes(x = startYear, y = meanRating)) +
 ggsave("../../gen/output/line_avg_rating_all.png", plot = p3, width = 7, height = 5)
 
 
-
-# 5. Average rating per year (by animation vs non-animation)
-
+#5. Average rating per year (by animation vs non-animation)
 graph_splitmovies <- movies %>%
   group_by(startYear, animation_dummy) %>%
   summarise(meanRating = mean(averageRating), .groups = "drop")
@@ -91,9 +82,7 @@ p4 <- ggplot(graph_splitmovies, aes(x = startYear, y = meanRating, color = anima
 ggsave("../../gen/output/line_avg_rating_by_type.png", plot = p4, width = 7, height = 5)
 
 
-
-# 6. Smoothed average rating over time (per movie type)
-
+#6. Smoothed average rating over time (per movie type)
 p5 <- ggplot(movies, aes(x = startYear, y = averageRating, colour = animation_dummy)) +
   geom_smooth(se = FALSE, linewidth = 1.2) +
   labs(
@@ -106,8 +95,8 @@ p5 <- ggplot(movies, aes(x = startYear, y = averageRating, colour = animation_du
 
 ggsave("../../gen/output/smooth_avg_rating_by_type.png", plot = p5, width = 7, height = 5)
 
-# 7. Boxplot of movie runtime (by movie type)
 
+#7. Boxplot of movie runtime (by movie type)
 p6 <- ggplot(movies, aes(y = runtimeMinutes, fill = animation_dummy)) +
   geom_boxplot(outlier.alpha = 0.6) +
   labs(
@@ -120,7 +109,5 @@ p6 <- ggplot(movies, aes(y = runtimeMinutes, fill = animation_dummy)) +
 ggsave("../../gen/output/boxplot_runtime.png", plot = p6, width = 7, height = 5)
 
 
-
-# End of exploratory visualisation script
-
+#End of exploratory visualisation script
 cat("Exploratory visualisations successfully saved in ../../gen/output/\n")
