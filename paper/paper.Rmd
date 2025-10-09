@@ -231,7 +231,6 @@ Regarding the assumptions of the models, Appendix III shows the full output of t
 | **Verdict**      | **VIOLATED**                                                              | **MET**                                | **VIOLATED**                                 | **MET**                                   | **MET**                             |
 
 
-
 \newpage
 
 ## Chapter 5: Conclusions and Discussion
@@ -250,7 +249,7 @@ This paper is interested the extent to which the release year of a movie influen
 
 ### Discussion
 
-The findings show a slight but significant decline in average ratings for films released after 2010, providing partial support for H1. This outcome aligns with Moon, Bergey, and Iacobucci (2009), who argued that audiences have become more critical as their exposure to films increases. Likewise, Hadida et al. (2020) and Hennig-Thurau et al. (2021) described how the streaming era has intensified competition and expanded consumer choice, which may lead viewers to evaluate movies more harshly. Thus, the current results reinforce the notion that the expansion of digital content and on-demand viewing has reshaped expectations of film quality. 
+The findings show a slight but significant decline in average ratings for films released after 2010, providing partial support for H1. This outcome aligns with Moon, Bergey, and Iacobucci (2009), who argued that audiences have become more critical as their exposure to films increases. Likewise, Hadida et al. (2020) and Hennig-Thurau et al. (2021) described how the streaming era has intensified competition and expanded consumer choice, which may lead viewers to evaluate movies more harshly. Thus, the current results reinforce the notion that the expansion of digital content and on-demand viewing has reshaped expectations of film quality. Nevertheless, it should be noted the difference is small.
 
 However, while a temporal effect on ratings was confirmed, the moderation effect of animation (H2) was not supported. Contrary to Larson (2025), who proposed that animated films are perceived as more timeless due to their visual consistency and limited dependence on aging actors, the present analysis found no significant difference in how ratings changed over time for animation compared to live action. One possible explanation is that animated films have also evolved considerably in style and storytelling sophistication. As animation increasingly targets adult audiences, nostalgia may be offset by higher critical standards and greater scrutiny of production quality. Furthermore, because animated movies make up a smaller portion of total releases, any distinct pattern may be diluted by the predominance of live-action titles in the data set.
 
@@ -310,11 +309,11 @@ Thompson, B. (2024, May 25). The Rise and Fall of Streaming TV? –Michigan Jour
 
 ## Appendix I - Results T-Test
 
-```{r independent t-test, echo=FALSE}
+```{r first independent t-test, echo=FALSE}
 print(readLines("../gen/output/ttest_rating.txt", warn = FALSE, encoding = "UTF-8"))
 ```
 
-```{r independent t-test, echo=FALSE}
+```{r second independent t-test, echo=FALSE}
 print(readLines("../gen/output/ttest_release.txt", warn = FALSE, encoding = "UTF-8"))
 ```
 
