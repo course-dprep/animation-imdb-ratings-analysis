@@ -273,7 +273,7 @@ Lastly, the relatively low adjusted R2 suggests omitted-variable bias. Factors s
 
 ### Future Research
 
-With data being created on a daily basis, the analysis of IMDB data sets remains an ongoing process. By repeating this type of research over time it could reveal potential trends in IMDb ratings for animation movies compared to non-animated movies.
+With data being created on a daily basis, the analysis of IMDB data sets remains an ongoing process. By repeating this type of research over time it could reveal potential trends in IMDb ratings for animation movies compared to non-animated movies. This is especially intriguing since the visual exploration of the data revealed animation movies are rated higher, yet 2025 seems to be a tipping point.
 
 Future research could focus more on the role of movie popularity and its influence on IMDB rating. Many animated films are reboots of older, nostalgic classics, which may affect audiences perception and engagement. These type of movies might attract more reviews due to their established fan base and may receive more critical evaluations because viewers have a direct point of c comparison with the original.
 
