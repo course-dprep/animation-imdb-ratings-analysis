@@ -164,10 +164,10 @@ Replicating the workflow of this study can be achieved by taking the following s
 
 3. Create a copy of this repository to your local machine by copying the following sentence in your preferred terminal/command line:
 ```
-git clone https://github.com/course-dprep/animation-imdb-ratings-analysis.git
+git clone https://github.com/course-dprep/animation-imdb-ratings-analysis-over-time.git
 ```
 
-4. Set your working directory to the just forked repository `animation-ADD NAME` and run the following word in your preferred terminal/command line:
+4. Set your working directory to the just forked repository `animation-imdb-ratings-analysis-over-time` and run the following word in your preferred terminal/command line:
 ```
 make
 ``` 
