@@ -4,7 +4,7 @@
 Movies -a form of entertainment that has been around for centuries. Although research 
 has been performed on movie ratings over time (e.g. Moon et al., 2010; Ramos et  al., 2015), 
 the effect of *streaming services* on ratings remains rather unexplored. This is especially notable 
-since the world-wide adoption of streaming services caused shifts in the distribution and 
+since the world-wide adoption of streaming services in 2010 caused shifts in the distribution and 
 quality perception of movies by audiences (Hennig-Hurau et al., 2021; Kumar, 2023). 
 The present study aims to provide academic relevance by filling this gap. Movie-watchers nowadays have a 
 broader reference frame and thus become more critical in evaluating content (Hadida et al., 2020). 
@@ -12,14 +12,14 @@ In addition, streaming has resulted in a higher output of movies, which results 
 market to choose from. Resultingly, a negative relationship is hypothesised between release year 
 and the average rating.
 
-However, this effect is hypothesised to differ between animation and non-animation movies. 
+However, this effect is hypothesised to differ between *animation and non-animation movies*. 
 As such, technological innovations over time have enhanced the storytelling opportunities 
 and visual possibilities of this genre (Sun, 2023). Current research has not specifically 
 compared animation versus non-animation, whereby the present study aims to shed further light on 
 on the moderating role of genre on the relationship between release year and the average rating.
 
-Besides the academic relevance, the insights are also socially relevant for filmmakers and 
-distributors to better understand audiences’ opinion. All in all, focus of the research can 
+Besides the academic relevance, the insights are also socially relevant for movie producers and 
+distributors to better understand audiences. All in all, the focus of the research can 
 be encapsulated with the following research question:
 
 ### Research Question
@@ -52,7 +52,7 @@ The dataset merged from the secondary data contains the following variables:
 | `averageRating`     | numeric   | Average IMDb user rating (0.0–10.0)                                     |
 | `numVotes`          | integer   | Number of votes received by the title                                   |
 | `before_2010_dummy` | dummy     | Whether a movie is released before or after 2010                        |
-| `animation_dummy`   | dummy     | Whether a movie is animated or not                                      |
+| `animation_dummy`   | dummy     | Whether a movie is an animation or not                                  |
 
 
 ## Method
