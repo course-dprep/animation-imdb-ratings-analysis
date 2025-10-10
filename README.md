@@ -27,7 +27,7 @@ research can be encapsulated with the following research question:
 
 ### Research Question
 
-*To what extent does the release year of a movie influence its average IMDb rating,
+*To what extent does the release year of a movie influence its average IMDb rating, 
 and does this relationship differ between animated and non-animated films?*
 
 ### Hypotheses
