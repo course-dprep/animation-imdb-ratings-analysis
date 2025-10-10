@@ -6,6 +6,9 @@ library(tidyverse)
 #Load data
 movies <- read_csv("../../gen/temp/movies_prepped.csv")
 
+#Avoid Rplots.pdf to pop-up in the analysis folder
+pdf(NULL)
+
 #Create function to check the assumption of linearity of predictors
 linearity_check <- function(data, predictor, outcome = "averageRating") {
   ggplot(data, aes(x = .data[[predictor]], y = .data[[outcome]])) +
