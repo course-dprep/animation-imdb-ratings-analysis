@@ -111,12 +111,23 @@ average IMDb rating. Three models were compiled;
 
 ## Preview of Findings
 
-_TO BE DONE_
+Elaborate details are deployed in two documents:
 
--   Describe the gist of your findings (save the details for the final
-    paper!)
--   How are the findings/end product of the project deployed?
--   Explain the relevance of these findings/product.
+1. A data exploration PDF-document is generated that provides descriptive statistics and visualisations of the 
+prepped data set that was used for analysis.
+
+2. The end product is deployed in the form of a PDF-document, which further elaborates on the motivation, 
+literature, methodology, findings and conclusions. 
+
+The graph below can be used to describe the general gist of the findings. There are significant differences in rating, 
+with animation movies scoring higher than non-animation movies. Additionally, movies released before 2010 are 
+proven to score significantly higher than movies released since 2010. Nevertheless, results show no significant 
+results for the interaction between release year and animation status in predicting the average IMDb rating.
+
+![Line graph of average rating over time](https://github.com/user-attachments/assets/959fe1ce-9a5a-4001-9ecd-a2fe626519fe)
+
+The findings yielded provide social relevance in that the success of films are independent of when they are released.
+Despite that, the results show the animation genre is appealing to audiences, as expressed with the higher ratings. 
 
 ## Repository Overview
 
@@ -141,7 +152,7 @@ project-name/
 │  │  ├─ Data_exploration.Rmd
 │  │  ├─ README.md
 │  │  └─ makefile
-│  ├─data-preparation/
+│  ├─ data-preparation/
 │  │  ├─ 1_download_raw_data.R
 │  │  ├─ 2_merge_raw_data.R
 │  │  ├─ 3_select_variables.R
@@ -154,7 +165,6 @@ project-name/
 ├─ .gitignore
 ├─ README.md
 ├─ makefile
-└─ team-project-team2.Rproj
 ```
 
 ## Dependencies
@@ -178,7 +188,6 @@ install.packages("broom")
 install.packages("here")
 install.packages("lm.beta")
 ```
-
 
 ## Running Instructions
 
