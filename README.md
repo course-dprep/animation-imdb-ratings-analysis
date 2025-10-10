@@ -69,27 +69,25 @@ secondary data is consulted from [IMDb.com](https://developer.imdb.com/non-comme
 The database holds several datasets, of which two provide relevance in the context
 of the present study:
 
->[title.basics.tsv.gz](https://datasets.imdbws.com/title.basics.tsv.gz), which
->contains information about the title, runtime, genre and release year of motion 
->pictures.
+>[title.basics.tsv.gz](https://datasets.imdbws.com/title.basics.tsv.gz): information
+>about the title, runtime, genres and release year.
 
->[title.rating.tsv.gz](https://datasets.imdbws.com/title.ratings.tsv.gz), which 
->provides data on ratings from all titles. These IMDb ratings are derived from 
->IMDb users and can comprise of movie consumers or professionals.
+>[title.rating.tsv.gz](https://datasets.imdbws.com/title.ratings.tsv.gz): information 
+>on ratings derived from IMDb users.
 
 The dataset merged from the secondary data contains the following variables:
-
-| Variable          | Type      | Definition                                                             |
-|-------------------|-----------|-------------------------------------------------------------------------|
-| tconst            | character | Unique IMDb identifier for each title                                   |
-| primaryTitle      | character | The title most commonly used by the general public                      |
-| startYear         | integer   | Year the title was released                                             |
-| runtimeMinutes    | integer   | Runtime expressed in minutes                                            |
-| genres            | character | Genres separated by commas                                              |
-| averageRating     | numeric   | Weighted average IMDb user rating (0.0–10.0)                            |
-| numVotes          | integer   | Number of votes received by the title                                   |
-| before_2010_dummy | dummy     | Whether a movie is released before or after 2010                        |
-| animation_dummy   | dummy     | Whether a movie is animated or not                                      |
+ 
+| Variable            | Type      | Definition                                                              |
+|---------------------|-----------|-------------------------------------------------------------------------|
+| `tconst`            | character | Unique IMDb identifier for each title                                   |
+| `primaryTitle`      | character | The international title of a movie                                      |
+| `startYear`         | integer   | Release year of a movie                                                 |
+| `runtimeMinutes`    | integer   | Runtime expressed in minutes                                            |
+| `genres`            | character | Genres separated by commas                                              |
+| `averageRating`     | numeric   | Average IMDb user rating (0.0–10.0)                                     |
+| `numVotes`          | integer   | Number of votes received by the title                                   |
+| `before_2010_dummy` | dummy     | Whether a movie is released before or after 2010                        |
+| `animation_dummy`   | dummy     | Whether a movie is animated or not                                      |
 
 
 ## Method
@@ -111,7 +109,6 @@ average IMDb rating. Three models were compiled;
 - Model 2 including the two dummy predictors, control variables
 - Model 3 including the two dummy predictors, their interaction, and control variables.
 
-
 ## Preview of Findings
 
 _TO BE DONE_
@@ -120,9 +117,6 @@ _TO BE DONE_
     paper!)
 -   How are the findings/end product of the project deployed?
 -   Explain the relevance of these findings/product.
-
-
-
 
 ## Repository Overview
 
