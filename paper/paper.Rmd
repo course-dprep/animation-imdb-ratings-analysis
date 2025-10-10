@@ -301,7 +301,11 @@ All in all, this paper has provided insights into the effect of release year on 
 
 Bollen, D., Graus, M. P., & Willemsen, M. C. (2012). Remembering the stars?: effect of time on preference retrieval from memory. Proceedings of the sixth ACM conference on Recommender systems.<https://doi.org/10.1145/2365952.2365998>
 
+Field, A.P. (2018) Discovering Statistics Using IBM SPSS Statistics. 5th Edition, Sage, Newbury Park. <https://collegepublishing.sagepub.com/products/discovering-statistics-using-ibm-spss-statistics-5-260423>
+
 Hadida, A. L., Lampel, J., Walls, W. D., & Joshi, A. (2020). Hollywood Studio Filmmaking in the Age of Netflix: a Tale of Two Institutional Logics. Journal of Cultural Economics, 45(2), 213–238. <https://doi.org/10.1007/s10824-020-09379-z>
+
+Hair, J. F., Babin, B. J., Anderson, R. E., & Black, W. C. (2014). Multivariate data analysis (8th ed.). Pearson Prentice. <https://books.google.nl/books/about/Multivariate_Data_Analysis.html?id=VvXZnQEACAAJ&redir_esc=y>
 
 Hennig-Thurau, T., Ravid, S. A., & Sorenson, O. (2021). The Economics of Filmed Entertainment in the Digital Era. Journal of Cultural Economics, 45(2), 157–170. <https://doi.org/10.1007/s10824-021-09407-6>
 
