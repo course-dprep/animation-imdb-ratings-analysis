@@ -94,19 +94,23 @@ The dataset merged from the secondary data contains the following variables:
 
 ## Method
 
-To test the hypothesis, a linear regression was conducted in R Studio. Release year
-was treated as the independent variable, and average IMDb user rating as the
-dependent variable. 
+Data analysis consisted of three consecutive parts:
 
-Whether a movie was an animation was dummy coded (0 = non-animated, 1 = animated) 
-and included as a moderator to test whether it has a significant effect on the 
-relationship from release year to the average rating. 
+1. **Descriptive statistics** were performed on four subsets of the data; 
+- Animation movies
+- Non-Animation movies
+- Movies released before 2010
+- Movies released since 2010
 
-Other potential factors that were not specifically hypothesised but could 
-influence ratings were added as control variables in the regression. This included runtime,
-and number of votes. Furthermore, a dummy was created for whether a movie was 
-released before 2010 or after, in order to test the effect of the rise in streaming
-services since the international introduction of Netflix.
+2. **Independent t-tests** were performed to uncover significant differences in the 
+average ratings between the above mentioned subsets.
+
+3. **Linear regression** models were conducted that predicted the dependent variable of
+average IMDb rating. Three models were compiled;
+- Model 1 including the two dummy predictors
+- Model 2 including the two dummy predictors, control variables
+- Model 3 including the two dummy predictors, their interaction, and control variables.
+
 
 ## Preview of Findings
 
@@ -219,7 +223,7 @@ at [Tilburg University](https://www.tilburguniversity.edu/), based in The Nether
 - Amy Quist
 - Stefan Valentijn
 
-## Sources
+## References
 
 Bollen, D., Graus, M. P., & Willemsen, M. C. (2012). Remembering the
 stars?: effect of time on preference retrieval from memory. Proceedings
