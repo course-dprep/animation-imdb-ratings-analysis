@@ -4,22 +4,23 @@
 Movies -a form of entertainment that has been around for centuries. Although research 
 has been performed on movie ratings over time (e.g. Moon et al., 2010; Ramos et  al., 2015), 
 the effect of *streaming services* on ratings remains rather unexplored. This is especially notable 
-since the world-wide adoption of streaming services caused shifts in the distribution and 
+since the world-wide adoption of streaming services in 2010 caused shifts in the distribution and 
 quality perception of movies by audiences (Hennig-Hurau et al., 2021; Kumar, 2023). 
-The present study aims to provide academic relevance by filling this gap. Movie-watchers nowadays have a 
-broader reference frame and thus become more critical in evaluating content (Hadida et al., 2020). 
-In addition, streaming has resulted in a higher output of movies, which results in a saturated
-market to choose from. Resultingly, a negative relationship is hypothesised between release year 
-and the average rating.
+The present study aims to provide academic relevance by filling this gap. 
 
-However, this effect is hypothesised to differ between animation and non-animation movies. 
+Movie-watchers nowadays have a broader reference frame and thus become more critical in evaluating content 
+(Hadida et al., 2020). In addition, streaming has resulted in a higher output of movies, which 
+results in a saturated market to choose from. Resultingly, a negative relationship is hypothesised 
+between release year and the average rating.
+
+However, this effect is hypothesised to differ between *animation and non-animation movies*. 
 As such, technological innovations over time have enhanced the storytelling opportunities 
 and visual possibilities of this genre (Sun, 2023). Current research has not specifically 
 compared animation versus non-animation, whereby the present study aims to shed further light on 
 on the moderating role of genre on the relationship between release year and the average rating.
 
-Besides the academic relevance, the insights are also socially relevant for filmmakers and 
-distributors to better understand audiences’ opinion. All in all, focus of the research can 
+Besides the academic relevance, the insights are also socially relevant for movie producers and 
+distributors to better understand audiences. All in all, the focus of the research can 
 be encapsulated with the following research question:
 
 ### Research Question
@@ -52,8 +53,7 @@ The dataset merged from the secondary data contains the following variables:
 | `averageRating`     | numeric   | Average IMDb user rating (0.0–10.0)                                     |
 | `numVotes`          | integer   | Number of votes received by the title                                   |
 | `before_2010_dummy` | dummy     | Whether a movie is released before or after 2010                        |
-| `animation_dummy`   | dummy     | Whether a movie is animated or not                                      |
-
+| `animation_dummy`   | dummy     | Whether a movie is an animation or not                                  |
 
 ## Method
 
@@ -96,7 +96,7 @@ Despite that, the results show the animation genre is appealing to audiences, as
 
 ## Repository Overview
 
-The structure of our repository is as follows:
+The structure of this repository is as follows:
 
 ``` text
 project-name/
@@ -164,10 +164,10 @@ Replicating the workflow of this study can be achieved by taking the following s
 
 3. Create a copy of this repository to your local machine by copying the following sentence in your preferred terminal/command line:
 ```
-git clone https://github.com/course-dprep/animation-imdb-ratings-analysis.git
+git clone https://github.com/course-dprep/animation-imdb-ratings-analysis-over-time.git
 ```
 
-4. Set your working directory to the just forked repository `animation-ADD NAME` and run the following word in your preferred terminal/command line:
+4. Set your working directory to the just forked repository `animation-imdb-ratings-analysis-over-time` and run the following word in your preferred terminal/command line:
 ```
 make
 ``` 
@@ -207,7 +207,7 @@ Moon, S., Bergey, P. K., & Iacobucci, D. (2009). Dynamic Effects among
 Movie Ratings, Movie Revenues, and Viewer Satisfaction. Journal Of
 Marketing, 74(1), 108–121. <https://doi.org/10.1509/jmkg.74.1.108>
 
-Ramos, M., Calvão, A. M., & Anteneodo, C. (2015). Statistical patterns in movie rating behavior. PLOS ONE, 10(8), e0136083. https://doi.org/10.1371/journal.pone.0136083>
+Ramos, M., Calvão, A. M., & Anteneodo, C. (2015). Statistical patterns in movie rating behavior. PLOS ONE, 10(8), e0136083. <https://doi.org/10.1371/journal.pone.0136083>
 
 Sun, Z. (2023). What does cgi digital technology bring to the
 sustainable development of animated films?. Sustainability, 15(14),
