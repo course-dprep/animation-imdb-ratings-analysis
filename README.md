@@ -117,8 +117,7 @@ _TO BE DONE_
 -   How are the findings/end product of the project deployed?
 -   Explain the relevance of these findings/product.
 
-Test graph
-[![average_rating_per_year_per_type_of_movie](https://github.com/user-attachments/assets/29f28280-542c-4b42-96ad-c46111412915)](https://github.com/user-attachments/assets/29f28280-542c-4b42-96ad-c46111412915)
+
 
 
 ## Repository Overview
@@ -177,6 +176,34 @@ install.packages("broom")
 install.packages("here")
 install.packages("lm.beta")
 ```
+
+
+## Running Instructions
+
+Replicating the workflow of this study can be achieved by taking the following steps:
+
+1. Fork the repository through GitHub
+
+2. Open your preferred command-line (e.g., Git GUI)
+
+3. Create a copy of this repository to your local machine by copying the following sentence in your preferred command-line:
+
+```
+git clone https://github.com/course-dprep/animation-imdb-ratings-analysis.git
+```
+
+4. Set your working directory to the just forked repository and run the following word in your preferred command-line:
+
+```
+make
+``` 
+
+5. Afterwards, you can clean the working directory if desired by removing the gen and data folder by running the following command:
+
+```
+make clean
+``` 
+
 
 ## About
 
