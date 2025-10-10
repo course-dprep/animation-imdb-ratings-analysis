@@ -124,20 +124,22 @@ The structure of our repository is as follows:
 
 ``` text
 project-name/
-├─ reporting/
-│  ├─ .gitkeep
-│  ├─ report.Rmd
-│  └─ start_app.R
+├─ paper/
+│  ├─ makefile
+│  └─ paper.Rmd
 ├─ src/
 │  ├─ analysis/
-│  │  ├─ 1_descriptive_statistics.R
-│  │  ├─ 2_exploratory_visualisations.R
-│  │  ├─ 3_pre_assumption_check.R
-│  │  ├─ 4_regression_analysis.R
-│  │  ├─ 5_post_assumption_check.R
+│  │  ├─ 10_pre_assumption_check.R
+│  │  ├─ 11_regression_analysis.R
+│  │  ├─ 12_post_assumption_check.R
+│  │  ├─ 9_t-test.R
 │  │  ├─ README.md
-│  │  ├─ analysis_raw.R
-│  │  ├─ assumption check_raw.R
+│  │  └─ makefile
+│  ├─ data-exploration/
+│  │  ├─ 7_descriptive_statistics.R
+│  │  ├─ 8_exploratory_visualisations.R
+│  │  ├─ Data_exploration.Rmd
+│  │  ├─ README.md
 │  │  └─ makefile
 │  ├─data-preparation/
 │  │  ├─ 1_download_raw_data.R
@@ -149,10 +151,6 @@ project-name/
 │  │  ├─ README.md
 │  │  └─ makefile
 │  └─ .gitkeep
-├─ paper
-│  ├─ makefile
-│  └─ paper.Rmd
-├─ .RDataTmp
 ├─ .gitignore
 ├─ README.md
 ├─ makefile
