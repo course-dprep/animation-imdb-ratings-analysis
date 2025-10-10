@@ -6,11 +6,12 @@ has been performed on movie ratings over time (e.g. Moon et al., 2010; Ramos et 
 the effect of *streaming services* on ratings remains rather unexplored. This is especially notable 
 since the world-wide adoption of streaming services in 2010 caused shifts in the distribution and 
 quality perception of movies by audiences (Hennig-Hurau et al., 2021; Kumar, 2023). 
-The present study aims to provide academic relevance by filling this gap. Movie-watchers nowadays have a 
-broader reference frame and thus become more critical in evaluating content (Hadida et al., 2020). 
-In addition, streaming has resulted in a higher output of movies, which results in a saturated
-market to choose from. Resultingly, a negative relationship is hypothesised between release year 
-and the average rating.
+The present study aims to provide academic relevance by filling this gap. 
+
+Movie-watchers nowadays have a broader reference frame and thus become more critical in evaluating content 
+(Hadida et al., 2020). In addition, streaming has resulted in a higher output of movies, which 
+results in a saturated market to choose from. Resultingly, a negative relationship is hypothesised 
+between release year and the average rating.
 
 However, this effect is hypothesised to differ between *animation and non-animation movies*. 
 As such, technological innovations over time have enhanced the storytelling opportunities 
@@ -54,7 +55,6 @@ The dataset merged from the secondary data contains the following variables:
 | `before_2010_dummy` | dummy     | Whether a movie is released before or after 2010                        |
 | `animation_dummy`   | dummy     | Whether a movie is an animation or not                                  |
 
-
 ## Method
 
 Data analysis consisted of three consecutive parts:
@@ -96,7 +96,7 @@ Despite that, the results show the animation genre is appealing to audiences, as
 
 ## Repository Overview
 
-The structure of our repository is as follows:
+The structure of this repository is as follows:
 
 ``` text
 project-name/
@@ -207,7 +207,7 @@ Moon, S., Bergey, P. K., & Iacobucci, D. (2009). Dynamic Effects among
 Movie Ratings, Movie Revenues, and Viewer Satisfaction. Journal Of
 Marketing, 74(1), 108–121. <https://doi.org/10.1509/jmkg.74.1.108>
 
-Ramos, M., Calvão, A. M., & Anteneodo, C. (2015). Statistical patterns in movie rating behavior. PLOS ONE, 10(8), e0136083. https://doi.org/10.1371/journal.pone.0136083>
+Ramos, M., Calvão, A. M., & Anteneodo, C. (2015). Statistical patterns in movie rating behavior. PLOS ONE, 10(8), e0136083. <https://doi.org/10.1371/journal.pone.0136083>
 
 Sun, Z. (2023). What does cgi digital technology bring to the
 sustainable development of animated films?. Sustainability, 15(14),
