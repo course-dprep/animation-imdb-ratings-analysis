@@ -209,10 +209,9 @@ make clean
 
 ## About
 
-This project is set up as part of the Master's course [Data Preparation & Workflow Management](https://dprep.hannesdatta.com/) at the
-[Department of Marketing](https://www.tilburguniversity.edu/about/schools/economics-and-management/organization/departments/marketing),
-[Tilburg University](https://www.tilburguniversity.edu/), The
-Netherlands. The project is implemented by team 2: 
+This project is set up as part of the course [Data Preparation & Workflow Management](https://dprep.hannesdatta.com/) of the [Master of Science
+Marketing Analytics](https://www.tilburguniversity.edu/education/masters-programs/marketing-analytics/program) program 
+at [Tilburg University](https://www.tilburguniversity.edu/), based in The Netherlands. The project is implemented by: 
 - Britt van Haaster 
 - Isah Huijbregts 
 - Lars van der Kroft 
