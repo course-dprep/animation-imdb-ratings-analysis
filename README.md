@@ -163,7 +163,13 @@ project-name/
 
 ## Dependencies
 
-For data downloading, cleaning and analysing R and R studio were used.
+By using the installation guides as found on [Tilburg University's Science Hub](http://tilburgsciencehub.com/),
+ensure your device has the following software installed:
+
+- Make - [installation guide](https://tilburgsciencehub.com/building-blocks/configure-your-computer/automation-and-workflows/make/).
+- R / R Studio - [installation guide](https://tilburgsciencehub.com/building-blocks/configure-your-computer/statistics-and-computation/r/).
+
+Within R Studio, ensure the following packages are installed.
 
 ``` r
 # Install the following packages
@@ -182,28 +188,24 @@ install.packages("lm.beta")
 
 Replicating the workflow of this study can be achieved by taking the following steps:
 
-1. Fork the repository through GitHub
+1. Fork the repository using GitHub
 
-2. Open your preferred command-line (e.g., Git GUI)
+2. Open your preferred terminal/command line (e.g., Git GUI)
 
-3. Create a copy of this repository to your local machine by copying the following sentence in your preferred command-line:
-
+3. Create a copy of this repository to your local machine by copying the following sentence in your preferred terminal/command line:
 ```
 git clone https://github.com/course-dprep/animation-imdb-ratings-analysis.git
 ```
 
-4. Set your working directory to the just forked repository and run the following word in your preferred command-line:
-
+4. Set your working directory to the just forked repository `animation-ADD NAME` and run the following word in your preferred terminal/command line:
 ```
 make
 ``` 
 
-5. Afterwards, you can clean the working directory if desired by removing the gen and data folder by running the following command:
-
+5. Afterwards, you can clean the working directory if desired by removing the gen and data folder by running the following in your preferred terminal/command line:
 ```
 make clean
 ``` 
-
 
 ## About
 
