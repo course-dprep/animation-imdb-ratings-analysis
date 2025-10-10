@@ -71,7 +71,7 @@ inspect_data <- function(df) {
 
 ```
 
-The Appendix to this documents shows the full output of generating these descriptives. Below, a table is provided that summarises some key statistics.
+The Appendix of this documents shows the full output of generating these descriptives per subset. Below, a table is provided that summarises some key statistics.
 
 
 | Subset        | Observations | Mean runtime minutes | Mean averageratings | SD averageratings | Mean number of votes |
@@ -92,7 +92,7 @@ print(ratio_summary)
 
 ```
 
-The *average runtime* is fairly consistent for the different subsets, ranging between 90 and 100 minutes. Animation movies tend to be slightly shorter. When it comes to *average ratings*, animated titles tend to score slightly higher on average, with a mean of 6.5 compared to 6.2 for other genres. There seems to be less variance in the average rating for the startyear subsets. For the *number of votes*, it can be seen that animation movies receive a higher number than non-animation movies.
+The **average runtime** is fairly consistent for the different subsets, ranging between 90 and 100 minutes. Animation movies tend to be slightly shorter. When it comes to **average ratings**, animated titles tend to score slightly higher on average, with a mean of 6.5 compared to 6.2 for other genres. Additionally, the standard deviation is the lowest for the average rating of animation movies, which suggests the most consensus amongst the critics. There seems to be less variance in the average rating for the startyear subsets, with also similar standard deviations. For the **number of votes**, it can be seen that animation movies receive a higher number than non-animation movies -nearly 1.5 times more votes. Older movies released before 2010 also have more votes than those released since 2010.
 
 \newpage
 
@@ -105,7 +105,7 @@ In visualising the distribution of the four subsets, the **histogram** below pro
 knitr::include_graphics("../../gen/output/hist_movies_per_year.png")
 ```
 
-Since the average rating is the particular interest of this study, it is intriguing to further visualise this variable. The descriptives revealed a higher rating for animation movies when compared to non-animation movies. The **line plot** below further visualises this trend for the release year period of 1995 up to and including 2025. The graph reaffirms that the average rating are close but typically rated somewhat higher for animation movies.
+Since the average rating is the particular interest of this study, it is intriguing to further visualise this dependent variable. The descriptives revealed a higher rating for animation movies when compared to non-animation movies. The **line plot** below further visualises this trend for the release year period of 1995 up to and including 2025. The graph confirms that the average rating are close but typically rated somewhat higher for animation movies.
 
 ```{r, echo=FALSE, out.width="60%", fig.align="center"}
 # Line plot, average rating per year per type

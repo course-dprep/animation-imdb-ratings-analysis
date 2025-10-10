@@ -70,7 +70,14 @@ In further testing the hypotheses, two dummy variables were feature engineered;
 
 ### Type of Analyses
 
-Besides **descriptive statistics**, in further assessment of whether there was a significant difference in rating between animation and non-animation movies, an **independent t-test** was performed. For this, the procedure of Hair et al. (2019) was adopted. An additional test was performed to assess difference in rating of movies released before 2010 and since 2010.
+First of all, **descriptive statistics** were performed on the data. For a more insightful interpretation, descriptives were generated on four subsets that were created based on the two dummy variables;
+
+- Animation movies
+- Non-Animation movies
+- Movies released before 2010
+- Movies released since 2010
+
+In further assessment of whether there was a significant difference in rating between animation and non-animation movies, an **independent t-test** was performed. For this, the procedure of Hair et al. (2019) was adopted. An additional test was performed to assess difference in rating of movies released before 2010 and since 2010.
 
 To test H1 and H2, a **linear regression** was conducted in R Studio. This method was chosen because it allows for examining the relationship between a continuous dependent variable (average IMDb rating) and multiple continuous or categorical independent variables, including interactions. For the independent variables, these were entered step-wise in three models, and then assessed on fitness based on the F-statistic and the Adjusted R². The following three hierarchical regression models were estimated;
 
@@ -93,42 +100,42 @@ Besides the unstandardised effects, the standardised effects were also calculate
 
 ### Descriptive Statistics
 
-Below, descriptive statistics of the key variables are presented. The runtime of films looks similar for the different subsets, ranging between 90 and 100 minutes. When it comes to average ratings, animated titles tend to score slightly higher on average, with a mean of 6.5 compared to 6.2 for other genres. For startyear the average ratings look similar. The animated movies are underrepresented in the subset. And it can be seen that since 2010 many more movies are available but the movies are rated less times per movie.
+Elaborated descriptives and visualisations can be consulted from the separate data exploration file. Solely the information key to answering the hypotheses are presented in this chapter.
 
-| Subset | Observations | Mean runtime minutes | Mean averageratings | Mean number of votes | SD averageratings |
-|------------|------------|------------|------------|------------|------------|
-| Animation | 1,846 | 90.5 | 6.51 | 43,393 | 1.08 |
-| Non-Animation | 64,051 | 96.8 | 6.22 | 30,608 | 1.17 |
-| Before 2010 | 20,537 | 97.0 | 6.29 | 35,085 | 1.14 |
-| Since 2010 | 45,360 | 96.4 | 6.20 | 29,101 | 1.18 |
+Below, descriptive statistics of the key numeric variables are presented. Most of the dataset contains non-animation movies. In fact, there are roughly 35 times more non-animation movies than animation ones. The **average runtime** is fairly consistent for the different subsets, ranging between 90 and 100 minutes. Animation movies tend to be slightly shorter. When it comes to **average ratings**, animated titles tend to score slightly higher on average, with a mean of 6.5 compared to 6.2 for other genres. Additionally, the standard deviation is the lowest for the average rating of animation movies, which suggests the most consensus amongst the critics. There seems to be less variance in the average rating for the startyear subsets, with also similar standard deviations. For the **number of votes**, it can be seen that animation movies receive a higher number than non-animation movies -nearly 1.5 times more votes. Older movies released before 2010 also have more votes than those released since 2010.
 
-### Visualization of data
+| Subset        | Observations | Mean runtime minutes | Mean averageratings | SD averageratings | Mean number of votes |
+| ------------- | ------------ | -------------------- | ------------------- | ----------------- | -------------------- |
+| Animation     | 1,846        | 90.5                 | 6.51                | 1.08              | 43,393               |
+| Non-Animation | 64,051       | 96.8                 | 6.22                | 1.17              | 30,608               |
+| Before 2010   | 20,537       | 97.0                 | 6.29                | 1.14              | 35,085               |
+| Since 2010    | 45,360       | 96.4                 | 6.20                | 1.18              | 29,101               |
+
+### Visualisation of Data
+
+Since the average rating is the particular interest of this study, it is intriguing to further visualise this dependent variable. The descriptives revealed a higher rating for animation movies when compared to non-animation movies. The **line plot** below further visualises this trend for the release year period of 1995 up to and including 2025. The graph confirms that the average rating are close but typically rated somewhat higher for animation movies.
 
 ```{r, echo=FALSE, out.width="60%", fig.align="center"}
-library(here)
 # Line plot, average rating per year per type
-knitr::include_graphics(here::here("gen/output/line_avg_rating_by_type.png"))
-# Smooth plot, average rating per year per type
-knitr::include_graphics(here::here("gen/output/smooth_avg_rating_by_type.png"))
-# Boxplot, runtime
-knitr::include_graphics(here::here("gen/output/boxplot_runtime.png"))
+knitr::include_graphics("../gen/output/line_avg_rating_by_type.png")
 ```
 
-In the first plot the average rating over time for animated and non-animated movies can be seen. It can be seen that the ratings are close but animated movies are typically rated somewhat higher than non-animated movies.
+As the scores from the graph above are on a scale of 0-10, another **smooth plot** can be created to assess the trends in rating on a close scale. Over time, the average rating for animation movies seems declining, while non-animation movies have seen a decline and then a slight increase over the years. Nevertheless, animation movies are still rated higher.
 
-In the second plot it can be seen that the average rating for animated movies is declining over time and the rating of non-animated movies is not stable but in the last years the rating is increasing.
-
-In the last plot the distribution for runtime can be seen. It can be seen that for both genres the average runtime is similar and around 90/100 minutes. For both genres there are some outliers which are longer than 200 minutes, or under 50 minutes.
+```{r, echo=FALSE, out.width="60%", fig.align="center"}
+# Smooth plot, average rating per year per type
+knitr::include_graphics("../gen/output/smooth_avg_rating_by_type.png")
+```
 
 ### T-Tests
 
-The average rating for animation movies with 6.51 (SD = 1.08) is higher then for non-animation movies with 6.22 (SD = 1.17). In further solidifying this, the independent t-test (see the full output in Appendix I) found that this difference, 0.29, BCa 95% CI [0.241, 0.341}, is significant t(1973) = 11.417, p =\< 0.001. Thus, on average, animation movies receive higher grades than non-animation movies. This is in line with the visualisation in the previous section, which shows animation movies on average score consistently higher than non-animation movies.
+The average rating for animation movies with 6.51 (SD = 1.08) is higher then for non-animation movies with 6.22 (SD = 1.17). In further solidifying this, the independent t-test (see the full output in Appendix I) found that this difference, 0.29, BCa 95% CI [0.241, 0.341}, is significant t(1973) = 11.417, p = \<0.001. Thus, on average, animation movies receive higher grades than non-animation movies. This is in line with the visualisation in the previous section, which shows animation movies on average score consistently higher than non-animation movies.
 
-Movies released before 2010 receive significantly higher ratings than those released since 2010, as resulting from the second independent t-test (see Appendix I for the full output). On average, movies released since 2010 score a 6.2 (SD = 1.18), while those released before 2010 score a 6.3. Although minimal, this difference, 0.09, 95% CI [0.069, 0.106], is statistically significant, t(41202) = 9.03, p \< .001.
+Movies released before 2010 receive significantly higher ratings than those released since 2010, as resulting from the second independent t-test (see Appendix I for the full output). On average, movies released since 2010 score a 6.2 (SD = 1.18), while those released before 2010 score a 6.3. Although minimal, this difference, 0.09, 95% CI [0.069, 0.106], is statistically significant, t(41202) = 9.03, p = \<0.001.
 
 ### Regression Analysis
 
-As for the findings, the full regression output can be consulted in Appendix II. Summaries are provided in Table 4, Table 5 and Table 6 below.
+As for the *findings*, the full regression output can be consulted in Appendix II. Summaries are provided in Table 4 (= MODEL 1), Table 5 (= MODEL 2) and Table 6 (= MODEL 3) below.
 
 ```{r results='asis', message = FALSE, warning = FALSE, echo = FALSE}
 
@@ -159,7 +166,6 @@ cat(paste(stargazer_tex_clean1, collapse = "\n"))
 
 ```
 
-
 ```{r results='asis', message = FALSE, warning = FALSE, echo = FALSE}
 
 #Load package for visualisation
@@ -189,8 +195,9 @@ cat(paste(stargazer_tex_clean2, collapse = "\n"))
 
 ```
 
-In both Model 1 and Model 2, the start-year dummy has a significant effect on average movie ratings (p < 0.001). In the most basic model, movies released since 2010 on average score 0.088 lower than those released in the prior period (1995–2009). When control variables are added in model 2, this difference decreases slightly to 0.070. The first model reports a low adjusted R² (0.0029), indicating that the release period alone explains little of the variance in ratings.
+Model 2 and model 2 both show a significant F-statistic (p < 0.001). As for the Adjusted R², model 1 explains solely 0.3% of variance, while model 2 explains 5.9% -which is quite low. In both Model 1 and Model 2, the **2010 dummy** has a significant negative effect on average movie ratings (p < 0.001). This can be interpreted in that movies released since 2010 receive lower ratings than those released before 2010. In the most basic model, this is 0.088 points lower, while in model 2 this difference decreases slightly to 0.070. In both models, the **animation dummy** is also significant and a negative effect (p < 0.001), whereby it can be interpreted that non-animation movies score significantly worse than non-animation movies in terms of the average rating. The value is -0.293 in model 1 and declines to -0.249 in model 2. In model 2, the runtime and number of votes are significant pedictors.
 
+\newpage
 
 ```{r results='asis', message = FALSE, warning = FALSE, echo = FALSE}
 
@@ -221,15 +228,18 @@ cat(paste(stargazer_tex_clean3, collapse = "\n"))
 
 ```
 
-Model 3 adds the interaction terms to examine whether the relationship between release year and ratings differs between animated and non-animated films. Neither the interaction between release since 2010 × animation nor the interaction between start year × animation is statistically significant (p > 0.05). This suggests no strong evidence that the relationship between release year and ratings depends on animation status. The control variables (runtime and number of votes) remain significant and positive across models, indicating their consistent influence on ratings.
+Model 3 adds the interaction terms to examine whether the relationship between release year and ratings differs between animated and non-animated films. The F-statistic is significnat (p < 0.001), and the Adjusted R² is 5.9% -similar as model 2. Neither the interaction between the 2010 dummy × animation dummy nor the interaction between start year × animation dummy is statistically significant (p > 0.05). This suggests no effect that the relationship between release year and ratings depends on animation status. The control variables (runtime and number of votes) remain significant and positive across models.
 
-Regarding the assumptions of the models, Appendix III shows the full output of the assumptions checking of the regression models. Since model 3 is the highest in explanatory power, this finding section is specified to that model. Below, the summary can be found.
+\
+
+Regarding the *assumptions* of the models, Appendix III shows the full output of the assumptions checking of the regression models. The table below summarises the assumptions of model 3, since that model encapsulated the focus of the present study.
 
 |        | Normality                                                                 | Linearity                              | Homoscedasticity                             | Multicollinearity                          | Independence                       |
 |------------------|---------------------------------------------------------------------------|----------------------------------------|----------------------------------------------|-------------------------------------------|------------------------------------|
 | **Tested**       | Shapiro-Wilk + Kolmogorov-Smirnov + Histogram show non-normality| ZPRED vs ZRESID shows linearity        | ZPRED vs ZRESID shows heteroscedasticity     | Variance Inflation Factor shows no problem          | Durbin-Watson shows no problem      |
 | **Verdict**      | **VIOLATED**                                                              | **MET**                                | **VIOLATED**                                 | **MET**                                   | **MET**                             |
 
+As the table shows, the assumptions of linearity, multicollinearity and independence of errors are met, while the assumption of normality and homoscedasticity are violated. This is presumably a result of the disproportion between the number of non-animation and animation movies, which may distort residual patterns and inflate variance across groups.
 
 \newpage
 
@@ -241,43 +251,49 @@ This paper is interested the extent to which the release year of a movie influen
 
 ***H1:*** _Movies released since 2010 receive lower average ratings than movies released before 2010._
 
-*Verdict*: The t-test confirms that movies released before 2010 receive a higher rating than those since 2010. In addition, the results of model 1 and 2 indicate that movie ratings have declined slightly in the post-2010 era, supporting the notion that audiences have become more critical in the age of streaming. However, in model 3 including the interaction, this effect becomes statistically insignificant. This suggests that the simple main effect of release period does not hold when accounting for moderated effects. In addition, temporal shift explains only a small portion of the variation in ratings, suggesting that other factors such as popularity and runtime play a more substantial role in how movies are evaluated. Therefore, H1 is partially supported. 
+*Verdict*: The t-test confirms that movies released before 2010 receive a higher rating than those since 2010. In addition, the results of model 1 and 2 indicate that movie ratings have declined slightly in the post-2010 era, supporting the notion that audiences have become more critical in the age of streaming. However, in model 3 including the interaction, this effect becomes statistically insignificant. This suggests that the simple main effect of release period does not hold when accounting for moderated effects. In addition, temporal shift explains only a small portion of the variation in ratings, suggesting that other factors such as popularity and runtime play a more substantial role in how movies are evaluated. **Therefore, H1 is partially supported**.
 
 ***H2:*** _The negative effect of release year (before vs since 2010) on ratings is moderated by animation status, in that the decline is less pronounced for animated movies than for non-animated movies._
 
-*Verdict*: The t-test confirms animation movies receive a higher rating than non-animation movies. Nevertheless, regression model 3 shows none of the interactions to be significant. Therefore, H2 is rejected.
+*Verdict*: The t-test confirms animation movies receive a higher rating than non-animation movies. Nevertheless, regression model 3 shows none of the interactions to be significant. **Therefore, H2 is rejected**.
+
+\
 
 ### Discussion
 
-The findings show a slight but significant decline in average ratings for films released after 2010, providing partial support for H1. This outcome aligns with Moon, Bergey, and Iacobucci (2009), who argued that audiences have become more critical as their exposure to films increases. Likewise, Hadida et al. (2020) and Hennig-Thurau et al. (2021) described how the streaming era has intensified competition and expanded consumer choice, which may lead viewers to evaluate movies more harshly. Thus, the current results reinforce the notion that the expansion of digital content and on-demand viewing has reshaped expectations of film quality. Nevertheless, it should be noted the difference is small.
+The findings show a slight but significant decline in average ratings for films released after 2010, providing partial support for H1. This outcome aligns with Moon et al. (2009), who argue that audiences have become more critical as their exposure to films increases. Likewise, Hadida et al. (2020) and Hennig-Thurau et al. (2021) describe how the streaming era has intensified competition and expanded consumer choice, which may lead viewers to evaluate movies more harshly. Thus, the current results may seem to reinforce the notion that the expansion of digital content and on-demand viewing has reshaped expectations of film quality. On the other hand, it should be noted that the decline in rating is relatively small; from 6.29 to 6.20. As such, it could be questioned whether the introduction of streaming has really shifted rating behaviour, or whether its impact is primarly specified to the distribution of movies and how/when/where they are watched.
 
-However, while a temporal effect on ratings was confirmed, the moderation effect of animation (H2) was not supported. Contrary to Larson (2025), who proposed that animated films are perceived as more timeless due to their visual consistency and limited dependence on aging actors, the present analysis found no significant difference in how ratings changed over time for animation compared to live action. One possible explanation is that animated films have also evolved considerably in style and storytelling sophistication. As animation increasingly targets adult audiences, nostalgia may be offset by higher critical standards and greater scrutiny of production quality. Furthermore, because animated movies make up a smaller portion of total releases, any distinct pattern may be diluted by the predominance of live-action titles in the data set.
+Animation movies have not yielded different results than non-animation movies, as H2 is rejected. Contrary to Larson (2025), who proposed that animated films are perceived as more timeless due to their visual consistency and limited dependence on aging actors, the present analysis found no significant difference in how ratings changed over time for animation compared to live action. One possible explanation is that animated films have also evolved considerably in style and storytelling sophistication. As animation increasingly targets adult audiences, nostalgia may be offset by higher critical standards and greater scrutiny of production quality. Furthermore, because animated movies make up a smaller portion of total releases, any distinct pattern may be diluted by the predominance of live-action titles in the data set. 
 
-Although statistically significant, the models explain only a small proportion of variance in IMDb ratings (adjusted R2 ≈ 0.06). This indicates that the timing of release alone cannot account for the complexity of audience evaluations. Other influences, such as genre preferences, marketing exposure, critical reviews, or star power, likely play a much larger role. Nevertheless, the study provides empirical support for the idea that streaming-era audiences have become incrementally more discerning and that this shift applies broadly across both animated and non-animated movies.
+Although statistically significant, the models explain only a small proportion of variance in IMDb ratings (adjusted R² of model 3 = 0.059). This indicates that the timing of release alone cannot account for the complexity of audience evaluations. Other influences, such as genre preferences, marketing exposure, critical reviews, or star power, could also play a role. Nevertheless, the study provides empirical support for the idea that streaming-era audiences have become incrementally more discerning and that this shift applies broadly across both animated and non-animated movies. This lack of a difference between animation and non-animation implies for the film industry that audience discernment extends across formats, which underscores the need for consistent quality and innovation -in all types of film genres.
 
+\newpage
 
 ### Limitations
 
-Several limitations should be considered when interpreting these findings. Firstly, the analysis relied solely on IMDb data, which represents a self-selected community of users rather than a random sample of movie consumers. Ratings on the platform may therefore reflect demographic or cultural biases, such as the overrepresentation of younger or more media-savvy audiences.
+Several limitations should be considered when interpreting these findings. Firstly, the analysis relied solely on IMDb data, which represents a self-selected community of users rather than a random sample of movie consumers in general. Ratings on the platform may therefore reflect demographic or cultural biases, such as the overrepresentation of younger or more cinephile-type of audiences.
 
 Furthermore, the dataset captured IMDb scores at a single point in time. However, because ratings can evolve after release, possibly increasing with nostalgia or decreasing due to review-bombing, the cross-sectional nature of the data prevents analysis of longitudinal rating changes.
 
 Another limitation is that the temporal variable was simplified into a binary indicator (before vs. since 2010). While this aligns with the introduction of major streaming services, it limits the ability to detect gradual or nonlinear trends across individual years.
 
-Moreover, genre overlap may confound the results. Many animated movies also belong to other genres such as adventure or comedy, which independently influence ratings.
+Moreover, the genre variable consisted of a large variety, including many overlapping genres. This may have biased the results. Many animation movies also belonged to other genres such as adventure or comedy, but the effect of this on the average rating has not been examined in this study.
 
-Additionally, several regression assumptions, specifically normality and homoscedasticity, were violated, as shown in Appendix III. These violations are likely a result of the large sample size and the nature of IMDb ratings, which are bounded between 0 and 10 and tend to cluster towards higher scores. As Field (2018) notes, even small deviations from normality can appear statistically significant when working with large data sets. Although such violations are common in social-science data and may not critically distort the estimates, they can reduce the precision of statistical inference and should be interpreted with caution. However, it is also important to note that these assumptions are not considered the most important of all the necessary assumptions and thus should not pose too much of a concern.
+From a statistical point of view, several regression assumptions, specifically normality and homoscedasticity, were violated, as shown in Appendix III. These violations are likely a result of the large sample size and the nature of IMDb ratings, which are bounded between 0 and 10 and tend to cluster towards higher scores. As Field (2018) notes, even small deviations from normality can appear statistically significant when working with large data sets. Although such violations are common in social-science data and may not critically distort the estimates, they can reduce the precision of statistical inference and should be interpreted with caution. However, it is also important to note that these assumptions are not considered the most important of all the necessary assumptions and thus should not pose too much of a concern.
 
-Lastly, the relatively low adjusted R2 suggests omitted-variable bias. Factors such as production budget, marketing effort, or critical acclaim were not included but could have a substantial effect on audience ratings. Future studies could incorporate these variables and employ longitudinal or mixed-effects models to better capture temporal and genre-specific dynamics.
-
+\
 
 ### Future Research
 
-With data being created on a daily basis, the analysis of IMDB data sets remains an ongoing process. By repeating this type of research over time it could reveal potential trends in IMDb ratings for animation movies compared to non-animated movies. This is especially intriguing since the visual exploration of the data revealed animation movies are rated higher, yet 2025 seems to be a tipping point.
+With new data being processed on a daily basis, the analysis of IMDb data sets remains an ongoing process. By repeating this type of research over time it could reveal potential trends in IMDb ratings for animation movies compared to non-animated movies. This is especially intriguing since the visual exploration of the data revealed animation movies are rated higher, yet 2025 seems to be a tipping point. A longitudinal design for a future study would thus be of a particular interest.
+
+The relatively low adjusted R² suggests a low explanatory power of the variables included in this study. Rather, factors such as the production budget, marketing effort, or critical acclaim -which were not provided in the IMDb-datasets used in the present study- could be included in future studies to provide further light on this phenomenon.
 
 Future research could focus more on the role of movie popularity and its influence on IMDB rating. Many animated films are reboots of older, nostalgic classics, which may affect audiences perception and engagement. These type of movies might attract more reviews due to their established fan base and may receive more critical evaluations because viewers have a direct point of c comparison with the original.
 
 In addition, it would be valuable to examine whether there is a significant different in ratings between animated reboots and newly created animated concepts. These researches can also be done on TV shows, bring a different angle with some shows from gen-z youth still continuing to be produced in current day of time.
+
+All in all, this paper has provided insights into the effect of release year on the average rating of animation and non-animation movies. Nevertheless, these future suggestions would elevate the further understanding of movie audiences.
 
 \newpage
 
@@ -309,14 +325,17 @@ Thompson, B. (2024, May 25). The Rise and Fall of Streaming TV? –Michigan Jour
 
 ## Appendix I - Results T-Test
 
+**T-Test for difference in rating between animation and non-animation movies**
+
 ```{r first independent t-test, echo=FALSE}
 print(readLines("../gen/output/ttest_rating.txt", warn = FALSE, encoding = "UTF-8"))
 ```
 
+**T-Test for difference in rating between movies released before 2010 and released since 2010**
+
 ```{r second independent t-test, echo=FALSE}
 print(readLines("../gen/output/ttest_release.txt", warn = FALSE, encoding = "UTF-8"))
 ```
-
 
 \newpage
 
@@ -338,7 +357,7 @@ model2 <- print(readLines("../gen/output/lr_model_with_control_variables.txt", w
 
 \newpage
 
-**Model**
+**Model 3**
 
 ```{r model 3, echo=FALSE}
 model3 <- print(readLines("../gen/output/lr_model_with_interaction.txt", warn = FALSE, encoding = "UTF-8"))

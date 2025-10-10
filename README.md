@@ -69,44 +69,45 @@ secondary data is consulted from [IMDb.com](https://developer.imdb.com/non-comme
 The database holds several datasets, of which two provide relevance in the context
 of the present study:
 
->[title.basics.tsv.gz](https://datasets.imdbws.com/title.basics.tsv.gz), which
->contains information about the title, runtime, genre and release year of motion 
->pictures.
+>[title.basics.tsv.gz](https://datasets.imdbws.com/title.basics.tsv.gz): information
+>about the title, runtime, genres and release year.
 
->[title.rating.tsv.gz](https://datasets.imdbws.com/title.ratings.tsv.gz), which 
->provides data on ratings from all titles. These IMDb ratings are derived from 
->IMDb users and can comprise of movie consumers or professionals.
+>[title.rating.tsv.gz](https://datasets.imdbws.com/title.ratings.tsv.gz): information 
+>on ratings derived from IMDb users.
 
 The dataset merged from the secondary data contains the following variables:
-
-| Variable          | Type      | Definition                                                             |
-|-------------------|-----------|-------------------------------------------------------------------------|
-| tconst            | character | Unique IMDb identifier for each title                                   |
-| primaryTitle      | character | The title most commonly used by the general public                      |
-| startYear         | integer   | Year the title was released                                             |
-| runtimeMinutes    | integer   | Runtime expressed in minutes                                            |
-| genres            | character | Genres separated by commas                                              |
-| averageRating     | numeric   | Weighted average IMDb user rating (0.0–10.0)                            |
-| numVotes          | integer   | Number of votes received by the title                                   |
-| before_2010_dummy | dummy     | Whether a movie is released before or after 2010                        |
-| animation_dummy   | dummy     | Whether a movie is animated or not                                      |
+ 
+| Variable            | Type      | Definition                                                              |
+|---------------------|-----------|-------------------------------------------------------------------------|
+| `tconst`            | character | Unique IMDb identifier for each title                                   |
+| `primaryTitle`      | character | The international title of a movie                                      |
+| `startYear`         | integer   | Release year of a movie                                                 |
+| `runtimeMinutes`    | integer   | Runtime expressed in minutes                                            |
+| `genres`            | character | Genres separated by commas                                              |
+| `averageRating`     | numeric   | Average IMDb user rating (0.0–10.0)                                     |
+| `numVotes`          | integer   | Number of votes received by the title                                   |
+| `before_2010_dummy` | dummy     | Whether a movie is released before or after 2010                        |
+| `animation_dummy`   | dummy     | Whether a movie is animated or not                                      |
 
 
 ## Method
 
-To test the hypothesis, a linear regression was conducted in R Studio. Release year
-was treated as the independent variable, and average IMDb user rating as the
-dependent variable. 
+Data analysis consisted of three consecutive parts:
 
-Whether a movie was an animation was dummy coded (0 = non-animated, 1 = animated) 
-and included as a moderator to test whether it has a significant effect on the 
-relationship from release year to the average rating. 
+1. **Descriptive statistics** were performed on four subsets of the data; 
+- Animation movies
+- Non-Animation movies
+- Movies released before 2010
+- Movies released since 2010
 
-Other potential factors that were not specifically hypothesised but could 
-influence ratings were added as control variables in the regression. This included runtime,
-and number of votes. Furthermore, a dummy was created for whether a movie was 
-released before 2010 or after, in order to test the effect of the rise in streaming
-services since the international introduction of Netflix.
+2. **Independent t-tests** were performed to uncover significant differences in the 
+average ratings between the above mentioned subsets.
+
+3. **Linear regression** models were conducted that predicted the dependent variable of
+average IMDb rating. Three models were compiled;
+- Model 1 including the two dummy predictors
+- Model 2 including the two dummy predictors, control variables
+- Model 3 including the two dummy predictors, their interaction, and control variables.
 
 ## Preview of Findings
 
@@ -116,10 +117,6 @@ _TO BE DONE_
     paper!)
 -   How are the findings/end product of the project deployed?
 -   Explain the relevance of these findings/product.
-
-Test graph
-[![average_rating_per_year_per_type_of_movie](https://github.com/user-attachments/assets/29f28280-542c-4b42-96ad-c46111412915)](https://github.com/user-attachments/assets/29f28280-542c-4b42-96ad-c46111412915)
-
 
 ## Repository Overview
 
@@ -164,7 +161,13 @@ project-name/
 
 ## Dependencies
 
-For data downloading, cleaning and analysing R and R studio were used.
+By using the installation guides as found on [Tilburg University's Science Hub](http://tilburgsciencehub.com/),
+ensure your device has the following software installed:
+
+- Make - [installation guide](https://tilburgsciencehub.com/building-blocks/configure-your-computer/automation-and-workflows/make/).
+- R / R Studio - [installation guide](https://tilburgsciencehub.com/building-blocks/configure-your-computer/statistics-and-computation/r/).
+
+Within R Studio, ensure the following packages are installed.
 
 ``` r
 # Install the following packages
@@ -178,12 +181,35 @@ install.packages("here")
 install.packages("lm.beta")
 ```
 
+
+## Running Instructions
+
+Replicating the workflow of this study can be achieved by taking the following steps:
+
+1. Fork the repository using GitHub
+
+2. Open your preferred terminal/command line (e.g., Git GUI)
+
+3. Create a copy of this repository to your local machine by copying the following sentence in your preferred terminal/command line:
+```
+git clone https://github.com/course-dprep/animation-imdb-ratings-analysis.git
+```
+
+4. Set your working directory to the just forked repository `animation-ADD NAME` and run the following word in your preferred terminal/command line:
+```
+make
+``` 
+
+5. Afterwards, you can clean the working directory if desired by removing the gen and data folder by running the following in your preferred terminal/command line:
+```
+make clean
+``` 
+
 ## About
 
-This project is set up as part of the Master's course [Data Preparation & Workflow Management](https://dprep.hannesdatta.com/) at the
-[Department of Marketing](https://www.tilburguniversity.edu/about/schools/economics-and-management/organization/departments/marketing),
-[Tilburg University](https://www.tilburguniversity.edu/), The
-Netherlands. The project is implemented by team 2: 
+This project is set up as part of the course [Data Preparation & Workflow Management](https://dprep.hannesdatta.com/) of the [Master of Science
+Marketing Analytics](https://www.tilburguniversity.edu/education/masters-programs/marketing-analytics/program) program 
+at [Tilburg University](https://www.tilburguniversity.edu/), based in The Netherlands. The project is implemented by: 
 - Britt van Haaster 
 - Isah Huijbregts 
 - Lars van der Kroft 
@@ -191,7 +217,7 @@ Netherlands. The project is implemented by team 2:
 - Amy Quist
 - Stefan Valentijn
 
-## Sources
+## References
 
 Bollen, D., Graus, M. P., & Willemsen, M. C. (2012). Remembering the
 stars?: effect of time on preference retrieval from memory. Proceedings
